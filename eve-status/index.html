@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EVE Online — статус и статистика</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="wrap">
+    <header class="head">
+      <h1>EVE&nbsp;Online</h1>
+      <div class="head-right">
+        <span id="status-badge" class="badge badge--unknown">проверка…</span>
+        <span class="updated">обновлено <span id="updated">—</span></span>
+      </div>
+    </header>
+
+    <div class="timebar">
+      <span><span class="tip" tabindex="0" data-tip="Внутриигровое время EVE всегда совпадает с UTC — единое для всех игроков мира.">EVE&nbsp;time</span> <b id="eve-time">--:--:--</b> <span class="dim">UTC</span></span>
+      <span>до <span class="tip" tabindex="0" data-tip="Даунтайм — ежедневная техническая перезагрузка сервера в 11:00 UTC. Обычно занимает несколько минут.">даунтайма</span> (11:00&nbsp;UTC) <b id="dt-countdown">--:--:--</b></span>
+    </div>
+
+    <div class="maintabs">
+      <input type="radio" name="main" id="m-overview" checked>
+      <input type="radio" name="main" id="m-danger">
+      <input type="radio" name="main" id="m-thera">
+      <input type="radio" name="main" id="m-loot">
+      <input type="radio" name="main" id="m-history">
+      <input type="radio" name="main" id="m-news">
+
+      <nav class="tabnav">
+        <label for="m-overview">Сводка</label>
+        <label for="m-danger">Опасность</label>
+        <label for="m-thera">Вормхолы</label>
+        <label for="m-loot">Лут</label>
+        <label for="m-history">История</label>
+        <label for="m-news">Новости</label>
+      </nav>
+
+      <div class="tabpanels">
+        <!-- Вкладка: Сводка -->
+        <section class="tabpanel" id="p-overview">
+          <section class="grid" aria-label="Статистика реального времени">
+            <article class="card">
+              <div class="card-label tip" tabindex="0" data-tip="Число пилотов, одновременно находящихся в игре на основном сервере Tranquility.">Игроков онлайн</div>
+              <div class="card-value" id="players">—</div>
+              <div class="card-sub"><span class="tip" tabindex="0" data-tip="Tranquility (TQ) — основной мировой сервер EVE Online, общий для всех игроков.">сервер Tranquility</span></div>
+            </article>
+            <article class="card">
+              <div class="card-label tip" tabindex="0" data-tip="Аптайм — время непрерывной работы сервера с момента последнего ежедневного рестарта (даунтайма).">Аптайм сервера</div>
+              <div class="card-value" id="uptime">—</div>
+              <div class="card-sub">с последнего рестарта</div>
+            </article>
+            <article class="card">
+              <div class="card-label tip" tabindex="0" data-tip="PLEX (Pilot License EXtension) — премиум-валюта EVE: покупается за реальные деньги и обменивается на игровое время и услуги. Здесь — средняя рыночная цена за 1 PLEX в ISK.">Цена PLEX</div>
+              <div class="card-value card-value--sm" id="plex">—</div>
+              <div class="card-sub">средняя по ESI</div>
+            </article>
+            <article class="card">
+              <div class="card-label tip" tabindex="0" data-tip="Инкурсии (Incursions) — вторжения флота Сансы Кууватсона в группы систем; групповой PvE-контент с крупными наградами.">Активные инкурсии</div>
+              <div class="card-value" id="incursions">—</div>
+              <div class="card-sub">сейчас в космосе</div>
+            </article>
+            <article class="card">
+              <div class="card-label tip" tabindex="0" data-tip="Sovereignty (sov) — суверенитет: владение альянсами системами в нулевой безопасности. Кампании — идущие прямо сейчас бои за контроль над структурами.">Sov-кампании</div>
+              <div class="card-value" id="sov">—</div>
+              <div class="card-sub">идут прямо сейчас</div>
+            </article>
+            <article class="card">
+              <div class="card-label tip" tabindex="0" data-tip="Номер текущей сборки сервера Tranquility (server build).">Версия сервера</div>
+              <div class="card-value card-value--sm" id="version">—</div>
+              <div class="card-sub">номер сборки</div>
+            </article>
+          </section>
+        </section>
+
+        <!-- Вкладка: Опасность -->
+        <section class="tabpanel" id="p-danger">
+          <section class="explore">
+            <h2>Опасность и трафик <span class="hint">за последний час</span></h2>
+            <div class="cols3">
+              <div class="col">
+                <h3 class="col-h c-danger"><span class="tip" tabindex="0" data-tip="Топ систем по числу уничтоженных за последний час кораблей и капсул (подов) игроков — индикатор PvP-активности и опасных мест.">Бои · kills</span></h3>
+                <ol id="list-danger" class="ranklist"><li class="muted-row">загрузка…</li></ol>
+              </div>
+              <div class="col">
+                <h3 class="col-h c-ratting"><span class="tip" tabindex="0" data-tip="Раттинг — уничтожение NPC-кораблей ради наград. Топ систем по NPC-килам за час — показатель PvE-активности и фарма.">Раттинг · NPC</span></h3>
+                <ol id="list-ratting" class="ranklist"><li class="muted-row">загрузка…</li></ol>
+              </div>
+              <div class="col">
+                <h3 class="col-h c-traffic"><span class="tip" tabindex="0" data-tip="Число прыжков между системами за час. Высокий трафик означает оживлённый маршрут — и потенциальный гейт-кемп (засаду на воротах).">Трафик · прыжки</span></h3>
+                <ol id="list-traffic" class="ranklist"><li class="muted-row">загрузка…</li></ol>
+              </div>
+            </div>
+          </section>
+
+          <section class="explore">
+            <h2>Активные инкурсии</h2>
+            <ul id="list-incursions" class="inc-list"><li class="muted-row">загрузка…</li></ul>
+          </section>
+        </section>
+
+        <!-- Вкладка: Вормхолы -->
+        <section class="tabpanel" id="p-thera">
+          <section class="explore">
+            <h2><span class="tip" tabindex="0" data-tip="Thera и Turnur — особые системы-вормхолы с множеством нестабильных переходов по всему космосу. Пилоты используют их для быстрых перемещений на огромные расстояния.">Коннекшены Thera / Turnur</span> <span class="hint">живые вормхолы, EVE-Scout</span></h2>
+            <ul id="list-thera" class="thera-list"><li class="muted-row">загрузка…</li></ul>
+          </section>
+        </section>
+
+        <!-- Вкладка: Лут -->
+        <section class="tabpanel" id="p-loot">
+          <section class="explore">
+            <h2><span class="tip" tabindex="0" data-tip="Лут — добыча из космических аномалий и сканируемых сайтов (data/relic). Здесь — средние рыночные цены ценных предметов лута в ISK.">Лут сканинг-сайтов</span> <span class="hint">средняя цена, ESI</span></h2>
+            <ul id="list-loot" class="loot-list"><li class="muted-row">загрузка…</li></ul>
+          </section>
+        </section>
+
+        <!-- Вкладка: История -->
+        <section class="tabpanel" id="p-history">
+          <section class="history">
+            <h2>История</h2>
+            <div class="tabs">
+              <input type="radio" name="chart" id="tab-players" checked>
+              <input type="radio" name="chart" id="tab-plex">
+              <input type="radio" name="chart" id="tab-incursions">
+              <input type="radio" name="chart" id="tab-sov">
+              <div class="tab-bar">
+                <label for="tab-players">Игроки</label>
+                <label for="tab-plex">PLEX</label>
+                <label for="tab-incursions">Инкурсии</label>
+                <label for="tab-sov">Sov</label>
+              </div>
+              <div class="panels">
+                <figure class="panel panel-players" id="chart-players"></figure>
+                <figure class="panel panel-plex" id="chart-plex"></figure>
+                <figure class="panel panel-incursions" id="chart-incursions"></figure>
+                <figure class="panel panel-sov" id="chart-sov"></figure>
+              </div>
+            </div>
+          </section>
+        </section>
+
+        <!-- Вкладка: Новости -->
+        <section class="tabpanel" id="p-news">
+          <section class="news">
+            <h2>Новости и изменения</h2>
+            <ul id="news-list" class="news-list">
+              <li class="news-empty">Загрузка…</li>
+            </ul>
+          </section>
+        </section>
+      </div>
+    </div>
+
+    <footer class="foot">
+      Источники: <a href="https://esi.evetech.net/" target="_blank" rel="noopener">ESI</a>
+      и <a href="https://forums.eveonline.com/c/eve-information-portal/80" target="_blank" rel="noopener">форумы EVE&nbsp;Online</a>.
+      Фанатский проект, не связан с CCP&nbsp;Games. EVE&nbsp;Online&nbsp;— торговая марка CCP&nbsp;hf.
+    </footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
