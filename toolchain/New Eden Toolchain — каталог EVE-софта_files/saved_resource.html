@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<!-- saved from url=(0253)https://db67cf26-a159-4165-84bc-e19fa1c24fc9.frame.claudeusercontent.com/_f/1783272787-bc82/?__frame_t=1gDXvC6ZxhxH1nZ1BiMa0UY-.1946aa16-7fbe-46d2-ba23-cf0a24702ef1.d702d56e-f804-44de-bc8c-922da1a87993.1783372154&__frame_v=manifest.bd9446110d1c7761.json -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><!-- frame-runtime --><!--<base href="/_f/1783272787-bc82/">--><base href="."><script>window.__FRAME_PREAMBLE={"capabilities":{"mcp":"mcp.BQqQVVN_.js"},"transforms":"_transforms.DYk1Ltlh.js"}</script><script>(function(){"use strict";const X="modulepreload",Y=function(e){return"/"+e},Z={},U=function(t,n,u){let o=Promise.resolve();function i(f){const a=new Event("vite:preloadError",{cancelable:!0});if(a.payload=f,window.dispatchEvent(a),!a.defaultPrevented)throw f}return o.then(f=>{for(const a of f||[])a.status==="rejected"&&i(a.reason);return t().catch(i)})},D=["light","dark","system"];function $(e){if(e==null||typeof e!="object")return!1;const t=e.__frame_init;return t!=null&&typeof t=="object"}function q(e){if(e==null||typeof e!="object")return!1;const t=e.__frame_theme;if(t==null||typeof t!="object")return!1;const n=t.theme;return typeof n=="string"&&D.includes(n)}function M(e){if(window===top||e.type==="auxclick"&&e.button!==1)return;const t=e.composedPath?e.composedPath():[e.target];let n=null;for(let f=0;f<t.length;f++){const a=t[f];if(a&&a.matches&&a.matches("a[href],area[href]")){n=a;break}}if(!n&&e.target&&e.target.closest&&(n=e.target.closest("a[href],area[href]")),!n)return;const u=n.getAttribute("href");if(!u)return;let o,i;try{o=new URL(u,document.baseURI),i=new URL(document.baseURI).origin}catch{return}(o.protocol==="http:"||o.protocol==="https:")&&o.origin!==i&&(e.preventDefault(),parent.postMessage({__frame_nav:!0,url:o.href},"*"))}const L={};function y(e){if(window===top)return;const t=Date.now();t-(L[e]||0)<500||(L[e]=t,parent.postMessage({__frame_engaged:!0,kind:e},"*"))}const F=2e3,T=["wheel","touchstart","touchmove","keydown","pointerdown"];let k=0;function B(e){e.isTrusted&&(k=Date.now())}function z(){addEventListener("click",M,!0),addEventListener("auxclick",M,!0)}function W(){for(let e=0;e<T.length;e++)addEventListener(T[e],B,{capture:!0,passive:!0});addEventListener("scroll",e=>{e.isTrusted&&Date.now()-k<F&&y("scroll")},{capture:!0,passive:!0}),addEventListener("pointermove",e=>{e.isTrusted&&y("pointer")},{capture:!0,passive:!0}),addEventListener("click",e=>{e.isTrusted&&y("click")},{capture:!0,passive:!0})}function x(e,t,n){const u=[...t.values()].filter(o=>o.targets.some(i=>i.startsWith(e+".")));return{wrap(o,i){const f=`${e}.${o}`,a=u.filter(s=>s.targets.includes(f));return a.length===0?(...s)=>{try{return i(...s)}catch(d){return Promise.reject(d)}}:(...s)=>{let d=s;for(const c of a){const l=c.module.parameters;if(l)try{d=l(d)}catch{return Promise.reject({code:"transform_error",id:c.id,scope:e,message:"parameters transform failed"})}}let m;try{m=i(...d)}catch(c){m=Promise.reject(c)}return m.then(c=>{for(let l=a.length-1;l>=0;l--){const h=a[l],p=h.module.returns;if(p)try{c=p(c)}catch{return n({id:h.id,scope:e,leg:"returns"}),c}}return c},c=>{for(let l=a.length-1;l>=0;l--){const h=a[l],p=h.module.throws;if(p)try{c=p(c)}catch{return n({id:h.id,scope:e,leg:"throws"}),Promise.reject(c)}}return Promise.reject(c)})}}}}function H(e,t,n,u=()=>{}){const o=new Set(e.changes??[]),i=new Map;for(const f of o){const a=t[f];a&&i.set(f,a)}return{contract:e.contract,changes:o,flags:new Set(e.flags??[]),capabilities:e.capabilities??{},transforms:i,shellOrigin:n.shellOrigin,mount:n.mount,pipe:f=>x(f,i,u)}}(function(){const e=Object.defineProperty,t=globalThis,n=["RTCPeerConnection","webkitRTCPeerConnection","RTCDataChannel","RTCIceCandidate","RTCSessionDescription","RTCRtpSender","RTCRtpReceiver"];let u=0;for(let o=0;o<n.length;o++){const i=n[o];try{e(t,i,{value:void 0,writable:!1,configurable:!1})}catch{try{delete t[i]}catch{}try{e(t,i,{value:void 0,writable:!1,configurable:!0})}catch{}}typeof t[i]=="function"&&u++}if(u&&window!==top)try{parent.postMessage({__frame_rtc_lockdown_failed:u},"*")}catch{}})();const K=1e4,G=Object.freeze([...window.__FRAME_PREAMBLE?.origins??["https://claude.ai","https://preview.claude.ai"]]);function J(e){for(const t of G)if(t.endsWith(":*"))try{const n=new URL(e);if(`${n.protocol}//${n.hostname}:*`===t)return!0}catch{}else if(e===t)return!0;return!1}const w=Object.freeze({...window.__FRAME_PREAMBLE?.capabilities??{}}),E=window.__FRAME_PREAMBLE?.transforms,C=/^[\w.-]+\.js$/,V=/^[a-z][a-z0-9_-]{0,63}$/;let A=null,g=null;function P(e,t,n){try{Object.defineProperty(e,t,{value:n,writable:!1,configurable:!1,enumerable:!0})}catch{try{Object.defineProperty(e,t,{value:n,writable:!1,configurable:!0,enumerable:!0})}catch{}}}let R=!1;function N(e){const t=document.documentElement;e==="light"||e==="dark"?(t.dataset.theme=e,t.style.colorScheme=e,R=!0):R&&(delete t.dataset.theme,t.style.colorScheme="",R=!1)}const _=new Map;function Q(e,t){const n=_.get(e);if(!n)return;Object.assign(n.impl,t),n.impl.__settled=()=>Promise.reject({code:"capability_removed",message:`${e}: method not in this runtime`});const u=n.queue;n.queue=[];for(const o of u){const i=t[o.method];i?i(...o.args).then(o.resolve,o.reject):o.reject({code:"capability_removed",message:`${e}.${o.method} is not in this runtime`})}}function O(e,t){const n=_.get(e);if(!n)return;n.impl.__settled=()=>Promise.reject(t);const u=n.queue;n.queue=[];for(const o of u)o.reject(t)}const j=Object.getOwnPropertyDescriptor(window,"claude");if(window!==top&&!(j&&j.writable===!1)){z(),W();const e=j?.value??{};P(window,"claude",e);const t=s=>{const d={impl:Object.create(null),queue:[]};_.set(s,d);const m=new Proxy(d.impl,{get:(c,l)=>{if(typeof l=="string"&&!(l==="then"||l==="toJSON"||l==="valueOf"))return l==="toString"?Object.prototype.toString:(...h)=>{const p=c[l]??c.__settled;return p?p(...h):new Promise((b,S)=>{d.queue.push({method:l,args:h,resolve:b,reject:S})})}},set:()=>!1});P(e,s,m)};for(const s of Object.keys(w)){if(e[s]!==void 0){P(e,s,e[s]);continue}t(s)}let n=null,u=null,o=0;const i=s=>{s.source!==parent||!J(s.origin)||$(s.data)&&(n=s.data.__frame_init,g=s.origin,removeEventListener("message",i),clearTimeout(o),u?.())};addEventListener("message",i),parent.postMessage({__frame_connect:!0},"*");const f=new Promise(s=>{u=s,o=setTimeout(()=>{removeEventListener("message",i),s()},K)}),a=document.readyState==="loading"?new Promise(s=>document.addEventListener("DOMContentLoaded",()=>s(),{once:!0})):Promise.resolve();f.then(async()=>{if(!n||!g){for(const r of _.keys())O(r,{code:"not_granted",message:"frame initialization did not arrive - capability unavailable"});return}N(n.theme);const s=g;addEventListener("message",r=>{r.source!==parent||r.origin!==s||q(r.data)&&N(r.data.__frame_theme.theme)});const d=r=>U(()=>import("/_runtime/"+r),void 0),m=Object.keys(n.capabilities??{});for(const r of m)Object.hasOwn(w,r)||V.test(r)&&e[r]===void 0&&(t(r),O(r,{code:"capability_disabled",message:"capability not in this runtime generation"}));const c=m.filter(r=>Object.hasOwn(w,r)).map(r=>[r,w[r]]).filter(r=>typeof r[1]=="string"&&C.test(r[1])),[l,...h]=await Promise.allSettled([E&&C.test(E)?d(E):Promise.resolve({}),...c.map(([,r])=>d(r))]),p=g;A=H(n,l.status==="fulfilled"&&l.value?.TRANSFORMS||{},{shellOrigin:p,mount:Q},r=>parent.postMessage({__frame_cap_telemetry:r},p));const b=r=>parent.postMessage({__frame_cap_telemetry:{kind:"cap-load-error",cap:r}},p),S=A;h.forEach((r,v)=>{const I=c[v][0];if(r.status!=="fulfilled"){b(I);return}try{r.value?.install?.(S)}catch{b(I)}});for(const[r,v]of _)v.queue.length===0&&Object.keys(v.impl).length>0||O(r,{code:m.includes(r)?"capability_disabled":"not_granted",message:"capability not available in this session"});await a,parent.postMessage({__frame_ready:!0},g)})}})();</script><!-- /frame-runtime --><meta name="viewport" content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}</style></head><body>
+<title>New Eden Toolchain — каталог EVE-софта</title>
+
+<div class="stars" aria-hidden="true"></div>
+
+<header class="hero">
+  <div class="eyebrow">// developers.eveonline.com / community · registry v1</div>
+  <h1>New&nbsp;Eden Toolchain<span class="cursor"></span></h1>
+  <p class="lede">Каталог community-софта EVE&nbsp;Online: разбор экосистемы сторонних инструментов, библиотек и сервисов — с описанием, киллер-фичами и субъективной оценкой по 10-балльной шкале.</p>
+  <div class="stats" id="stats"><div class="stat"><b>47</b><span>инструментов</span></div><div class="stat accent"><b>7</b><span>категорий</span></div><div class="stat"><b>7.5</b><span>средний балл</span></div><div class="stat gold"><b>3</b><span>флагманов 9+</span></div></div>
+</header>
+
+<section class="legend" aria-label="Как читать оценку">
+  <div class="legend-row">
+    <span class="legend-label">Шкала оценки</span>
+    <span class="legend-gauge"><span class="lg-fill"></span></span>
+    <span class="legend-note">Оценка учитывает пользу, зрелость, распространённость в комьюнити и уникальность. Это личная экспертная оценка, а не официальный рейтинг CCP.</span>
+  </div>
+  <div class="tierkey">
+    <span class="tk"><i class="dot flag"></i>Флагман&nbsp;9–10</span>
+    <span class="tk"><i class="dot high"></i>Сильный&nbsp;7.5–8.9</span>
+    <span class="tk"><i class="dot mid"></i>Крепкий&nbsp;7–7.4</span>
+    <span class="tk"><i class="dot low"></i>Нишевый&nbsp;&lt;7</span>
+  </div>
+</section>
+
+<main id="app"><section class="cat"><div class="cat-head"><h2>Киллборды и боевая разведка</h2><span class="cat-count">6 шт.</span><span class="cat-avg">средняя <b>7.9</b></span></div><div class="grid"><div class="card flag"><div class="card-top"><a class="name" href="https://developers.eveonline.com/docs/community/zkillboard-com/" target="_blank" rel="noopener">zKillboard.com <span class="arrow">↗</span></a><div class="score"><b>10</b><span class="max">/10</span><div class="flagtag">FLAGSHIP</div></div></div><div class="plat"><span class="chip">Web</span><span class="chip">API</span></div><div class="gauge"><div class="gauge-fill gf-flag" style="width:100%"></div></div><p class="desc">Главный киллборд New Eden: агрегирует все killmail'ы через ESI и строит статистику по игрокам, корпам, альянсам, системам и типам кораблей.</p><ul class="feat"><li>Реалтайм-стрим килов (RedisQ/WebSocket) как источник для десятков сторонних тулов</li><li>Глубокие фильтры и сравнение эффективности: ISK destroyed / lost</li><li>Де-факто стандарт, на который завязана половина экосистемы</li></ul></div><div class="card high"><div class="card-top"><a class="name" href="https://developers.eveonline.com/docs/community/eve-kill-com/" target="_blank" rel="noopener">EVE-KILL.com <span class="arrow">↗</span></a><div class="score"><b>8</b><span class="max">/10</span></div></div><div class="plat"><span class="chip">Web</span><span class="chip">API</span></div><div class="gauge"><div class="gauge-fill gf-high" style="width:80%"></div></div><p class="desc">Современная альтернатива zKill с упором на скорость и свежий интерфейс.</p><ul class="feat"><li>Быстрый реалтайм-фид killmail'ов</li><li>Открытый API для интеграций</li><li>Батлрепорты и кампании</li></ul></div><div class="card high"><div class="card-top"><a class="name" href="https://developers.eveonline.com/docs/community/socketkill.com/" target="_blank" rel="noopener">Socket.Kill <span class="arrow">↗</span></a><div class="score"><b>7.5</b><span class="max">/10</span></div></div><div class="plat"><span class="chip">Web</span><span class="chip">WebSocket</span></div><div class="gauge"><div class="gauge-fill gf-high" style="width:75%"></div></div><p class="desc">Высокопроизводительный стрим killmail'ов в реальном времени через WebSocket.</p><ul class="feat"><li>Минимальная задержка доставки килов</li><li>Идеален как источник для ботов и оверлеев</li><li>Лёгкая интеграция для разработчиков</li></ul></div><div class="card mid"><div class="card-top"><a class="name" href="https://developers.eveonline.com/docs/community/killfeed-by-lak-moore/" target="_blank" rel="noopener">KillFeed by Lak Moore <span class="arrow">↗</span></a><div class="score"><b>7</b><span class="max">/10</span></div></div><div class="plat"><span class="chip">Discord Bot</span></div><div class="gauge"><div class="gauge-fill gf-mid" style="width:70%"></div></div><p class="desc">Discord-бот, публикующий отфильтрованные killmail'ы из zKillboard.</p><ul class="feat"><li>Гибкие фильтры: регион, корпа, класс корабля, ISK-порог</li><li>Маршрутизация по нескольким каналам</li><li>Возможность self-host</li></ul></div><div class="card high"><div class="card-top"><a class="name" href="https://developers.eveonline.com/docs/community/rift-intel-fusion-tool/" target="_blank" rel="noopener">RIFT Intel Fusion Tool <span class="arrow">↗</span></a><div class="score"><b>8</b><span class="max">/10</span></div></div><div class="plat"><span class="chip">Windows</span><span class="chip">Linux</span><span class="chip">macOS</span></div><div class="gauge"><div class="gauge-fill gf-high" style="width:80%"></div></div><p class="desc">Десктоп-приложение для разведки: мониторинг intel-каналов, продвинутая карта и оповещения.</p><ul class="feat"><li>Парсинг локального и intel-чата в реальном времени</li><li>Наложение угроз и активности на карту</li><li>Кроссплатформенность</li></ul></div><div class="card mid"><div class="card-top"><a class="name" href="https://developers.eveonline.com/docs/community/dscan-icu/" target="_blank" rel="noopener">Dscan ICU <span class="arrow">↗</span></a><div class="score"><b>7</b><span class="max">/10</span></div></div><div class="plat"><span class="chip">Web</span></div><div class="gauge"><div class="gauge-fill gf-mid" style="width:70%"></div></div><p class="desc">Веб-инструмент для анализа и шаринга результатов directional scan.</p><ul class="feat"><li>Разбор дампа скана в читаемый список кораблей</li><li>Мультиязычный интерфейс</li><li>Шаринг результата ссылкой для флота</li></ul></div></div></section><section class="cat"><div class="cat-head"><h2>Фиты и теорикрафт</h2><span class="cat-count">2 шт.</span><span class="cat-avg">средняя <b>7.8</b></span></div><div class="grid"><div class="card high"><div class="card-top"><a class="name" href="https://developers.eveonline.com/docs/community/eveship-fit/" target="_blank" rel="noopener">EVEShip.fit <span class="arrow">↗</span></a><div class="score"><b>8</b><span class="max">/10</span></div></div><div class="plat"><span class="chip">Web</span></div><div class="gauge"><div class="gauge-fill gf-high" style="width:80%"></div></div><p class="desc">Онлайн-платформа для создания, просмотра и шаринга фитов кораблей.</p><ul class="feat"><li>Точный движок расчёта характеристик</li><li>Импорт/экспорт EFT-формата</li><li>Красивый шаринг с 3D-моделью корабля</li></ul></div><div class="card high"><div class="card-top"><a class="name" href="https://developers.eveonline.com/docs/community/theorycrafter/" target="_blank" rel="noopener">Theorycrafter <span class="arrow">↗</span></a><div class="score"><b>7.5</b><span class="max">/10</span></div></div><div class="plat"><span class="chip">Web</span></div><div class="gauge"><div class="gauge-fill gf-high" style="width:75%"></div></div><p class="desc">Фиттинг-тул нового поколения с упором на скорость и удобство.</p><ul class="feat"><li>Мгновенный отклик интерфейса</li><li>Сравнение нескольких фитов бок о бок</li><li>Быстрый поиск и подстановка модулей</li></ul></div></div></section><section class="cat"><div class="cat-head"><h2>Рынок, активы и индустрия</h2><span class="cat-count">8 шт.</span><span class="cat-avg">средняя <b>7.3</b></span></div><div class="grid"><div class="card high"><div class="card-top"><a class="name" href="https://developers.eveonline.com/docs/community/jeveassets/" target="_blank" rel="noopener">jEveAssets <span class="arrow">↗</span></a><div class="score"><b>8.5</b><span class="max">/10</span></div></div><div class="plat"><span class="chip">Java</span><span class="chip">Desktop</span></div><div class="gauge"><div class="gauge-fill gf-high" style="width:85%"></div></div><p class="desc">Оффлайн-менеджер активов: отслеживание всего инвентаря по персонажам и корпам без запущенного клиента.</p><ul class="feat"><li>Сводная рыночная оценка стоимости всех ассетов</li><li>Трекинг индустрии, контрактов и кошелька</li><li>Работает out-of-game, поддержка множества аккаунтов</li></ul></div><div class="card high"><div class="card-top"><a class="name" href="https://developers.eveonline.com/docs/community/eve-workbench/" target="_blank" rel="noopener">EVE Workbench <span class="arrow">↗</span></a><div class="score"><b>7.5</b><span class="max">/10</span></div></div><div class="plat"><span class="chip">Web</span></div><div class="gauge"><div class="gauge-fill gf-high" style="width:75%"></div></div><p class="desc">Веб-хаб: рынок, построение хаул-маршрутов и просмотр/шаринг фитов.</p><ul class="feat"><li>Калькулятор прибыльности перевозок</li><li>Библиотека публичных фитов с рейтингами</li><li>Интеграция с рыночными данными</li></ul></div><div class="card high"><div class="card-top"><a class="name" href="https://developers.eveonline.com/docs/community/mutamarket/" target="_blank" rel="noopener">MutaMarket <span class="arrow">↗</span></a><div class="score"><b>8</b><span class="max">/10</span></div></div><div class="plat"><span class="chip">Web</span></div><div class="gauge"><div class="gauge-fill gf-high" style="width:80%"></div></div><p class="desc">Нишевый, но незаменимый инструмент для абиссальных (mutaplasmid) модулей.</p><ul class="feat"><li>База роллов с фильтрами по атрибутам</li><li>Браузер контрактов на абиссальные модули</li><li>Оценка справедливой стоимости мутаплазмидов</li></ul></div><div class="card mid"><div class="card-top"><a class="name" href="https://developers.eveonline.com/docs/community/marquette/" target="_blank" rel="noopener">Marquette <span class="arrow">↗</span></a><div class="score"><b>7</b><span class="max">/10</span></div></div><div class="plat"><span class="chip">Web</span></div><div class="gauge"><div class="gauge-fill gf-mid" style="width:70%"></div></div><p class="desc">Рыночный эксплорер с оценкой стоимости и фильтрацией.</p><ul class="feat"><li>Быстрый аппрайзал списков</li><li>Фильтры по торговым хабам</li><li>Наглядные графики цен</li></ul></div><div class="card mid"><div class="card-top"><a class="name" href="https://developers.eveonline.com/docs/community/innominate-appraisal/" target="_blank" rel="noopener">Innominate Appraisal <span class="arrow">↗</span></a><div class="score"><b>7</b><span class="max">/10</span></div></div><div class="plat"><span class="chip">Web</span></div><div class="gauge"><div class="gauge-fill gf-mid" style="width:70%"></div></div><p class="desc">Инструмент оценки стоимости стопки предметов по рыночным хабам.</p><ul class="feat"><li>Вставил список → мгновенная оценка</li><li>Выбор хаба и метода цены (buy / sell / split)</li><li>Шаринг результата ссылкой</li></ul></div><div class="card mid"><div class="card-top"><a class="name" href="https://developers.eveonline.com/docs/community/evemissioneer/" target="_blank" rel="noopener">EVEMissioneer <span class="arrow">↗</span></a><div class="score"><b>7</b><span class="max">/10</span></div></div><div class="plat"><span class="chip">Web</span></div><div class="gauge"><div class="gauge-fill gf-mid" style="width:70%"></div></div><p class="desc">Поиск агентов и планирование миссий/ресёрча.</p><ul class="feat"><li>База агентов с фильтрами по уровню, фракции и локации</li><li>Планирование маршрута agent research</li><li>Данные по лояльности и наградам</li></ul></div><div class="card mid"><div class="card-top"><a class="name" href="https://developers.eveonline.com/docs/community/abyss-tracker/" target="_blank" rel="noopener">Abyss Tracker <span class="arrow">↗</span></a><div class="score"><b>7</b><span class="max">/10</span></div></div><div class="plat"><span class="chip">Web</span></div><div class="gauge"><div class="gauge-fill gf-mid" style="width:70%"></div></div><p class="desc">Трекер лута специально для абиссальных забегов.</p><ul class="feat"><li>Логирование дропа и времени каждого рана</li><li>Аналитика прибыльности по типам филаментов</li><li>Шаринг и сравнение забегов</li></ul></div><div class="card low"><div class="card-top"><a class="name" href="https://developers.eveonline.com/docs/community/evepandora/" target="_blank" rel="noopener">evepandora.com <span class="arrow">↗</span></a><div class="score"><b>6.5</b><span class="max">/10</span></div></div><div class="plat"><span class="chip">Web</span></div><div class="gauge"><div class="gauge-fill gf-low" style="width:65%"></div></div><p class="desc">Player-driven платформа для организации игровых операций (миссии, faction warfare).</p><ul class="feat"><li>Координация групповых активностей</li><li>Трекинг faction warfare</li><li>Организация операций силами игроков</li></ul></div></div></section><section class="cat"><div class="cat-head"><h2>Управление корпорацией и альянсом (Auth)</h2><span class="cat-count">5 шт.</span><span class="cat-avg">средняя <b>8.1</b></span></div><div class="grid"><div class="card flag"><div class="card-top"><a class="name" href="https://developers.eveonline.com/docs/community/seat/" target="_blank" rel="noopener">SeAT <span class="arrow">↗</span></a><div class="score"><b>9</b><span class="max">/10</span><div class="flagtag">FLAGSHIP</div></div></div><div class="plat"><span class="chip">Web</span><span class="chip">Self-hosted</span></div><div class="gauge"><div class="gauge-fill gf-flag" style="width:90%"></div></div><p class="desc">Мощный инструмент управления корпой и альянсом: сбор и использование всех ESI-данных.</p><ul class="feat"><li>Полная витрина ESI: активы, кошельки, скиллы, почта</li><li>Система ролей и тонких разрешений</li><li>Расширяемость плагинами и API</li></ul></div><div class="card flag"><div class="card-top"><a class="name" href="https://developers.eveonline.com/docs/community/alliance-auth/" target="_blank" rel="noopener">Alliance Auth <span class="arrow">↗</span></a><div class="score"><b>9</b><span class="max">/10</span><div class="flagtag">FLAGSHIP</div></div></div><div class="plat"><span class="chip">Django</span><span class="chip">Self-hosted</span></div><div class="gauge"><div class="gauge-fill gf-flag" style="width:90%"></div></div><p class="desc">Платформа авторизации и сервисов для игровых организаций.</p><ul class="feat"><li>Единый вход и синхронизация доступа к Discord / Mumble / форумам</li><li>Десятки комьюнити-плагинов: SRP, audit, fleet-tools</li><li>Гибкая раздача групп по членству в корпе/альянсе</li></ul></div><div class="card high"><div class="card-top"><a class="name" href="https://developers.eveonline.com/docs/community/neucore/" target="_blank" rel="noopener">Neucore <span class="arrow">↗</span></a><div class="score"><b>8.5</b><span class="max">/10</span></div></div><div class="plat"><span class="chip">Web</span><span class="chip">Self-hosted</span></div><div class="gauge"><div class="gauge-fill gf-high" style="width:85%"></div></div><p class="desc">Платформа управления учётными записями и ESI-токенами для альянсов.</p><ul class="feat"><li>Группировка аккаунтов и множества альтов</li><li>Выдача доступа к сервисам по членству</li><li>Надёжное хранилище ESI-токенов для приложений</li></ul></div><div class="card mid"><div class="card-top"><a class="name" href="https://developers.eveonline.com/docs/community/eve-srp/" target="_blank" rel="noopener">EVE-SRP <span class="arrow">↗</span></a><div class="score"><b>7</b><span class="max">/10</span></div></div><div class="plat"><span class="chip">Web</span></div><div class="gauge"><div class="gauge-fill gf-mid" style="width:70%"></div></div><p class="desc">Система управления Ship Replacement Program — компенсацией потерянных кораблей.</p><ul class="feat"><li>Подача заявок по ссылке на killmail</li><li>Воркфлоу ревью и выплат</li><li>Настраиваемые правила компенсации</li></ul></div><div class="card mid"><div class="card-top"><a class="name" href="https://developers.eveonline.com/docs/community/upwell-gg/" target="_blank" rel="noopener">Upwell.gg <span class="arrow">↗</span></a><div class="score"><b>7</b><span class="max">/10</span></div></div><div class="plat"><span class="chip">Web</span></div><div class="gauge"><div class="gauge-fill gf-mid" style="width:70%"></div></div><p class="desc">Платформа для шаринга таймеров структур внутри альянса.</p><ul class="feat"><li>Общий календарь таймеров Upwell-структур</li><li>Оповещения о приближении таймера</li><li>Быстрый ввод данных из игры</li></ul></div></div></section><section class="cat"><div class="cat-head"><h2>Картография и навигация</h2><span class="cat-count">3 шт.</span><span class="cat-avg">средняя <b>7.8</b></span></div><div class="grid"><div class="card high"><div class="card-top"><a class="name" href="https://developers.eveonline.com/docs/community/wanderer/" target="_blank" rel="noopener">Wanderer <span class="arrow">↗</span></a><div class="score"><b>8</b><span class="max">/10</span></div></div><div class="plat"><span class="chip">Web</span><span class="chip">Self-hosted</span></div><div class="gauge"><div class="gauge-fill gf-high" style="width:80%"></div></div><p class="desc">Быстрый инструмент маппинга как лёгкая альтернатива Pathfinder.</p><ul class="feat"><li>Реалтайм-построение карты червоточин</li><li>Лёгкий self-host и низкие требования</li><li>Современный отзывчивый интерфейс</li></ul></div><div class="card high"><div class="card-top"><a class="name" href="https://developers.eveonline.com/docs/community/smt/" target="_blank" rel="noopener">SMT (Slazanger's Map Tool) <span class="arrow">↗</span></a><div class="score"><b>8</b><span class="max">/10</span></div></div><div class="plat"><span class="chip">Desktop</span></div><div class="gauge"><div class="gauge-fill gf-high" style="width:80%"></div></div><p class="desc">Десктоп-карта для навигации и пространственного анализа New Eden.</p><ul class="feat"><li>Наложение intel и killdata прямо на карту</li><li>Построение и оценка маршрутов</li><li>Настраиваемые региональные слои</li></ul></div><div class="card high"><div class="card-top"><a class="name" href="https://developers.eveonline.com/docs/community/wormholesystems/" target="_blank" rel="noopener">WormholeSystems <span class="arrow">↗</span></a><div class="score"><b>7.5</b><span class="max">/10</span></div></div><div class="plat"><span class="chip">Web</span></div><div class="gauge"><div class="gauge-fill gf-high" style="width:75%"></div></div><p class="desc">Современная платформа маппинга w-space.</p><ul class="feat"><li>Совместное редактирование карты червоточин</li><li>Трекинг сигнатур и статуса дыр</li><li>Чистый быстрый веб-интерфейс</li></ul></div></div></section><section class="cat"><div class="cat-head"><h2>Компаньоны и утилиты</h2><span class="cat-count">7 шт.</span><span class="cat-avg">средняя <b>7.3</b></span></div><div class="grid"><div class="card high"><div class="card-top"><a class="name" href="https://developers.eveonline.com/docs/community/eve-ref/" target="_blank" rel="noopener">EVE Ref <span class="arrow">↗</span></a><div class="score"><b>8</b><span class="max">/10</span></div></div><div class="plat"><span class="chip">Web</span><span class="chip">Data</span></div><div class="gauge"><div class="gauge-fill gf-high" style="width:80%"></div></div><p class="desc">Справочный сайт по данным EVE: предметы, чертежи, атрибуты.</p><ul class="feat"><li>Быстрый поиск по всей базе SDE</li><li>Открытые данные и дампы для разработчиков</li><li>Своевременная актуализация под патчи</li></ul></div><div class="card high"><div class="card-top"><a class="name" href="https://developers.eveonline.com/docs/community/tritanium/" target="_blank" rel="noopener">Tritanium <span class="arrow">↗</span></a><div class="score"><b>8</b><span class="max">/10</span></div></div><div class="plat"><span class="chip">iOS</span></div><div class="gauge"><div class="gauge-fill gf-high" style="width:80%"></div></div><p class="desc">iOS-приложение: активы, скиллы, PI, рынок и индустрия в кармане.</p><ul class="feat"><li>Мониторинг обучения скиллов и очереди</li><li>Управление planetary interaction с телефона</li><li>Нативный быстрый интерфейс</li></ul></div><div class="card high"><div class="card-top"><a class="name" href="https://developers.eveonline.com/docs/community/eve-buddy/" target="_blank" rel="noopener">EVE Buddy <span class="arrow">↗</span></a><div class="score"><b>7.5</b><span class="max">/10</span></div></div><div class="plat"><span class="chip">Windows</span><span class="chip">macOS</span><span class="chip">Linux</span><span class="chip">Android</span></div><div class="gauge"><div class="gauge-fill gf-high" style="width:75%"></div></div><p class="desc">Кроссплатформенный компаньон: мониторинг персонажей и планирование прыжков капиталов.</p><ul class="feat"><li>Трекинг скиллов, почты и локации нескольких альтов</li><li>Планировщик jump-маршрутов для капиталов</li><li>Работает на десктопе и Android</li></ul></div><div class="card high"><div class="card-top"><a class="name" href="https://developers.eveonline.com/docs/community/jitaspace/" target="_blank" rel="noopener">JitaSpace <span class="arrow">↗</span></a><div class="score"><b>7.5</b><span class="max">/10</span></div></div><div class="plat"><span class="chip">Web</span></div><div class="gauge"><div class="gauge-fill gf-high" style="width:75%"></div></div><p class="desc">Мультитул: EveMail-ридер, браузер LP-store и набор мелких утилит.</p><ul class="feat"><li>Чтение внутриигровой почты прямо в браузере</li><li>Браузер наград loyalty-point store</li><li>Много полезных утилит в одном месте</li></ul></div><div class="card mid"><div class="card-top"><a class="name" href="https://developers.eveonline.com/docs/community/evecompanion/" target="_blank" rel="noopener">EVECompanion <span class="arrow">↗</span></a><div class="score"><b>7</b><span class="max">/10</span></div></div><div class="plat"><span class="chip">iOS</span></div><div class="gauge"><div class="gauge-fill gf-mid" style="width:70%"></div></div><p class="desc">iOS-компаньон для мониторинга персонажа и событий.</p><ul class="feat"><li>Пуш-уведомления о событиях</li><li>Трекинг скиллов и статуса персонажа</li><li>Удобный мобильный обзор</li></ul></div><div class="card mid"><div class="card-top"><a class="name" href="https://developers.eveonline.com/docs/community/eve-preview-manager/" target="_blank" rel="noopener">EVE Preview Manager <span class="arrow">↗</span></a><div class="score"><b>7</b><span class="max">/10</span></div></div><div class="plat"><span class="chip">Linux</span></div><div class="gauge"><div class="gauge-fill gf-mid" style="width:70%"></div></div><p class="desc">Утилита мультибоксинга для Linux с превью клиентов в реальном времени.</p><ul class="feat"><li>Живые миниатюры окон всех клиентов</li><li>Хоткей-профили быстрого переключения</li><li>Редкое решение именно под Linux-десктоп</li></ul></div><div class="card low"><div class="card-top"><a class="name" href="https://developers.eveonline.com/docs/community/elt/" target="_blank" rel="noopener">elt <span class="arrow">↗</span></a><div class="score"><b>6</b><span class="max">/10</span></div></div><div class="plat"><span class="chip">CLI</span><span class="chip">Win/macOS/Linux</span></div><div class="gauge"><div class="gauge-fill gf-low" style="width:60%"></div></div><p class="desc">Командная утилита для поиска информации об объектах EVE.</p><ul class="feat"><li>Быстрый поиск прямо из терминала</li><li>Кроссплатформенный бинарник</li><li>Удобно встраивать в скрипты и пайплайны</li></ul></div></div></section><section class="cat"><div class="cat-head"><h2>Библиотеки и инструменты для разработчиков</h2><span class="cat-count">16 шт.</span><span class="cat-avg">средняя <b>7.3</b></span></div><div class="grid"><div class="card high"><div class="card-top"><a class="name" href="https://developers.eveonline.com/docs/community/django-esi/" target="_blank" rel="noopener">Django-ESI <span class="arrow">↗</span></a><div class="score"><b>8.5</b><span class="max">/10</span></div></div><div class="plat"><span class="chip">Python</span><span class="chip">Django</span></div><div class="gauge"><div class="gauge-fill gf-high" style="width:85%"></div></div><p class="desc">Django-приложение для аккуратного доступа к ESI API.</p><ul class="feat"><li>Управление токенами и авто-refresh</li><li>Учёт кэша и rate-limit ESI</li><li>Фундамент, на котором построен Alliance Auth</li></ul></div><div class="card high"><div class="card-top"><a class="name" href="https://developers.eveonline.com/docs/community/sde-conversion/" target="_blank" rel="noopener">Garveen's SDE Conversion <span class="arrow">↗</span></a><div class="score"><b>8.5</b><span class="max">/10</span></div></div><div class="plat"><span class="chip">MySQL</span><span class="chip">SQLite</span></div><div class="gauge"><div class="gauge-fill gf-high" style="width:85%"></div></div><p class="desc">Конвертация Static Data Export в готовые базы MySQL и SQLite.</p><ul class="feat"><li>Готовые дампы БД для мгновенного старта</li><li>Регулярное обновление под патчи</li><li>Экономит часы на парсинге YAML</li></ul></div><div class="card high"><div class="card-top"><a class="name" href="https://developers.eveonline.com/docs/community/eve-online-sde-documentation/" target="_blank" rel="noopener">EVE Online SDE Documentation <span class="arrow">↗</span></a><div class="score"><b>8</b><span class="max">/10</span></div></div><div class="plat"><span class="chip">Reference</span><span class="chip">JSON Schema</span></div><div class="gauge"><div class="gauge-fill gf-high" style="width:80%"></div></div><p class="desc">Онлайн-документация SDE с формальными JSON-схемами.</p><ul class="feat"><li>Формальные схемы структур SDE</li><li>Удобная навигация по сущностям данных</li><li>Облегчает генерацию типов и парсеров</li></ul></div><div class="card high"><div class="card-top"><a class="name" href="https://developers.eveonline.com/docs/community/sde-rest-api/" target="_blank" rel="noopener">SDE REST API <span class="arrow">↗</span></a><div class="score"><b>7.5</b><span class="max">/10</span></div></div><div class="plat"><span class="chip">Web API</span></div><div class="gauge"><div class="gauge-fill gf-high" style="width:75%"></div></div><p class="desc">REST-интерфейс к Static Data Export.</p><ul class="feat"><li>Доступ к SDE без локальной базы</li><li>Удобно для лёгких клиентов и прототипов</li><li>Простые JSON-ответы</li></ul></div><div class="card high"><div class="card-top"><a class="name" href="https://developers.eveonline.com/docs/community/eve-esi-proxy/" target="_blank" rel="noopener">EVE ESI Proxy <span class="arrow">↗</span></a><div class="score"><b>7.5</b><span class="max">/10</span></div></div><div class="plat"><span class="chip">Proxy</span></div><div class="gauge"><div class="gauge-fill gf-high" style="width:75%"></div></div><p class="desc">HTTP-прокси-слой для запросов к ESI.</p><ul class="feat"><li>Централизованное кэширование и rate-limit</li><li>Единая точка для нескольких приложений</li><li>Снижает нагрузку на ESI</li></ul></div><div class="card high"><div class="card-top"><a class="name" href="https://developers.eveonline.com/docs/community/eve-api-for-golang/" target="_blank" rel="noopener">EVE API for Golang <span class="arrow">↗</span></a><div class="score"><b>7.5</b><span class="max">/10</span></div></div><div class="plat"><span class="chip">Go</span></div><div class="gauge"><div class="gauge-fill gf-high" style="width:75%"></div></div><p class="desc">Go-клиент ESI с поддержкой OAuth2 и PKCE.</p><ul class="feat"><li>Типобезопасный клиент</li><li>Встроенная авторизация PKCE</li><li>Идиоматичный Go-код</li></ul></div><div class="card high"><div class="card-top"><a class="name" href="https://developers.eveonline.com/docs/community/eve-api-for-typescript/" target="_blank" rel="noopener">EVE API for TypeScript <span class="arrow">↗</span></a><div class="score"><b>7.5</b><span class="max">/10</span></div></div><div class="plat"><span class="chip">TypeScript</span></div><div class="gauge"><div class="gauge-fill gf-high" style="width:75%"></div></div><p class="desc">TypeScript-клиент для ESI API.</p><ul class="feat"><li>Типы для всех эндпоинтов</li><li>Подходит для web и Node-проектов</li><li>Автодополнение в IDE из коробки</li></ul></div><div class="card mid"><div class="card-top"><a class="name" href="https://developers.eveonline.com/docs/community/eve-api-for-php/" target="_blank" rel="noopener">EVE API for PHP <span class="arrow">↗</span></a><div class="score"><b>7</b><span class="max">/10</span></div></div><div class="plat"><span class="chip">PHP</span></div><div class="gauge"><div class="gauge-fill gf-mid" style="width:70%"></div></div><p class="desc">PHP-клиент для интеграции с ESI API.</p><ul class="feat"><li>Встраивание в существующий PHP-стек</li><li>Покрытие эндпоинтов ESI</li><li>Простое подключение через Composer</li></ul></div><div class="card mid"><div class="card-top"><a class="name" href="https://developers.eveonline.com/docs/community/localisprimary-esi/" target="_blank" rel="noopener">localisprimary/esi <span class="arrow">↗</span></a><div class="score"><b>7</b><span class="max">/10</span></div></div><div class="plat"><span class="chip">TypeScript</span></div><div class="gauge"><div class="gauge-fill gf-mid" style="width:70%"></div></div><p class="desc">«Мнениеориентированный» TypeScript-клиент EVE API.</p><ul class="feat"><li>Продуманные абстракции поверх ESI</li><li>Строгая типизация</li><li>Современный developer experience</li></ul></div><div class="card high"><div class="card-top"><a class="name" href="https://developers.eveonline.com/docs/community/eve-auth-for-django/" target="_blank" rel="noopener">EVE Auth for Django <span class="arrow">↗</span></a><div class="score"><b>7.5</b><span class="max">/10</span></div></div><div class="plat"><span class="chip">Python</span><span class="chip">Django</span></div><div class="gauge"><div class="gauge-fill gf-high" style="width:75%"></div></div><p class="desc">Интеграция EVE Online SSO в Django-приложения.</p><ul class="feat"><li>Готовый флоу SSO-логина</li><li>Управление запрашиваемыми скоупами</li><li>Быстрый старт аутентификации</li></ul></div><div class="card mid"><div class="card-top"><a class="name" href="https://developers.eveonline.com/docs/community/eve-auth-for-python/" target="_blank" rel="noopener">EVE Auth for Python <span class="arrow">↗</span></a><div class="score"><b>7</b><span class="max">/10</span></div></div><div class="plat"><span class="chip">Python</span></div><div class="gauge"><div class="gauge-fill gf-mid" style="width:70%"></div></div><p class="desc">Библиотека SSO-авторизации для десктопных приложений.</p><ul class="feat"><li>Локальный OAuth-флоу для десктопа</li><li>Управление и refresh токенов</li><li>Минимум boilerplate-кода</li></ul></div><div class="card mid"><div class="card-top"><a class="name" href="https://developers.eveonline.com/docs/community/eve-auth-for-go/" target="_blank" rel="noopener">EVE Auth for Go <span class="arrow">↗</span></a><div class="score"><b>7</b><span class="max">/10</span></div></div><div class="plat"><span class="chip">Go</span></div><div class="gauge"><div class="gauge-fill gf-mid" style="width:70%"></div></div><p class="desc">SSO-авторизация десктопных приложений на Go.</p><ul class="feat"><li>Встроенный локальный redirect-флоу</li><li>Автообновление токенов</li><li>Лёгкая интеграция</li></ul></div><div class="card mid"><div class="card-top"><a class="name" href="https://developers.eveonline.com/docs/community/eve-sso-for-php/" target="_blank" rel="noopener">EVE SSO for PHP <span class="arrow">↗</span></a><div class="score"><b>7</b><span class="max">/10</span></div></div><div class="plat"><span class="chip">PHP</span></div><div class="gauge"><div class="gauge-fill gf-mid" style="width:70%"></div></div><p class="desc">Библиотека под протокол EVE Online SSO version 2.</p><ul class="feat"><li>Поддержка актуального SSO v2</li><li>Верификация JWT-токенов</li><li>Простая интеграция в PHP</li></ul></div><div class="card low"><div class="card-top"><a class="name" href="https://developers.eveonline.com/docs/community/eveRwrapper/" target="_blank" rel="noopener">eveRwrapper <span class="arrow">↗</span></a><div class="score"><b>6.5</b><span class="max">/10</span></div></div><div class="plat"><span class="chip">R</span></div><div class="gauge"><div class="gauge-fill gf-low" style="width:65%"></div></div><p class="desc">Обёртка для доступа к данным ESI прямо из R.</p><ul class="feat"><li>Тянет данные ESI в R-окружение</li><li>Удобно для аналитики и data science</li><li>Нишевая, но уникальная в своём стеке</li></ul></div><div class="card low"><div class="card-top"><a class="name" href="https://developers.eveonline.com/docs/community/ueberauth-eve-online/" target="_blank" rel="noopener">Überauth EVE Online <span class="arrow">↗</span></a><div class="score"><b>6.5</b><span class="max">/10</span></div></div><div class="plat"><span class="chip">Elixir</span><span class="chip">Hex</span></div><div class="gauge"><div class="gauge-fill gf-low" style="width:65%"></div></div><p class="desc">Hex-пакет: стратегия EVE SSO для Elixir-приложений.</p><ul class="feat"><li>Интеграция в стек Überauth</li><li>Готовая OAuth-стратегия</li><li>Для Phoenix-приложений</li></ul></div><div class="card low"><div class="card-top"><a class="name" href="https://developers.eveonline.com/docs/community/turtle-alternate-icons/" target="_blank" rel="noopener">Turtle's Alternate Icons <span class="arrow">↗</span></a><div class="score"><b>6.5</b><span class="max">/10</span></div></div><div class="plat"><span class="chip">Assets</span></div><div class="gauge"><div class="gauge-fill gf-low" style="width:65%"></div></div><p class="desc">Альтернативный набор иконок предметов EVE.</p><ul class="feat"><li>Единый стиль иконок для сторонних тулов</li><li>Свободное использование в проектах</li><li>Освежает UI приложений</li></ul></div></div></section></main>
+
+<footer class="foot">
+  <span>Источник списка — <a href="https://developers.eveonline.com/docs/community/" target="_blank" rel="noopener">developers.eveonline.com/docs/community</a></span>
+  <span>Отчёт от 2026-07-05 · Fly safe o7</span>
+</footer>
+
+<style>
+  :root{
+    --void:#080b11;
+    --void-2:#0b0f17;
+    --panel:#0e141d;
+    --panel-2:#131c28;
+    --hair:#1e2b3a;
+    --hair-2:#28394c;
+    --cyan:#35d0e0;
+    --cyan-soft:#2a97a3;
+    --teal:#3aa6ad;
+    --low:#5c7f86;
+    --gold:#d9a441;
+    --ink:#cdd9e4;
+    --ink-strong:#eaf2f8;
+    --mute:#7b8ea0;
+    --faint:#46586b;
+    --mono: ui-monospace, "JetBrains Mono", "SFMono-Regular", "Cascadia Code", Menlo, Consolas, monospace;
+    --sans: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --maxw: 1180px;
+  }
+
+  *{box-sizing:border-box}
+
+  body{
+    margin:0;
+    background:var(--void);
+    color:var(--ink);
+    font-family:var(--sans);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+
+  /* Ambient star-map ground */
+  .stars{
+    position:fixed; inset:0; z-index:-1; pointer-events:none;
+    background:
+      radial-gradient(1200px 700px at 78% -8%, rgba(53,208,224,.10), transparent 60%),
+      radial-gradient(900px 600px at 8% 108%, rgba(217,164,65,.06), transparent 60%),
+      linear-gradient(180deg, var(--void-2), var(--void));
+  }
+  .stars::after{
+    content:""; position:absolute; inset:0; opacity:.35;
+    background-image:
+      linear-gradient(rgba(120,150,180,.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(120,150,180,.05) 1px, transparent 1px);
+    background-size:64px 64px;
+    mask-image:radial-gradient(circle at 50% 30%, #000, transparent 85%);
+  }
+
+  a{color:inherit}
+
+  /* ---------- hero ---------- */
+  .hero{
+    max-width:var(--maxw); margin:0 auto; padding:76px 24px 20px;
+    animation:rise .7s ease both;
+  }
+  .eyebrow{
+    font-family:var(--mono); font-size:12px; letter-spacing:.18em; text-transform:uppercase;
+    color:var(--cyan-soft); margin-bottom:20px;
+  }
+  h1{
+    font-family:var(--mono); font-weight:700; margin:0 0 18px;
+    font-size:clamp(38px, 7vw, 74px); line-height:.98; letter-spacing:-.01em;
+    color:var(--ink-strong); text-wrap:balance;
+    text-shadow:0 0 40px rgba(53,208,224,.15);
+  }
+  .cursor{
+    display:inline-block; width:.42em; height:.9em; margin-left:.12em;
+    background:var(--cyan); vertical-align:baseline; translate:0 .06em;
+    box-shadow:0 0 12px var(--cyan); animation:blink 1.15s steps(1) infinite;
+  }
+  .lede{
+    max-width:62ch; font-size:clamp(15px,1.6vw,18px); color:var(--mute); margin:0 0 34px;
+  }
+
+  .stats{
+    display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:1px;
+    background:var(--hair); border:1px solid var(--hair); border-radius:10px; overflow:hidden;
+  }
+  .stat{ background:linear-gradient(180deg,var(--panel-2),var(--panel)); padding:16px 18px; }
+  .stat b{
+    display:block; font-family:var(--mono); font-size:clamp(24px,3.4vw,34px); font-weight:700;
+    color:var(--ink-strong); font-variant-numeric:tabular-nums; line-height:1;
+  }
+  .stat span{ display:block; margin-top:7px; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--faint); }
+  .stat.accent b{ color:var(--cyan); }
+  .stat.gold b{ color:var(--gold); }
+
+  /* ---------- legend ---------- */
+  .legend{
+    max-width:var(--maxw); margin:26px auto 8px; padding:16px 20px;
+    border:1px solid var(--hair); border-radius:10px; background:rgba(14,20,29,.6);
+    display:flex; flex-direction:column; gap:12px;
+  }
+  .legend-row{ display:flex; align-items:center; gap:14px; flex-wrap:wrap; }
+  .legend-label{ font-family:var(--mono); font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--cyan-soft); }
+  .legend-gauge{
+    position:relative; width:160px; height:9px; border-radius:2px; background:#0a1017;
+    border:1px solid var(--hair-2); overflow:hidden;
+  }
+  .lg-fill{ position:absolute; inset:0; right:22%;
+    background:linear-gradient(90deg,var(--low),var(--teal) 55%,var(--cyan)); }
+  .legend-gauge::after{ content:""; position:absolute; inset:0;
+    background-image:repeating-linear-gradient(90deg,transparent 0,transparent calc(10% - 1.6px),#0a1017 calc(10% - 1.6px),#0a1017 10%); }
+  .legend-note{ font-size:12.5px; color:var(--mute); max-width:64ch; }
+  .tierkey{ display:flex; flex-wrap:wrap; gap:8px 20px; }
+  .tk{ font-family:var(--mono); font-size:11.5px; color:var(--mute); display:inline-flex; align-items:center; gap:7px; }
+  .dot{ width:9px; height:9px; border-radius:50%; display:inline-block; }
+  .dot.flag{ background:var(--gold); box-shadow:0 0 8px var(--gold); }
+  .dot.high{ background:var(--cyan); box-shadow:0 0 8px var(--cyan); }
+  .dot.mid{ background:var(--teal); }
+  .dot.low{ background:var(--low); }
+
+  /* ---------- sections ---------- */
+  main{ max-width:var(--maxw); margin:0 auto; padding:8px 24px 40px; }
+  .cat{ margin-top:52px; }
+  .cat-head{
+    display:flex; align-items:baseline; gap:14px; margin-bottom:18px;
+    padding-bottom:12px; border-bottom:1px solid var(--hair);
+  }
+  .cat-head h2{
+    font-family:var(--mono); font-weight:700; font-size:clamp(17px,2.3vw,22px);
+    margin:0; color:var(--ink-strong); letter-spacing:.01em; text-wrap:balance;
+  }
+  .cat-head h2::before{ content:"▐ "; color:var(--cyan); }
+  .cat-count{ font-family:var(--mono); font-size:12px; color:var(--faint); letter-spacing:.1em; white-space:nowrap; }
+  .cat-avg{ margin-left:auto; font-family:var(--mono); font-size:12px; color:var(--mute); white-space:nowrap; }
+  .cat-avg b{ color:var(--cyan); }
+
+  .grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(315px,1fr)); gap:16px; }
+
+  .card{
+    position:relative; background:linear-gradient(180deg,var(--panel-2),var(--panel));
+    border:1px solid var(--hair); border-radius:12px; padding:18px 18px 16px;
+    display:flex; flex-direction:column; gap:12px;
+    transition:transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+  }
+  .card::before{
+    content:""; position:absolute; left:0; top:14px; bottom:14px; width:2px; border-radius:2px;
+    background:var(--hair-2);
+  }
+  .card:hover{ transform:translateY(-3px); border-color:var(--hair-2);
+    box-shadow:0 14px 34px rgba(0,0,0,.45), 0 0 0 1px rgba(53,208,224,.12); }
+  .card.flag::before{ background:linear-gradient(180deg,var(--gold),transparent); box-shadow:0 0 12px rgba(217,164,65,.4); }
+  .card.high::before{ background:linear-gradient(180deg,var(--cyan),transparent); }
+
+  .card-top{ display:flex; align-items:flex-start; justify-content:space-between; gap:12px; }
+  .name{
+    font-family:var(--mono); font-weight:700; font-size:16px; color:var(--ink-strong);
+    text-decoration:none; line-height:1.25; letter-spacing:.01em;
+  }
+  .name .arrow{ color:var(--faint); font-weight:400; transition:color .15s; }
+  .name:hover{ color:var(--cyan); }
+  .name:hover .arrow{ color:var(--cyan); }
+  .name:focus-visible{ outline:2px solid var(--cyan); outline-offset:3px; border-radius:3px; }
+
+  .score{ text-align:right; flex-shrink:0; }
+  .score b{
+    font-family:var(--mono); font-size:22px; font-weight:700; line-height:1;
+    font-variant-numeric:tabular-nums; color:var(--cyan);
+  }
+  .score .max{ font-size:11px; color:var(--faint); }
+  .card.flag .score b{ color:var(--gold); }
+  .flagtag{
+    display:inline-block; margin-top:5px; font-family:var(--mono); font-size:9.5px; letter-spacing:.16em;
+    color:var(--gold); border:1px solid rgba(217,164,65,.4); border-radius:4px; padding:1px 5px;
+  }
+
+  .plat{ display:flex; flex-wrap:wrap; gap:6px; }
+  .chip{
+    font-family:var(--mono); font-size:10.5px; letter-spacing:.06em; color:var(--mute);
+    background:rgba(120,150,180,.07); border:1px solid var(--hair); border-radius:5px; padding:2px 7px;
+  }
+
+  .gauge{ position:relative; height:8px; border-radius:2px; background:#0a1017; border:1px solid var(--hair-2); overflow:hidden; }
+  .gauge-fill{ position:absolute; left:0; top:0; bottom:0; border-radius:1px; }
+  .gauge::after{ content:""; position:absolute; inset:0;
+    background-image:repeating-linear-gradient(90deg,transparent 0,transparent calc(10% - 1.5px),#0a1017 calc(10% - 1.5px),#0a1017 10%); }
+  .gf-flag{ background:linear-gradient(90deg,#a9761f,var(--gold)); box-shadow:0 0 10px rgba(217,164,65,.5); }
+  .gf-high{ background:linear-gradient(90deg,var(--cyan-soft),var(--cyan)); box-shadow:0 0 10px rgba(53,208,224,.4); }
+  .gf-mid{ background:linear-gradient(90deg,#2c7f85,var(--teal)); }
+  .gf-low{ background:linear-gradient(90deg,#3c5a5f,var(--low)); }
+
+  .desc{ font-size:13.5px; color:var(--ink); margin:0; }
+
+  .feat{ list-style:none; margin:2px 0 0; padding:0; display:flex; flex-direction:column; gap:5px; }
+  .feat li{ position:relative; padding-left:16px; font-size:12.5px; color:var(--mute); }
+  .feat li::before{ content:"▸"; position:absolute; left:0; color:var(--cyan-soft); }
+
+  .foot{
+    max-width:var(--maxw); margin:0 auto; padding:26px 24px 64px;
+    border-top:1px solid var(--hair); display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap;
+    font-family:var(--mono); font-size:12px; color:var(--faint);
+  }
+  .foot a{ color:var(--cyan-soft); text-decoration:none; }
+  .foot a:hover{ color:var(--cyan); }
+
+  @keyframes rise{ from{opacity:0; transform:translateY(14px)} to{opacity:1; transform:none} }
+  @keyframes blink{ 0%,50%{opacity:1} 51%,100%{opacity:0} }
+
+  @media (max-width:720px){
+    .stats{ grid-template-columns:repeat(2,1fr); }
+    .cat-avg{ width:100%; margin-left:0; }
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{ animation:none !important; transition:none !important; }
+    .cursor{ opacity:1; }
+  }
+</style>
+
+<script>
+  const BASE = "https://developers.eveonline.com/docs/community/";
+  const DATA = [
+    { cat:"Киллборды и боевая разведка", tools:[
+      { n:"zKillboard.com", r:10, s:"zkillboard-com", p:["Web","API"],
+        d:"Главный киллборд New Eden: агрегирует все killmail'ы через ESI и строит статистику по игрокам, корпам, альянсам, системам и типам кораблей.",
+        f:["Реалтайм-стрим килов (RedisQ/WebSocket) как источник для десятков сторонних тулов","Глубокие фильтры и сравнение эффективности: ISK destroyed / lost","Де-факто стандарт, на который завязана половина экосистемы"] },
+      { n:"EVE-KILL.com", r:8, s:"eve-kill-com", p:["Web","API"],
+        d:"Современная альтернатива zKill с упором на скорость и свежий интерфейс.",
+        f:["Быстрый реалтайм-фид killmail'ов","Открытый API для интеграций","Батлрепорты и кампании"] },
+      { n:"Socket.Kill", r:7.5, s:"socketkill.com", p:["Web","WebSocket"],
+        d:"Высокопроизводительный стрим killmail'ов в реальном времени через WebSocket.",
+        f:["Минимальная задержка доставки килов","Идеален как источник для ботов и оверлеев","Лёгкая интеграция для разработчиков"] },
+      { n:"KillFeed by Lak Moore", r:7, s:"killfeed-by-lak-moore", p:["Discord Bot"],
+        d:"Discord-бот, публикующий отфильтрованные killmail'ы из zKillboard.",
+        f:["Гибкие фильтры: регион, корпа, класс корабля, ISK-порог","Маршрутизация по нескольким каналам","Возможность self-host"] },
+      { n:"RIFT Intel Fusion Tool", r:8, s:"rift-intel-fusion-tool", p:["Windows","Linux","macOS"],
+        d:"Десктоп-приложение для разведки: мониторинг intel-каналов, продвинутая карта и оповещения.",
+        f:["Парсинг локального и intel-чата в реальном времени","Наложение угроз и активности на карту","Кроссплатформенность"] },
+      { n:"Dscan ICU", r:7, s:"dscan-icu", p:["Web"],
+        d:"Веб-инструмент для анализа и шаринга результатов directional scan.",
+        f:["Разбор дампа скана в читаемый список кораблей","Мультиязычный интерфейс","Шаринг результата ссылкой для флота"] },
+    ]},
+    { cat:"Фиты и теорикрафт", tools:[
+      { n:"EVEShip.fit", r:8, s:"eveship-fit", p:["Web"],
+        d:"Онлайн-платформа для создания, просмотра и шаринга фитов кораблей.",
+        f:["Точный движок расчёта характеристик","Импорт/экспорт EFT-формата","Красивый шаринг с 3D-моделью корабля"] },
+      { n:"Theorycrafter", r:7.5, s:"theorycrafter", p:["Web"],
+        d:"Фиттинг-тул нового поколения с упором на скорость и удобство.",
+        f:["Мгновенный отклик интерфейса","Сравнение нескольких фитов бок о бок","Быстрый поиск и подстановка модулей"] },
+    ]},
+    { cat:"Рынок, активы и индустрия", tools:[
+      { n:"jEveAssets", r:8.5, s:"jeveassets", p:["Java","Desktop"],
+        d:"Оффлайн-менеджер активов: отслеживание всего инвентаря по персонажам и корпам без запущенного клиента.",
+        f:["Сводная рыночная оценка стоимости всех ассетов","Трекинг индустрии, контрактов и кошелька","Работает out-of-game, поддержка множества аккаунтов"] },
+      { n:"EVE Workbench", r:7.5, s:"eve-workbench", p:["Web"],
+        d:"Веб-хаб: рынок, построение хаул-маршрутов и просмотр/шаринг фитов.",
+        f:["Калькулятор прибыльности перевозок","Библиотека публичных фитов с рейтингами","Интеграция с рыночными данными"] },
+      { n:"MutaMarket", r:8, s:"mutamarket", p:["Web"],
+        d:"Нишевый, но незаменимый инструмент для абиссальных (mutaplasmid) модулей.",
+        f:["База роллов с фильтрами по атрибутам","Браузер контрактов на абиссальные модули","Оценка справедливой стоимости мутаплазмидов"] },
+      { n:"Marquette", r:7, s:"marquette", p:["Web"],
+        d:"Рыночный эксплорер с оценкой стоимости и фильтрацией.",
+        f:["Быстрый аппрайзал списков","Фильтры по торговым хабам","Наглядные графики цен"] },
+      { n:"Innominate Appraisal", r:7, s:"innominate-appraisal", p:["Web"],
+        d:"Инструмент оценки стоимости стопки предметов по рыночным хабам.",
+        f:["Вставил список → мгновенная оценка","Выбор хаба и метода цены (buy / sell / split)","Шаринг результата ссылкой"] },
+      { n:"EVEMissioneer", r:7, s:"evemissioneer", p:["Web"],
+        d:"Поиск агентов и планирование миссий/ресёрча.",
+        f:["База агентов с фильтрами по уровню, фракции и локации","Планирование маршрута agent research","Данные по лояльности и наградам"] },
+      { n:"Abyss Tracker", r:7, s:"abyss-tracker", p:["Web"],
+        d:"Трекер лута специально для абиссальных забегов.",
+        f:["Логирование дропа и времени каждого рана","Аналитика прибыльности по типам филаментов","Шаринг и сравнение забегов"] },
+      { n:"evepandora.com", r:6.5, s:"evepandora", p:["Web"],
+        d:"Player-driven платформа для организации игровых операций (миссии, faction warfare).",
+        f:["Координация групповых активностей","Трекинг faction warfare","Организация операций силами игроков"] },
+    ]},
+    { cat:"Управление корпорацией и альянсом (Auth)", tools:[
+      { n:"SeAT", r:9, s:"seat", p:["Web","Self-hosted"],
+        d:"Мощный инструмент управления корпой и альянсом: сбор и использование всех ESI-данных.",
+        f:["Полная витрина ESI: активы, кошельки, скиллы, почта","Система ролей и тонких разрешений","Расширяемость плагинами и API"] },
+      { n:"Alliance Auth", r:9, s:"alliance-auth", p:["Django","Self-hosted"],
+        d:"Платформа авторизации и сервисов для игровых организаций.",
+        f:["Единый вход и синхронизация доступа к Discord / Mumble / форумам","Десятки комьюнити-плагинов: SRP, audit, fleet-tools","Гибкая раздача групп по членству в корпе/альянсе"] },
+      { n:"Neucore", r:8.5, s:"neucore", p:["Web","Self-hosted"],
+        d:"Платформа управления учётными записями и ESI-токенами для альянсов.",
+        f:["Группировка аккаунтов и множества альтов","Выдача доступа к сервисам по членству","Надёжное хранилище ESI-токенов для приложений"] },
+      { n:"EVE-SRP", r:7, s:"eve-srp", p:["Web"],
+        d:"Система управления Ship Replacement Program — компенсацией потерянных кораблей.",
+        f:["Подача заявок по ссылке на killmail","Воркфлоу ревью и выплат","Настраиваемые правила компенсации"] },
+      { n:"Upwell.gg", r:7, s:"upwell-gg", p:["Web"],
+        d:"Платформа для шаринга таймеров структур внутри альянса.",
+        f:["Общий календарь таймеров Upwell-структур","Оповещения о приближении таймера","Быстрый ввод данных из игры"] },
+    ]},
+    { cat:"Картография и навигация", tools:[
+      { n:"Wanderer", r:8, s:"wanderer", p:["Web","Self-hosted"],
+        d:"Быстрый инструмент маппинга как лёгкая альтернатива Pathfinder.",
+        f:["Реалтайм-построение карты червоточин","Лёгкий self-host и низкие требования","Современный отзывчивый интерфейс"] },
+      { n:"SMT (Slazanger's Map Tool)", r:8, s:"smt", p:["Desktop"],
+        d:"Десктоп-карта для навигации и пространственного анализа New Eden.",
+        f:["Наложение intel и killdata прямо на карту","Построение и оценка маршрутов","Настраиваемые региональные слои"] },
+      { n:"WormholeSystems", r:7.5, s:"wormholesystems", p:["Web"],
+        d:"Современная платформа маппинга w-space.",
+        f:["Совместное редактирование карты червоточин","Трекинг сигнатур и статуса дыр","Чистый быстрый веб-интерфейс"] },
+    ]},
+    { cat:"Компаньоны и утилиты", tools:[
+      { n:"EVE Ref", r:8, s:"eve-ref", p:["Web","Data"],
+        d:"Справочный сайт по данным EVE: предметы, чертежи, атрибуты.",
+        f:["Быстрый поиск по всей базе SDE","Открытые данные и дампы для разработчиков","Своевременная актуализация под патчи"] },
+      { n:"Tritanium", r:8, s:"tritanium", p:["iOS"],
+        d:"iOS-приложение: активы, скиллы, PI, рынок и индустрия в кармане.",
+        f:["Мониторинг обучения скиллов и очереди","Управление planetary interaction с телефона","Нативный быстрый интерфейс"] },
+      { n:"EVE Buddy", r:7.5, s:"eve-buddy", p:["Windows","macOS","Linux","Android"],
+        d:"Кроссплатформенный компаньон: мониторинг персонажей и планирование прыжков капиталов.",
+        f:["Трекинг скиллов, почты и локации нескольких альтов","Планировщик jump-маршрутов для капиталов","Работает на десктопе и Android"] },
+      { n:"JitaSpace", r:7.5, s:"jitaspace", p:["Web"],
+        d:"Мультитул: EveMail-ридер, браузер LP-store и набор мелких утилит.",
+        f:["Чтение внутриигровой почты прямо в браузере","Браузер наград loyalty-point store","Много полезных утилит в одном месте"] },
+      { n:"EVECompanion", r:7, s:"evecompanion", p:["iOS"],
+        d:"iOS-компаньон для мониторинга персонажа и событий.",
+        f:["Пуш-уведомления о событиях","Трекинг скиллов и статуса персонажа","Удобный мобильный обзор"] },
+      { n:"EVE Preview Manager", r:7, s:"eve-preview-manager", p:["Linux"],
+        d:"Утилита мультибоксинга для Linux с превью клиентов в реальном времени.",
+        f:["Живые миниатюры окон всех клиентов","Хоткей-профили быстрого переключения","Редкое решение именно под Linux-десктоп"] },
+      { n:"elt", r:6, s:"elt", p:["CLI","Win/macOS/Linux"],
+        d:"Командная утилита для поиска информации об объектах EVE.",
+        f:["Быстрый поиск прямо из терминала","Кроссплатформенный бинарник","Удобно встраивать в скрипты и пайплайны"] },
+    ]},
+    { cat:"Библиотеки и инструменты для разработчиков", tools:[
+      { n:"Django-ESI", r:8.5, s:"django-esi", p:["Python","Django"],
+        d:"Django-приложение для аккуратного доступа к ESI API.",
+        f:["Управление токенами и авто-refresh","Учёт кэша и rate-limit ESI","Фундамент, на котором построен Alliance Auth"] },
+      { n:"Garveen's SDE Conversion", r:8.5, s:"sde-conversion", p:["MySQL","SQLite"],
+        d:"Конвертация Static Data Export в готовые базы MySQL и SQLite.",
+        f:["Готовые дампы БД для мгновенного старта","Регулярное обновление под патчи","Экономит часы на парсинге YAML"] },
+      { n:"EVE Online SDE Documentation", r:8, s:"eve-online-sde-documentation", p:["Reference","JSON Schema"],
+        d:"Онлайн-документация SDE с формальными JSON-схемами.",
+        f:["Формальные схемы структур SDE","Удобная навигация по сущностям данных","Облегчает генерацию типов и парсеров"] },
+      { n:"SDE REST API", r:7.5, s:"sde-rest-api", p:["Web API"],
+        d:"REST-интерфейс к Static Data Export.",
+        f:["Доступ к SDE без локальной базы","Удобно для лёгких клиентов и прототипов","Простые JSON-ответы"] },
+      { n:"EVE ESI Proxy", r:7.5, s:"eve-esi-proxy", p:["Proxy"],
+        d:"HTTP-прокси-слой для запросов к ESI.",
+        f:["Централизованное кэширование и rate-limit","Единая точка для нескольких приложений","Снижает нагрузку на ESI"] },
+      { n:"EVE API for Golang", r:7.5, s:"eve-api-for-golang", p:["Go"],
+        d:"Go-клиент ESI с поддержкой OAuth2 и PKCE.",
+        f:["Типобезопасный клиент","Встроенная авторизация PKCE","Идиоматичный Go-код"] },
+      { n:"EVE API for TypeScript", r:7.5, s:"eve-api-for-typescript", p:["TypeScript"],
+        d:"TypeScript-клиент для ESI API.",
+        f:["Типы для всех эндпоинтов","Подходит для web и Node-проектов","Автодополнение в IDE из коробки"] },
+      { n:"EVE API for PHP", r:7, s:"eve-api-for-php", p:["PHP"],
+        d:"PHP-клиент для интеграции с ESI API.",
+        f:["Встраивание в существующий PHP-стек","Покрытие эндпоинтов ESI","Простое подключение через Composer"] },
+      { n:"localisprimary/esi", r:7, s:"localisprimary-esi", p:["TypeScript"],
+        d:"«Мнениеориентированный» TypeScript-клиент EVE API.",
+        f:["Продуманные абстракции поверх ESI","Строгая типизация","Современный developer experience"] },
+      { n:"EVE Auth for Django", r:7.5, s:"eve-auth-for-django", p:["Python","Django"],
+        d:"Интеграция EVE Online SSO в Django-приложения.",
+        f:["Готовый флоу SSO-логина","Управление запрашиваемыми скоупами","Быстрый старт аутентификации"] },
+      { n:"EVE Auth for Python", r:7, s:"eve-auth-for-python", p:["Python"],
+        d:"Библиотека SSO-авторизации для десктопных приложений.",
+        f:["Локальный OAuth-флоу для десктопа","Управление и refresh токенов","Минимум boilerplate-кода"] },
+      { n:"EVE Auth for Go", r:7, s:"eve-auth-for-go", p:["Go"],
+        d:"SSO-авторизация десктопных приложений на Go.",
+        f:["Встроенный локальный redirect-флоу","Автообновление токенов","Лёгкая интеграция"] },
+      { n:"EVE SSO for PHP", r:7, s:"eve-sso-for-php", p:["PHP"],
+        d:"Библиотека под протокол EVE Online SSO version 2.",
+        f:["Поддержка актуального SSO v2","Верификация JWT-токенов","Простая интеграция в PHP"] },
+      { n:"eveRwrapper", r:6.5, s:"eveRwrapper", p:["R"],
+        d:"Обёртка для доступа к данным ESI прямо из R.",
+        f:["Тянет данные ESI в R-окружение","Удобно для аналитики и data science","Нишевая, но уникальная в своём стеке"] },
+      { n:"Überauth EVE Online", r:6.5, s:"ueberauth-eve-online", p:["Elixir","Hex"],
+        d:"Hex-пакет: стратегия EVE SSO для Elixir-приложений.",
+        f:["Интеграция в стек Überauth","Готовая OAuth-стратегия","Для Phoenix-приложений"] },
+      { n:"Turtle's Alternate Icons", r:6.5, s:"turtle-alternate-icons", p:["Assets"],
+        d:"Альтернативный набор иконок предметов EVE.",
+        f:["Единый стиль иконок для сторонних тулов","Свободное использование в проектах","Освежает UI приложений"] },
+    ]},
+  ];
+
+  function tier(r){ return r>=9 ? "flag" : r>=7.5 ? "high" : r>=7 ? "mid" : "low"; }
+  function fmt(r){ return Number.isInteger(r) ? String(r) : r.toFixed(1); }
+
+  const app = document.getElementById("app");
+  let total=0, sum=0, flagship=0;
+
+  DATA.forEach(group=>{
+    const avg = group.tools.reduce((a,t)=>a+t.r,0)/group.tools.length;
+    const sec = document.createElement("section");
+    sec.className="cat";
+    sec.innerHTML =
+      '<div class="cat-head">'+
+        '<h2>'+group.cat+'</h2>'+
+        '<span class="cat-count">'+group.tools.length+' шт.</span>'+
+        '<span class="cat-avg">средняя <b>'+avg.toFixed(1)+'</b></span>'+
+      '</div>';
+    const grid = document.createElement("div");
+    grid.className="grid";
+
+    group.tools.forEach(t=>{
+      total++; sum+=t.r; if(t.r>=9) flagship++;
+      const tk = tier(t.r);
+      const card = document.createElement("div");
+      card.className = "card "+tk;
+      const chips = t.p.map(p=>'<span class="chip">'+p+'</span>').join("");
+      const feats = t.f.map(f=>'<li>'+f+'</li>').join("");
+      const flagtag = t.r>=9 ? '<div class="flagtag">FLAGSHIP</div>' : '';
+      card.innerHTML =
+        '<div class="card-top">'+
+          '<a class="name" href="'+BASE+t.s+'/" target="_blank" rel="noopener">'+t.n+' <span class="arrow">↗</span></a>'+
+          '<div class="score"><b>'+fmt(t.r)+'</b><span class="max">/10</span>'+flagtag+'</div>'+
+        '</div>'+
+        '<div class="plat">'+chips+'</div>'+
+        '<div class="gauge"><div class="gauge-fill gf-'+tk+'" style="width:'+(t.r*10)+'%"></div></div>'+
+        '<p class="desc">'+t.d+'</p>'+
+        '<ul class="feat">'+feats+'</ul>';
+      grid.appendChild(card);
+    });
+
+    sec.appendChild(grid);
+    app.appendChild(sec);
+  });
+
+  const statsEl = document.getElementById("stats");
+  statsEl.innerHTML =
+    '<div class="stat"><b>'+total+'</b><span>инструментов</span></div>'+
+    '<div class="stat accent"><b>'+DATA.length+'</b><span>категорий</span></div>'+
+    '<div class="stat"><b>'+(sum/total).toFixed(1)+'</b><span>средний балл</span></div>'+
+    '<div class="stat gold"><b>'+flagship+'</b><span>флагманов 9+</span></div>';
+</script>
+
+</body></html>

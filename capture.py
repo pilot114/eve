@@ -1,11 +1,15 @@
-"""Источник кадров экрана.
+"""Источник кадров экрана или окна приложения.
 
 Под Wayland mss отдаёт чёрный кадр, поэтому захват идёт через портал
 xdg-desktop-portal (интерфейс ScreenCast) + PipeWire, кадры читаются
-GStreamer-конвейером.
+GStreamer-конвейером. В диалоге портала можно выбрать целый экран или
+окно конкретного приложения; выбор запоминается (restore token) и молча
+восстанавливается при следующих запусках — чтобы выбрать заново, есть
+reselect_source (флаг --reselect-source).
 
 Интерфейс:
     cap.grab()  -> numpy-массив кадра (H, W, 4), порядок каналов BGRx/BGRA
+    cap.poll()  -> свежий кадр без ожидания, либо None, если нового ещё нет
     cap.close()
     cap.width / cap.height  (известны после первого grab)
 """
@@ -21,9 +25,14 @@ RESTORE_TOKEN_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), ".
 
 
 class PipeWireCapture:
-    """Захват экрана под Wayland через xdg-desktop-portal (ScreenCast) + PipeWire/GStreamer."""
+    """Захват экрана под Wayland через xdg-desktop-portal (ScreenCast) + PipeWire/GStreamer.
 
-    def __init__(self):
+    reselect_source=True — игнорировать сохранённое разрешение и заново показать
+    диалог выбора источника (экран или окно приложения); новый выбор запоминается.
+    """
+
+    def __init__(self, reselect_source=False):
+        self._reselect_source = reselect_source
         import gi
         gi.require_version("Gst", "1.0")
         gi.require_version("GstApp", "1.0")
@@ -110,20 +119,26 @@ class PipeWireCapture:
         self._session = res["session_handle"]
         log.info("Портал: сессия ScreenCast создана")
 
-        # 2. Выбрать источник — монитор, курсор скрыт (чтобы движение мыши не давало ложных срабатываний)
+        # 2. Выбрать источник, курсор скрыт (чтобы движение мыши не давало ложных
+        # срабатываний). types — битовая маска: 1 = монитор, 2 = окно; 3 даёт
+        # в диалоге KDE выбор между целым экраном и окном конкретного приложения.
         self._call("SelectSources", lambda tok, _stok: GLib.Variant("(oa{sv})", (self._session, {
             "handle_token": GLib.Variant("s", tok),
-            "types": GLib.Variant("u", 1),        # 1 = монитор
+            "types": GLib.Variant("u", 3),        # 1 = монитор, 2 = окно
             "multiple": GLib.Variant("b", False),
             "cursor_mode": GLib.Variant("u", 1),  # 1 = курсор скрыт
         })))
 
         # 3. Старт. Если есть сохранённый restore_token — KDE не покажет диалог.
-        restore = self._read_restore_token()
-        if restore:
+        # При reselect_source токен игнорируем: диалог появится снова, и новый
+        # выбор перезапишет сохранённый.
+        restore = "" if self._reselect_source else self._read_restore_token()
+        if self._reselect_source:
+            log.info("Портал: повторный выбор источника — выберите экран или окно в диалоге KDE...")
+        elif restore:
             log.info("Портал: пробуем восстановить прошлое разрешение (без диалога)")
         else:
-            log.info("Портал: подтвердите выбор экрана в диалоге KDE...")
+            log.info("Портал: подтвердите выбор экрана или окна в диалоге KDE...")
 
         def start_params(tok, _stok):
             opts = {
@@ -171,7 +186,21 @@ class PipeWireCapture:
         sample = self._appsink.try_pull_sample(5 * Gst.SECOND)
         if sample is None:
             raise RuntimeError("PipeWire: кадр не получен (таймаут)")
+        return self._sample_to_frame(sample)
 
+    def poll(self):
+        """Возвращает свежий кадр, если компоситор уже прислал новый, иначе None.
+
+        Не блокирует — для живого предпросмотра, где при отсутствии нового
+        кадра продолжают показывать предыдущий.
+        """
+        sample = self._appsink.try_pull_sample(0)
+        if sample is None:
+            return None
+        return self._sample_to_frame(sample)
+
+    def _sample_to_frame(self, sample):
+        Gst = self._Gst
         buf = sample.get_buffer()
         s = sample.get_caps().get_structure(0)
         w, h = s.get_value("width"), s.get_value("height")
@@ -194,7 +223,7 @@ class PipeWireCapture:
         self._pipeline.set_state(self._Gst.State.NULL)
 
 
-def create_capture():
+def create_capture(reselect_source=False):
     """Создаёт источник кадров (захват через PipeWire-портал)."""
     log.info("Источник кадров: PipeWire-портал")
-    return PipeWireCapture()
+    return PipeWireCapture(reselect_source=reselect_source)

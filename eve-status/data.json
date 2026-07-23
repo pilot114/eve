@@ -1,157 +1,165 @@
 {
-    "generated_at": "2026-07-05T07:33:02+00:00",
+    "generated_at": "2026-07-23T16:14:03+00:00",
     "server": {
         "status": "online",
-        "players": 24545,
-        "version": "3421648",
-        "start_time": "2026-07-04T11:01:57Z"
+        "players": 26606,
+        "version": "3444265",
+        "start_time": "2026-07-23T11:04:07Z"
     },
     "stats": {
-        "incursions": 3,
-        "sov_campaigns": 32,
-        "plex_price": 4621543.38
+        "incursions": 4,
+        "sov_campaigns": 26,
+        "plex_price": 4604512.76
     },
     "incursions": [
         {
-            "constellation": "Nadire",
-            "staging": "Esmes",
+            "constellation": "Chardu",
+            "staging": "Lahnina",
             "state": "established",
             "influence": 100,
             "has_boss": true,
-            "systems": 6
+            "systems": 7
         },
         {
-            "constellation": "Erada",
-            "staging": "Loguttur",
+            "constellation": "1P-VL2",
+            "staging": "MJI3-8",
             "state": "established",
-            "influence": 97,
+            "influence": 3,
             "has_boss": false,
-            "systems": 9
+            "systems": 6
         },
         {
-            "constellation": "Taurus",
-            "staging": "3ZTV-V",
-            "state": "mobilizing",
-            "influence": 100,
+            "constellation": "Kurala",
+            "staging": "Prism",
+            "state": "established",
+            "influence": 0,
+            "has_boss": false,
+            "systems": 8
+        },
+        {
+            "constellation": "N-OGI1",
+            "staging": "2J-WJY",
+            "state": "withdrawing",
+            "influence": 91,
             "has_boss": true,
-            "systems": 6
+            "systems": 7
         }
     ],
     "explore": {
         "danger": [
             {
+                "id": 30040141,
+                "name": "Urhinichi",
+                "sec": -1,
+                "band": "null",
+                "value": 66
+            },
+            {
+                "id": 30004697,
+                "name": "G1D0-G",
+                "sec": -0.1,
+                "band": "null",
+                "value": 47
+            },
+            {
                 "id": 30000142,
                 "name": "Jita",
                 "sec": 0.9,
                 "band": "high",
-                "value": 380
+                "value": 41
             },
             {
-                "id": 30002768,
-                "name": "Uedama",
-                "sec": 0.5,
-                "band": "high",
-                "value": 64
+                "id": 30000669,
+                "name": "N3-JBX",
+                "sec": -0.1,
+                "band": "null",
+                "value": 41
             },
             {
-                "id": 30001391,
-                "name": "Piekura",
-                "sec": 0.5,
-                "band": "high",
-                "value": 52
+                "id": 30000896,
+                "name": "NJ4X-S",
+                "sec": -0.7,
+                "band": "null",
+                "value": 39
             },
             {
-                "id": 30002542,
-                "name": "Auga",
-                "sec": 0.4,
-                "band": "low",
-                "value": 47
+                "id": 30002905,
+                "name": "2R-CRW",
+                "sec": -0.9,
+                "band": "null",
+                "value": 25
             },
             {
-                "id": 30002095,
-                "name": "Eszur",
-                "sec": 0.2,
-                "band": "low",
-                "value": 38
+                "id": 30000869,
+                "name": "TRKN-L",
+                "sec": -0.7,
+                "band": "null",
+                "value": 25
             },
             {
-                "id": 30011407,
-                "name": "Akiainavas",
-                "sec": 0.7,
-                "band": "high",
-                "value": 28
-            },
-            {
-                "id": 30002809,
-                "name": "Sujarento",
-                "sec": 0.3,
-                "band": "low",
-                "value": 27
-            },
-            {
-                "id": 30002537,
-                "name": "Amamake",
-                "sec": 0.4,
-                "band": "low",
-                "value": 24
+                "id": 30002904,
+                "name": "VFK-IV",
+                "sec": -0.8,
+                "band": "null",
+                "value": 23
             }
         ],
         "ratting": [
             {
-                "id": 30000306,
-                "name": "Y-ZXIO",
+                "id": 30004833,
+                "name": "KW-OAM",
+                "sec": -0.6,
+                "band": "null",
+                "value": 3340
+            },
+            {
+                "id": 30003136,
+                "name": "E1UU-3",
+                "sec": -0.7,
+                "band": "null",
+                "value": 3340
+            },
+            {
+                "id": 30003176,
+                "name": "IPX-H5",
                 "sec": -0.9,
                 "band": "null",
-                "value": 3379
+                "value": 3000
             },
             {
-                "id": 30000304,
-                "name": "ZA0L-U",
-                "sec": -0.8,
+                "id": 30003634,
+                "name": "J1-KJP",
+                "sec": -0.6,
                 "band": "null",
-                "value": 2680
+                "value": 2477
             },
             {
-                "id": 30001277,
-                "name": "N5Y-4N",
-                "sec": -0.2,
+                "id": 30004489,
+                "name": "ZID-LE",
+                "sec": -1,
                 "band": "null",
-                "value": 2393
+                "value": 2360
             },
             {
-                "id": 30000305,
-                "name": "G96R-F",
-                "sec": -0.9,
+                "id": 30000497,
+                "name": "F2W-C6",
+                "sec": -0.7,
                 "band": "null",
-                "value": 2203
+                "value": 2333
             },
             {
-                "id": 30000228,
-                "name": "3HX-DL",
-                "sec": -0.4,
+                "id": 30003670,
+                "name": "C-XNUA",
+                "sec": -0.7,
                 "band": "null",
-                "value": 2193
+                "value": 2200
             },
             {
-                "id": 30000303,
-                "name": "T-ZWA1",
-                "sec": -0.8,
+                "id": 30004966,
+                "name": "MVUO-F",
+                "sec": -1,
                 "band": "null",
-                "value": 2174
-            },
-            {
-                "id": 30004941,
-                "name": "Y-CWQY",
-                "sec": -0.8,
-                "band": "null",
-                "value": 2080
-            },
-            {
-                "id": 30000266,
-                "name": "Z-8Q65",
-                "sec": -0.8,
-                "band": "null",
-                "value": 2054
+                "value": 2180
             }
         ],
         "traffic": [
@@ -160,176 +168,176 @@
                 "name": "Jita",
                 "sec": 0.9,
                 "band": "high",
-                "value": 1973
+                "value": 2755
             },
             {
                 "id": 30000144,
                 "name": "Perimeter",
                 "sec": 0.9,
                 "band": "high",
-                "value": 1692
-            },
-            {
-                "id": 30000145,
-                "name": "New Caldari",
-                "sec": 0.9,
-                "band": "high",
-                "value": 1313
-            },
-            {
-                "id": 30000139,
-                "name": "Urlen",
-                "sec": 0.9,
-                "band": "high",
-                "value": 1210
+                "value": 2173
             },
             {
                 "id": 30001363,
                 "name": "Sobaseki",
                 "sec": 0.8,
                 "band": "high",
-                "value": 964
+                "value": 1464
             },
             {
-                "id": 30002768,
-                "name": "Uedama",
-                "sec": 0.5,
+                "id": 30000139,
+                "name": "Urlen",
+                "sec": 0.9,
                 "band": "high",
-                "value": 901
+                "value": 1445
+            },
+            {
+                "id": 30000145,
+                "name": "New Caldari",
+                "sec": 0.9,
+                "band": "high",
+                "value": 1283
             },
             {
                 "id": 30002187,
                 "name": "Amarr",
                 "sec": 0.9,
                 "band": "high",
-                "value": 891
+                "value": 1187
+            },
+            {
+                "id": 30002768,
+                "name": "Uedama",
+                "sec": 0.5,
+                "band": "high",
+                "value": 1123
             },
             {
                 "id": 30002765,
                 "name": "Sivala",
                 "sec": 0.6,
                 "band": "high",
-                "value": 857
+                "value": 1074
             }
         ],
         "thera": [
             {
                 "from": "Turnur",
-                "to": "J101824",
-                "class": "c2",
-                "region": "B-R00008",
-                "size": "medium",
-                "hours": 21
-            },
-            {
-                "from": "Turnur",
-                "to": "Hemouner",
-                "class": "ls",
-                "region": "Khanid",
-                "size": "capital",
-                "hours": 19
-            },
-            {
-                "from": "Turnur",
-                "to": "Obalyu",
-                "class": "ls",
-                "region": "Essence",
-                "size": "capital",
-                "hours": 19
-            },
-            {
-                "from": "Thera",
-                "to": "Hemouner",
-                "class": "ls",
-                "region": "Khanid",
-                "size": "xlarge",
-                "hours": 16
-            },
-            {
-                "from": "Thera",
-                "to": "J130931",
-                "class": "c1",
-                "region": "A-R00002",
+                "to": "J162831",
+                "class": "c4",
+                "region": "D-R00021",
                 "size": "medium",
                 "hours": 15
             },
             {
-                "from": "Turnur",
-                "to": "J100808",
+                "from": "Thera",
+                "to": "J160311",
                 "class": "c2",
-                "region": "B-R00006",
-                "size": "medium",
-                "hours": 14
+                "region": "B-R00005",
+                "size": "large",
+                "hours": 15
             },
             {
                 "from": "Thera",
-                "to": "Q-L07F",
+                "to": "J133923",
+                "class": "c5",
+                "region": "E-R00029",
+                "size": "large",
+                "hours": 15
+            },
+            {
+                "from": "Thera",
+                "to": "X47L-Q",
                 "class": "ns",
-                "region": "Vale of the Silent",
+                "region": "Pure Blind",
                 "size": "xlarge",
-                "hours": 13
+                "hours": 15
             },
             {
                 "from": "Thera",
-                "to": "Tannolen",
-                "class": "ls",
-                "region": "The Citadel",
-                "size": "xlarge",
-                "hours": 12
+                "to": "J142506",
+                "class": "c4",
+                "region": "D-R00022",
+                "size": "large",
+                "hours": 15
             },
             {
                 "from": "Thera",
-                "to": "Paara",
+                "to": "Ebasgerdur",
                 "class": "hs",
-                "region": "The Citadel",
+                "region": "Heimatar",
                 "size": "medium",
-                "hours": 12
+                "hours": 15
             },
             {
-                "from": "Turnur",
-                "to": "Ainaille",
+                "from": "Thera",
+                "to": "J102734",
+                "class": "c1",
+                "region": "A-R00002",
+                "size": "medium",
+                "hours": 11
+            },
+            {
+                "from": "Thera",
+                "to": "Jel",
                 "class": "hs",
                 "region": "Sinq Laison",
-                "size": "xlarge",
-                "hours": 11
-            },
-            {
-                "from": "Thera",
-                "to": "Larryn",
-                "class": "hs",
-                "region": "Solitude",
                 "size": "medium",
-                "hours": 11
-            },
-            {
-                "from": "Thera",
-                "to": "J160032",
-                "class": "c4",
-                "region": "D-R00021",
-                "size": "large",
                 "hours": 10
             },
             {
                 "from": "Thera",
-                "to": "Datulen",
-                "class": "hs",
+                "to": "Hofjaldgund",
+                "class": "ls",
                 "region": "Metropolis",
-                "size": "medium",
-                "hours": 8
+                "size": "xlarge",
+                "hours": 10
             },
             {
                 "from": "Thera",
-                "to": "Ondree",
+                "to": "Juunigaishi",
                 "class": "hs",
-                "region": "Solitude",
+                "region": "The Citadel",
                 "size": "medium",
-                "hours": 8
+                "hours": 10
+            },
+            {
+                "from": "Thera",
+                "to": "NJ4X-S",
+                "class": "ns",
+                "region": "Tribute",
+                "size": "xlarge",
+                "hours": 9
+            },
+            {
+                "from": "Thera",
+                "to": "Bayuka",
+                "class": "ls",
+                "region": "Derelik",
+                "size": "xlarge",
+                "hours": 9
+            },
+            {
+                "from": "Turnur",
+                "to": "J165806",
+                "class": "c3",
+                "region": "C-R00010",
+                "size": "medium",
+                "hours": 7
+            },
+            {
+                "from": "Thera",
+                "to": "Nagamanen",
+                "class": "ls",
+                "region": "The Citadel",
+                "size": "xlarge",
+                "hours": 7
             }
         ],
         "loot": [
             {
                 "name": "Intact Armor Plates",
-                "price": 2139446.13
+                "price": 1993027.33
             },
             {
                 "name": "Ancient Coordinates Database",
@@ -345,23 +353,38 @@
             },
             {
                 "name": "Burned Logic Circuit",
-                "price": 48076.86
+                "price": 47120.77
             },
             {
                 "name": "Thruster Console",
-                "price": 8888.7
+                "price": 7827.38
             },
             {
                 "name": "Melted Capacitor Console",
-                "price": 5469.04
+                "price": 4751.66
             },
             {
                 "name": "Tripped Power Circuit",
-                "price": 2838.47
+                "price": 2689.25
             }
         ]
     },
     "news": [
+        {
+            "title": "[Devblog] The Future of Force Projection Feedback Thread",
+            "link": "https://forums.eveonline.com/t/devblog-the-future-of-force-projection-feedback-thread/514961",
+            "date": "2026-07-17T12:44:56+00:00"
+        },
+        {
+            "title": "Monthly Economic Report - June 2026",
+            "link": "https://forums.eveonline.com/t/monthly-economic-report-june-2026/514605",
+            "date": "2026-07-09T11:21:06+00:00"
+        },
+        {
+            "title": "[Complete] Extended Downtime - July 7 2026",
+            "link": "https://forums.eveonline.com/t/complete-extended-downtime-july-7-2026/514483",
+            "date": "2026-07-07T09:47:17+00:00"
+        },
         {
             "title": "[RESOLVED] 20260625 - Unscheduled Extended Downtime",
             "link": "https://forums.eveonline.com/t/resolved-20260625-unscheduled-extended-downtime/513878",
@@ -386,21 +409,6 @@
             "title": "Version 24.01 - Cradle of War - General Feedback",
             "link": "https://forums.eveonline.com/t/version-24-01-cradle-of-war-general-feedback/512907",
             "date": "2026-06-09T11:00:07+00:00"
-        },
-        {
-            "title": "Monthly Economic Report - May 2026",
-            "link": "https://forums.eveonline.com/t/monthly-economic-report-may-2026/512928",
-            "date": "2026-06-08T15:06:21+00:00"
-        },
-        {
-            "title": "EVE Online: Cradle of War - Expansion Notes",
-            "link": "https://forums.eveonline.com/t/eve-online-cradle-of-war-expansion-notes/512620",
-            "date": "2026-06-04T10:30:18+00:00"
-        },
-        {
-            "title": "Player communication on bug reports is back on the menu",
-            "link": "https://forums.eveonline.com/t/player-communication-on-bug-reports-is-back-on-the-menu/512517",
-            "date": "2026-06-02T13:33:20+00:00"
         }
     ]
 }

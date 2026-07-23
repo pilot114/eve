@@ -1,9 +1,9 @@
 """Хранение и интерактивный выбор отслеживаемых областей экрана.
 
 Каждая область — прямоугольник (x1, y1, x2, y2) с именем. Пользователь
-выделяет их мышью поверх снятого кадра, после чего они сохраняются в JSON,
-чтобы использовать их в дальнейших запусках вместо области по умолчанию
-в центре экрана.
+выделяет их мышью поверх живого изображения экрана, после чего они
+сохраняются в JSON, чтобы использовать их в дальнейших запусках вместо
+области по умолчанию в центре экрана.
 """
 import os
 import json
@@ -67,8 +67,12 @@ def _normalize(x1, y1, x2, y2):
     return min(x1, x2), min(y1, y2), max(x1, x2), max(y1, y2)
 
 
-def select_regions_interactive(frame, existing=None):
+def select_regions_interactive(frame, existing=None, poll_frame=None):
     """Показывает кадр и даёт пользователю мышью выделить прямоугольники.
+
+    Если передан poll_frame (функция без аргументов, возвращающая свежий кадр
+    или None, если нового ещё нет), картинка в окне обновляется живьём —
+    видно текущее состояние экрана, а не статичный снимок.
 
     ЛКМ + перетаскивание — добавить область, 'u' — отменить последнюю,
     'c' — очистить всё, 's' — сохранить и выйти, 'q'/Esc — выйти без сохранения.
@@ -82,8 +86,11 @@ def select_regions_interactive(frame, existing=None):
     scale = min(1.0, MAX_DISPLAY_HEIGHT / h)
     disp_w, disp_h = round(w * scale), round(h * scale)
 
-    full_view = cv2.cvtColor(frame, cv2.COLOR_BGRA2BGR)
-    view = cv2.resize(full_view, (disp_w, disp_h), interpolation=cv2.INTER_AREA) if scale < 1.0 else full_view
+    def prepare_view(f):
+        bgr = cv2.cvtColor(f, cv2.COLOR_BGRA2BGR)
+        return cv2.resize(bgr, (disp_w, disp_h), interpolation=cv2.INTER_AREA) if scale < 1.0 else bgr
+
+    view = prepare_view(frame)
     if scale < 1.0:
         log.info("Кадр %dx%d показан с масштабом %.0f%% (окно %dx%d)", w, h, scale * 100, disp_w, disp_h)
 
@@ -163,6 +170,14 @@ def select_regions_interactive(frame, existing=None):
     result = None
     try:
         while True:
+            # Живое обновление: если компоситор прислал новый кадр — показываем
+            # его (кадр другого разрешения игнорируем: координаты областей
+            # привязаны к геометрии первого кадра).
+            if poll_frame is not None:
+                fresh = poll_frame()
+                if fresh is not None and fresh.shape[:2] == (h, w):
+                    view = prepare_view(fresh)
+                    redraw()
             key = cv2.waitKey(30) & 0xFF
             if key in (ord("q"), 27):  # Esc
                 log.info("Выбор областей отменён, изменения не сохранены.")
