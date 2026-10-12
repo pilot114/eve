@@ -1,173 +1,165 @@
 {
-    "generated_at": "2026-09-09T08:41:02+00:00",
+    "generated_at": "2026-10-12T19:56:03+00:00",
     "server": {
         "status": "online",
-        "players": 20503,
-        "version": "3498825",
-        "start_time": "2026-09-08T11:04:59Z"
+        "players": 32250,
+        "version": "3607705",
+        "start_time": "2026-10-12T11:05:23Z"
     },
     "stats": {
-        "incursions": 5,
-        "sov_campaigns": 15,
-        "plex_price": 4574918.36
+        "incursions": 4,
+        "sov_campaigns": 5,
+        "plex_price": 4712023.41
     },
     "incursions": [
         {
-            "constellation": "Sukanan",
-            "staging": "Tirbam",
-            "state": "established",
-            "influence": 100,
-            "has_boss": false,
-            "systems": 6
-        },
-        {
-            "constellation": "5Z0Y-S",
-            "staging": "DJK-67",
+            "constellation": "Budar",
+            "staging": "Ibani",
             "state": "established",
             "influence": 100,
             "has_boss": true,
             "systems": 6
         },
         {
-            "constellation": "1P-VL2",
-            "staging": "MJI3-8",
+            "constellation": "4-QV2L",
+            "staging": "XEN7-0",
+            "state": "established",
+            "influence": 100,
+            "has_boss": true,
+            "systems": 6
+        },
+        {
+            "constellation": "6I-3VX",
+            "staging": "T-AKQZ",
             "state": "mobilizing",
             "influence": 100,
             "has_boss": true,
             "systems": 6
         },
         {
-            "constellation": "Mazake",
-            "staging": "Sakhti",
+            "constellation": "Agiesseson",
+            "staging": "Claysson",
             "state": "mobilizing",
             "influence": 100,
             "has_boss": false,
             "systems": 8
-        },
-        {
-            "constellation": "0PS-L5",
-            "staging": "GGMF-J",
-            "state": "withdrawing",
-            "influence": 0,
-            "has_boss": false,
-            "systems": 7
         }
     ],
     "explore": {
         "danger": [
             {
+                "id": 30002039,
+                "name": "RQH-MY",
+                "sec": 0,
+                "band": "null",
+                "value": 69
+            },
+            {
+                "id": 30000192,
+                "name": "Otanuomi",
+                "sec": -1,
+                "band": "null",
+                "value": 59
+            },
+            {
+                "id": 30030141,
+                "name": "Uitra",
+                "sec": 0.9,
+                "band": "high",
+                "value": 59
+            },
+            {
+                "id": 30000156,
+                "name": "Josameto",
+                "sec": 0.6,
+                "band": "high",
+                "value": 57
+            },
+            {
+                "id": 30005196,
+                "name": "Ahbazon",
+                "sec": 0.4,
+                "band": "low",
+                "value": 57
+            },
+            {
                 "id": 30000142,
                 "name": "Jita",
                 "sec": 0.9,
                 "band": "high",
-                "value": 81
+                "value": 54
             },
             {
-                "id": 30002324,
-                "name": "R-6KYM",
-                "sec": -0.1,
-                "band": "null",
-                "value": 30
-            },
-            {
-                "id": 30002187,
-                "name": "Amarr",
-                "sec": 0.9,
-                "band": "high",
-                "value": 26
-            },
-            {
-                "id": 30005005,
-                "name": "Ignebaener",
-                "sec": -1,
-                "band": "null",
-                "value": 25
-            },
-            {
-                "id": 30002517,
-                "name": "Gulmorogod",
+                "id": 30002537,
+                "name": "Amamake",
                 "sec": 0.4,
                 "band": "low",
-                "value": 20
+                "value": 39
             },
             {
-                "id": 30001555,
-                "name": "B6-XE8",
-                "sec": -0.7,
+                "id": 30002079,
+                "name": "Krirald",
+                "sec": -1,
                 "band": "null",
-                "value": 19
-            },
-            {
-                "id": 30002719,
-                "name": "Miroitem",
-                "sec": 0.3,
-                "band": "low",
-                "value": 19
-            },
-            {
-                "id": 30002809,
-                "name": "Sujarento",
-                "sec": 0.3,
-                "band": "low",
-                "value": 16
+                "value": 32
             }
         ],
         "ratting": [
             {
-                "id": 30003121,
-                "name": "BZ-0GW",
+                "id": 30004492,
+                "name": "2-RSC7",
                 "sec": -0.8,
                 "band": "null",
-                "value": 3280
+                "value": 2051
             },
             {
-                "id": 30000262,
-                "name": "0MV-4W",
+                "id": 30004663,
+                "name": "LBGI-2",
+                "sec": -0.9,
+                "band": "null",
+                "value": 1963
+            },
+            {
+                "id": 30000836,
+                "name": "1ZF-PJ",
+                "sec": -0.9,
+                "band": "null",
+                "value": 1895
+            },
+            {
+                "id": 30004947,
+                "name": "0A-KZ0",
                 "sec": -0.7,
                 "band": "null",
-                "value": 2883
+                "value": 1886
             },
             {
-                "id": 30004922,
-                "name": "UEP0-A",
-                "sec": -0.8,
+                "id": 30004488,
+                "name": "KJ-V0P",
+                "sec": -0.9,
                 "band": "null",
-                "value": 2557
+                "value": 1877
             },
             {
-                "id": 30000301,
-                "name": "1-GBBP",
-                "sec": -0.8,
+                "id": 30004487,
+                "name": "OBK-K8",
+                "sec": -0.9,
                 "band": "null",
-                "value": 2399
+                "value": 1795
             },
             {
-                "id": 30000237,
-                "name": "XV-8JQ",
-                "sec": -0.4,
-                "band": "null",
-                "value": 2351
-            },
-            {
-                "id": 30000302,
-                "name": "C-FP70",
-                "sec": -0.8,
-                "band": "null",
-                "value": 2300
-            },
-            {
-                "id": 30003124,
-                "name": "Z-Y9C3",
-                "sec": -0.6,
-                "band": "null",
-                "value": 2201
-            },
-            {
-                "id": 30004962,
-                "name": "G-Q5JU",
+                "id": 30002157,
+                "name": "B-R5RB",
                 "sec": -0.7,
                 "band": "null",
-                "value": 2193
+                "value": 1770
+            },
+            {
+                "id": 30002707,
+                "name": "Unel",
+                "sec": 0.9,
+                "band": "high",
+                "value": 1712
             }
         ],
         "traffic": [
@@ -176,176 +168,176 @@
                 "name": "Jita",
                 "sec": 0.9,
                 "band": "high",
-                "value": 1472
+                "value": 3248
             },
             {
                 "id": 30000144,
                 "name": "Perimeter",
                 "sec": 0.9,
                 "band": "high",
-                "value": 1184
+                "value": 2763
             },
             {
                 "id": 30000139,
                 "name": "Urlen",
                 "sec": 0.9,
                 "band": "high",
-                "value": 824
-            },
-            {
-                "id": 30001363,
-                "name": "Sobaseki",
-                "sec": 0.8,
-                "band": "high",
-                "value": 779
+                "value": 2080
             },
             {
                 "id": 30002765,
                 "name": "Sivala",
                 "sec": 0.6,
                 "band": "high",
-                "value": 691
-            },
-            {
-                "id": 30000145,
-                "name": "New Caldari",
-                "sec": 0.9,
-                "band": "high",
-                "value": 690
+                "value": 1660
             },
             {
                 "id": 30002768,
                 "name": "Uedama",
                 "sec": 0.5,
                 "band": "high",
-                "value": 686
+                "value": 1630
+            },
+            {
+                "id": 30001363,
+                "name": "Sobaseki",
+                "sec": 0.8,
+                "band": "high",
+                "value": 1571
             },
             {
                 "id": 30002764,
                 "name": "Hatakani",
                 "sec": 0.9,
                 "band": "high",
-                "value": 652
+                "value": 1541
+            },
+            {
+                "id": 30000145,
+                "name": "New Caldari",
+                "sec": 0.9,
+                "band": "high",
+                "value": 1506
             }
         ],
         "thera": [
             {
-                "from": "Thera",
-                "to": "Onazel",
-                "class": "hs",
-                "region": "Tash-Murkon",
+                "from": "Turnur",
+                "to": "J234942",
+                "class": "c2",
+                "region": "B-R00005",
                 "size": "medium",
-                "hours": 16
-            },
-            {
-                "from": "Thera",
-                "to": "Z-Y9C3",
-                "class": "ns",
-                "region": "Esoteria",
-                "size": "xlarge",
-                "hours": 16
+                "hours": 21
             },
             {
                 "from": "Turnur",
-                "to": "Kubinen",
-                "class": "ls",
-                "region": "The Citadel",
-                "size": "capital",
-                "hours": 13
-            },
-            {
-                "from": "Turnur",
-                "to": "J150745",
+                "to": "J204503",
                 "class": "c1",
                 "region": "A-R00002",
                 "size": "medium",
-                "hours": 13
+                "hours": 18
             },
             {
-                "from": "Thera",
-                "to": "Tennen",
-                "class": "hs",
-                "region": "The Citadel",
+                "from": "Turnur",
+                "to": "J155711",
+                "class": "c4",
+                "region": "D-R00019",
                 "size": "medium",
-                "hours": 13
+                "hours": 16
             },
             {
-                "from": "Thera",
-                "to": "Omam",
-                "class": "ls",
-                "region": "Kador",
-                "size": "xlarge",
-                "hours": 13
+                "from": "Turnur",
+                "to": "J154109",
+                "class": "c4",
+                "region": "D-R00019",
+                "size": "medium",
+                "hours": 16
             },
             {
-                "from": "Thera",
-                "to": "J111518",
-                "class": "c5",
-                "region": "E-R00028",
-                "size": "large",
-                "hours": 11
-            },
-            {
-                "from": "Thera",
-                "to": "Isenan",
+                "from": "Turnur",
+                "to": "Abune",
                 "class": "ls",
                 "region": "Essence",
-                "size": "xlarge",
-                "hours": 10
+                "size": "capital",
+                "hours": 16
             },
             {
                 "from": "Turnur",
-                "to": "Thasinaz",
-                "class": "hs",
-                "region": "Devoid",
-                "size": "xlarge",
-                "hours": 9
-            },
-            {
-                "from": "Turnur",
-                "to": "J131808",
-                "class": "c2",
-                "region": "B-R00006",
-                "size": "medium",
-                "hours": 8
-            },
-            {
-                "from": "Thera",
-                "to": "HVGR-R",
-                "class": "ns",
-                "region": "The Kalevala Expanse",
-                "size": "xlarge",
-                "hours": 6
-            },
-            {
-                "from": "Turnur",
-                "to": "T2-V8F",
+                "to": "ZMV9-A",
                 "class": "ns",
                 "region": "Tenerifis",
                 "size": "capital",
-                "hours": 5
+                "hours": 15
             },
             {
                 "from": "Thera",
-                "to": "J122934",
-                "class": "c4",
-                "region": "D-R00019",
-                "size": "large",
-                "hours": 4
+                "to": "Horaka",
+                "class": "hs",
+                "region": "Molden Heath",
+                "size": "medium",
+                "hours": 15
             },
             {
                 "from": "Thera",
-                "to": "Ravarin",
-                "class": "ls",
-                "region": "Sinq Laison",
+                "to": "U-HYZN",
+                "class": "ns",
+                "region": "Querious",
                 "size": "xlarge",
-                "hours": 4
+                "hours": 15
+            },
+            {
+                "from": "Turnur",
+                "to": "Uisper",
+                "class": "ls",
+                "region": "Metropolis",
+                "size": "capital",
+                "hours": 15
+            },
+            {
+                "from": "Turnur",
+                "to": "E51-JE",
+                "class": "ns",
+                "region": "Detorid",
+                "size": "capital",
+                "hours": 15
+            },
+            {
+                "from": "Thera",
+                "to": "8P-LKL",
+                "class": "ns",
+                "region": "The Spire",
+                "size": "xlarge",
+                "hours": 14
+            },
+            {
+                "from": "Thera",
+                "to": "J152421",
+                "class": "c4",
+                "region": "D-R00020",
+                "size": "large",
+                "hours": 14
+            },
+            {
+                "from": "Thera",
+                "to": "Slays",
+                "class": "hs",
+                "region": "Placid",
+                "size": "medium",
+                "hours": 14
+            },
+            {
+                "from": "Thera",
+                "to": "DUV-5Y",
+                "class": "ns",
+                "region": "Syndicate",
+                "size": "xlarge",
+                "hours": 14
             }
         ],
         "loot": [
             {
                 "name": "Intact Armor Plates",
-                "price": 1620089.7
+                "price": 1659478.96
             },
             {
                 "name": "Ancient Coordinates Database",
@@ -361,62 +353,62 @@
             },
             {
                 "name": "Burned Logic Circuit",
-                "price": 44641.99
+                "price": 40870.98
             },
             {
                 "name": "Thruster Console",
-                "price": 7354.54
+                "price": 7404.62
             },
             {
                 "name": "Melted Capacitor Console",
-                "price": 3328.28
+                "price": 3472.95
             },
             {
                 "name": "Tripped Power Circuit",
-                "price": 2832.63
+                "price": 2970.06
             }
         ]
     },
     "news": [
         {
+            "title": "20261006 - Unscheduled Server Restart",
+            "link": "https://forums.eveonline.com/t/20261006-unscheduled-server-restart/519770",
+            "date": "2026-10-06T11:22:23+00:00"
+        },
+        {
+            "title": "Mass test on Singularity 2 - 5 October",
+            "link": "https://forums.eveonline.com/t/mass-test-on-singularity-2-5-october/519469",
+            "date": "2026-10-02T16:58:41+00:00"
+        },
+        {
+            "title": "RESOLVED - [20260922] Unscheduled Server Reboot",
+            "link": "https://forums.eveonline.com/t/resolved-20260922-unscheduled-server-reboot/518730",
+            "date": "2026-09-22T17:11:32+00:00"
+        },
+        {
+            "title": "[Monitoring] 20260922 - Intermittent Login Issues",
+            "link": "https://forums.eveonline.com/t/monitoring-20260922-intermittent-login-issues/518702",
+            "date": "2026-09-22T07:33:55+00:00"
+        },
+        {
+            "title": "[Resolved] 20260918 - Issue with Account Verification Emails",
+            "link": "https://forums.eveonline.com/t/resolved-20260918-issue-with-account-verification-emails/518540",
+            "date": "2026-09-18T16:26:11+00:00"
+        },
+        {
+            "title": "[Finished] Mass test on Singularity 11-14 September",
+            "link": "https://forums.eveonline.com/t/finished-mass-test-on-singularity-11-14-september/518004",
+            "date": "2026-09-09T17:07:37+00:00"
+        },
+        {
+            "title": "Monthly Economic Report - August 2026",
+            "link": "https://forums.eveonline.com/t/monthly-economic-report-august-2026/517992",
+            "date": "2026-09-09T10:45:06+00:00"
+        },
+        {
             "title": "GM Week 2026 - Call for Questions!",
             "link": "https://forums.eveonline.com/t/gm-week-2026-call-for-questions/517873",
             "date": "2026-09-07T14:19:14+00:00"
-        },
-        {
-            "title": "[RESOLVED] 20260901 - Unscheduled Extended Downtime",
-            "link": "https://forums.eveonline.com/t/resolved-20260901-unscheduled-extended-downtime/517505",
-            "date": "2026-09-01T11:20:12+00:00"
-        },
-        {
-            "title": "HUD Feedback Thread!",
-            "link": "https://forums.eveonline.com/t/hud-feedback-thread/517102",
-            "date": "2026-08-26T14:00:01+00:00"
-        },
-        {
-            "title": "The Move to Python 3 Begins!",
-            "link": "https://forums.eveonline.com/t/the-move-to-python-3-begins/517035",
-            "date": "2026-08-25T09:53:23+00:00"
-        },
-        {
-            "title": "[RESOLVED]20260821 - Issues with Login/SSO",
-            "link": "https://forums.eveonline.com/t/resolved-20260821-issues-with-login-sso/516855",
-            "date": "2026-08-21T20:53:26+00:00"
-        },
-        {
-            "title": "[RESOLVED] 20260818 - Unscheduled Extended Downtime",
-            "link": "https://forums.eveonline.com/t/resolved-20260818-unscheduled-extended-downtime/516604",
-            "date": "2026-08-18T11:19:44+00:00"
-        },
-        {
-            "title": "[COMPLETE] Extended Downtime Notification - August 17 2026",
-            "link": "https://forums.eveonline.com/t/complete-extended-downtime-notification-august-17-2026/516538",
-            "date": "2026-08-17T10:42:55+00:00"
-        },
-        {
-            "title": "Monthly Economic Report - July 2026",
-            "link": "https://forums.eveonline.com/t/monthly-economic-report-july-2026/516026",
-            "date": "2026-08-07T12:41:26+00:00"
         }
     ]
 }
