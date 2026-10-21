@@ -1,8 +1,8 @@
 {
-    "generated_at": "2026-10-21T10:15:03+00:00",
+    "generated_at": "2026-10-21T10:20:03+00:00",
     "server": {
         "status": "online",
-        "players": 19744,
+        "players": 19711,
         "version": "3632936",
         "start_time": "2026-10-20T11:05:22Z"
     },
@@ -254,11 +254,11 @@
                 "hours": 18
             },
             {
-                "from": "Thera",
-                "to": "Van",
-                "class": "ls",
-                "region": "Aridia",
-                "size": "xlarge",
+                "from": "Turnur",
+                "to": "WMBZ-U",
+                "class": "ns",
+                "region": "Vale of the Silent",
+                "size": "capital",
                 "hours": 16
             },
             {
@@ -291,6 +291,14 @@
                 "class": "c2",
                 "region": "B-R00004",
                 "size": "large",
+                "hours": 15
+            },
+            {
+                "from": "Thera",
+                "to": "Van",
+                "class": "ls",
+                "region": "Aridia",
+                "size": "xlarge",
                 "hours": 15
             },
             {
@@ -331,14 +339,6 @@
                 "class": "c4",
                 "region": "D-R00019",
                 "size": "medium",
-                "hours": 11
-            },
-            {
-                "from": "Thera",
-                "to": "J165153",
-                "class": "c3",
-                "region": "C-R00012",
-                "size": "large",
                 "hours": 11
             }
         ],
