@@ -8,11 +8,12 @@
   - use_cls=False: текст в интерфейсе игры не бывает перевёрнутым,
     классификатор ориентации только тратит время.
 """
+
 import logging
 import time
 
-import numpy as np
 import cv2
+import numpy as np
 
 log = logging.getLogger("eve_handler")
 
@@ -21,16 +22,18 @@ class RegionOCR:
     """Обёртка над RapidOCR для распознавания текста в вырезанных областях кадра."""
 
     def __init__(self):
-        from rapidocr import RapidOCR, EngineType
+        from rapidocr import EngineType, RapidOCR
 
         t0 = time.perf_counter()
-        self._engine = RapidOCR(params={
-            "Det.limit_type": "max",
-            "Det.limit_side_len": 736,
-            "Det.engine_type": EngineType.OPENVINO,
-            "Rec.engine_type": EngineType.OPENVINO,
-            "Global.log_level": "warning",
-        })
+        self._engine = RapidOCR(
+            params={
+                "Det.limit_type": "max",
+                "Det.limit_side_len": 736,
+                "Det.engine_type": EngineType.OPENVINO,
+                "Rec.engine_type": EngineType.OPENVINO,
+                "Global.log_level": "warning",
+            }
+        )
         # Прогрев: первый вызов компилирует графы OpenVINO (сотни миллисекунд).
         # В прогревочной картинке должен быть текст — иначе детектор ничего не
         # найдёт, до распознавателя дело не дойдёт и его граф скомпилируется

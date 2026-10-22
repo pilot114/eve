@@ -3,3 +3,4 @@ __pycache__
 eve-status/data.json
 eve-status/history.json
 eve-status/update.log
+node_modules/

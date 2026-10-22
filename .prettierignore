@@ -1,0 +1,12 @@
+# prettier форматирует только код; тексты, данные и сборки — как есть
+/dist/
+/static/report/data/
+/static/eve-online-static-data-3421648-jsonl/
+/crawler/
+*.md
+*.json
+*.yml
+*.yaml
+*.lock
+package-lock.json
+/toolchain/

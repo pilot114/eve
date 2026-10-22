@@ -1,0 +1,9 @@
+[tool.ruff]
+# check: ruff check + ruff format --check, fix: ruff check --fix + ruff format —
+# как composer check/fix в pretty-php. Замечания, найденные при заведении, помечены # noqa.
+line-length = 120
+target-version = "py312"
+extend-exclude = [".venv", "static"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B"]

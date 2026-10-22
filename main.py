@@ -1,14 +1,15 @@
-import time
-import signal
 import argparse
 import logging
+import signal
+import time
+
 import cv2
 import numpy as np
-from evdev import UInput, ecodes as e
+from evdev import ecodes as e
 
 from capture import create_capture
 from ocr import RegionOCR
-from regions import load_regions, save_regions, select_regions_interactive, REGIONS_FILE
+from regions import REGIONS_FILE, load_regions, save_regions, select_regions_interactive
 
 # Размер области по умолчанию в центре экрана (в пикселях), если пользователь
 # не выбрал свои области через --select-regions
@@ -32,6 +33,8 @@ log = logging.getLogger(__name__)
 
 
 """Настраивает логирование в консоль и, если log_to_file=True, дополнительно в файл."""
+
+
 def setup_logging(log_to_file=False):
     handlers = [logging.StreamHandler()]
     if log_to_file:
@@ -44,6 +47,8 @@ def setup_logging(log_to_file=False):
 
 
 """Возвращает координаты (x1, y1, x2, y2) отслеживаемой области в центре кадра."""
+
+
 def get_center_bbox(frame):
     h, w = frame.shape[:2]
     cy, cx = h // 2, w // 2
@@ -58,6 +63,8 @@ def get_center_bbox(frame):
 текущего разрешения). Иначе — область ROI_SIZE x ROI_SIZE по центру экрана,
 как и раньше.
 """
+
+
 def resolve_regions(frame, custom_regions):
     h, w = frame.shape[:2]
     if not custom_regions:
@@ -69,7 +76,13 @@ def resolve_regions(frame, custom_regions):
         if r["x2"] > w or r["y2"] > h:
             log.warning(
                 "Область %s (%d,%d)-(%d,%d) не помещается в кадр %dx%d — пропущена",
-                r["name"], r["x1"], r["y1"], r["x2"], r["y2"], w, h,
+                r["name"],
+                r["x1"],
+                r["y1"],
+                r["x2"],
+                r["y2"],
+                w,
+                h,
             )
             continue
         resolved.append(r)
@@ -82,6 +95,8 @@ def resolve_regions(frame, custom_regions):
 
 
 """Вырезает прямоугольник bbox из кадра и переводит его в оттенки серого."""
+
+
 def get_region_gray(frame, bbox):
     x1, y1, x2, y2 = bbox
     return cv2.cvtColor(frame[y1:y2, x1:x2], cv2.COLOR_BGRA2GRAY)
@@ -95,10 +110,12 @@ regions — список областей {"name","x1","y1","x2","y2"}, prev_gra
 
 Возвращает кортеж (имена_сработавших_областей, новые_prev_grays).
 """
+
+
 def check_regions(frame, regions, prev_grays):
     triggered = []
     new_grays = []
-    for region, prev in zip(regions, prev_grays):
+    for region, prev in zip(regions, prev_grays):  # noqa: B905
         bbox = (region["x1"], region["y1"], region["x2"], region["y2"])
         gray = get_region_gray(frame, bbox)
 
@@ -118,6 +135,8 @@ def check_regions(frame, regions, prev_grays):
 изменились в этом кадре — triggered_names, иначе зелёную) и подпись о
 нажатии рядом с областью caption_region, пока caption_frames > 0.
 """
+
+
 def render_view_frame(frame, regions, triggered_names, caption_frames, caption_region):
     # VideoWriter ожидает BGR, кадр захвата приходит в BGRA.
     view = cv2.cvtColor(frame, cv2.COLOR_BGRA2BGR)
@@ -130,8 +149,14 @@ def render_view_frame(frame, regions, triggered_names, caption_frames, caption_r
     if caption_frames > 0 and caption_region is not None:
         x1, y1 = caption_region["x1"], caption_region["y1"]
         cv2.putText(
-            view, "AUTO Ctrl+Q", (x1, max(y1 - 12, 20)),
-            cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 0, 255), 2, cv2.LINE_AA,
+            view,
+            "AUTO Ctrl+Q",
+            (x1, max(y1 - 12, 20)),
+            cv2.FONT_HERSHEY_SIMPLEX,
+            0.8,
+            (0, 0, 255),
+            2,
+            cv2.LINE_AA,
         )
     return view
 
@@ -141,19 +166,23 @@ def render_view_frame(frame, regions, triggered_names, caption_frames, caption_r
 Сейчас не вызывается: автонажатие Ctrl+Q временно отключено. Оставлено вместе
 с импортом evdev, чтобы вернуть отправку клавиш без переписывания (нужно снова
 создать UInput в main() и вызвать press_combo в главном цикле)."""
+
+
 def press_combo(ui, key1, key2):
-    ui.write(e.EV_KEY, key1, 1) # Нажать key1
-    ui.write(e.EV_KEY, key2, 1) # Нажать key2
+    ui.write(e.EV_KEY, key1, 1)  # Нажать key1
+    ui.write(e.EV_KEY, key2, 1)  # Нажать key2
     ui.syn()
 
-    time.sleep(0.05) # Короткая задержка для регистрации игрой/программой
+    time.sleep(0.05)  # Короткая задержка для регистрации игрой/программой
 
-    ui.write(e.EV_KEY, key2, 0) # Отпустить key2
-    ui.write(e.EV_KEY, key1, 0) # Отпустить key1
+    ui.write(e.EV_KEY, key2, 0)  # Отпустить key2
+    ui.write(e.EV_KEY, key1, 0)  # Отпустить key1
     ui.syn()
 
 
 """Создаёт VideoWriter под размер кадра. Частота кадров соответствует частоте проверок."""
+
+
 def open_video_writer(frame):
     h, w = frame.shape[:2]
     fps = 1.0 / LOOP_INTERVAL
@@ -174,13 +203,17 @@ def main(view=False, overlay=False, regions_file=REGIONS_FILE, reselect_source=F
     if custom_regions:
         log.info(
             "Загружено %d сохранённых област(и/ей) из %s: %s",
-            len(custom_regions), regions_file, ", ".join(r["name"] for r in custom_regions),
+            len(custom_regions),
+            regions_file,
+            ", ".join(r["name"] for r in custom_regions),
         )
     else:
         log.info(
             "Файл областей не найден (%s) — используется область %dx%d по центру экрана. "
             "Запустите main.py --select-regions, чтобы выбрать свои области.",
-            regions_file, ROI_SIZE, ROI_SIZE,
+            regions_file,
+            ROI_SIZE,
+            ROI_SIZE,
         )
 
     ocr = RegionOCR()
@@ -214,6 +247,7 @@ def main(view=False, overlay=False, regions_file=REGIONS_FILE, reselect_source=F
                 prev_grays = [None] * len(active_regions)
                 if overlay:
                     from overlay import ScreenOverlay
+
                     screen_overlay = ScreenOverlay(active_regions, flash_secs=1.0)
 
             triggered_names, prev_grays = check_regions(frame, active_regions, prev_grays)
@@ -225,13 +259,14 @@ def main(view=False, overlay=False, regions_file=REGIONS_FILE, reselect_source=F
             # (изменения пикселей сами по себе не логируем).
             for region in active_regions:
                 if region["name"] in triggered_set:
-                    crop = frame[region["y1"]:region["y2"], region["x1"]:region["x2"]]
+                    crop = frame[region["y1"] : region["y2"], region["x1"] : region["x2"]]
                     lines = ocr.recognize(crop)
                     if lines != last_texts.get(region["name"]):
                         last_texts[region["name"]] = lines
                         log.info(
                             "Текст в «%s»: %s",
-                            region["name"], " | ".join(lines) if lines else "(текст не найден)",
+                            region["name"],
+                            " | ".join(lines) if lines else "(текст не найден)",
                         )
 
             pressed = False
@@ -278,6 +313,8 @@ def main(view=False, overlay=False, regions_file=REGIONS_FILE, reselect_source=F
 """Режим выбора областей: показывает живое изображение экрана и даёт
 пользователю выделить мышью области отслеживания, затем сохраняет их в
 regions_file для использования в обычном запуске."""
+
+
 def run_region_selection(regions_file, reselect_source=False):
     log.info("Захват экрана для выбора областей...")
     cap = create_capture(reselect_source=reselect_source)
@@ -301,6 +338,8 @@ def run_region_selection(regions_file, reselect_source=False):
 """Режим проверки OCR: снимает один кадр, распознаёт текст в каждой
 сохранённой области и печатает результат с временем распознавания
 (порог приемлемой скорости — 100 мс на область)."""
+
+
 def run_ocr_test(regions_file, reselect_source=False):
     custom_regions = load_regions(regions_file)
     ocr = RegionOCR()
@@ -312,7 +351,7 @@ def run_ocr_test(regions_file, reselect_source=False):
         cap.close()
 
     for region in resolve_regions(frame, custom_regions):
-        crop = frame[region["y1"]:region["y2"], region["x1"]:region["x2"]]
+        crop = frame[region["y1"] : region["y2"], region["x1"] : region["x2"]]
         # Три прогона, берём медиану — разовые всплески планировщика не должны
         # искажать оценку скорости.
         times = []
@@ -323,42 +362,54 @@ def run_ocr_test(regions_file, reselect_source=False):
         ms = sorted(times)[1]
         log.info(
             "«%s» %dx%d: %.0f мс [%s] — %s",
-            region["name"], region["x2"] - region["x1"], region["y2"] - region["y1"],
-            ms, "OK" if ms < 100 else "МЕДЛЕННО",
+            region["name"],
+            region["x2"] - region["x1"],
+            region["y2"] - region["y1"],
+            ms,
+            "OK" if ms < 100 else "МЕДЛЕННО",
             " | ".join(lines) if lines else "(текст не найден)",
         )
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Отслеживание изменений в заданных областях экрана и автонажатие Ctrl+Q.")
+    parser = argparse.ArgumentParser(
+        description="Отслеживание изменений в заданных областях экрана и автонажатие Ctrl+Q."
+    )
     parser.add_argument(
-        "--view", action="store_true",
+        "--view",
+        action="store_true",
         help=f"Режим просмотра: записывать то, что видит программа, в {VIDEO_FILE}",
     )
     parser.add_argument(
-        "--overlay", action="store_true",
+        "--overlay",
+        action="store_true",
         help="Режим оверлея: рисовать рамку и подпись прямо на экране поверх всех окон",
     )
     parser.add_argument(
-        "--select-regions", action="store_true",
-        help="Режим выбора областей: выделить мышью зоны отслеживания на снимке экрана и сохранить их для дальнейших запусков",
+        "--select-regions",
+        action="store_true",
+        help="Режим выбора областей: выделить мышью зоны отслеживания на снимке экрана и сохранить их для дальнейших запусков",  # noqa: E501
     )
     parser.add_argument(
-        "--ocr-test", action="store_true",
-        help="Режим проверки OCR: снять один кадр, распознать текст в каждой сохранённой области и показать время распознавания",
+        "--ocr-test",
+        action="store_true",
+        help="Режим проверки OCR: снять один кадр, распознать текст в каждой сохранённой области и показать время распознавания",  # noqa: E501
     )
     parser.add_argument(
-        "--regions-file", default=REGIONS_FILE,
+        "--regions-file",
+        default=REGIONS_FILE,
         help=f"Файл с сохранёнными областями отслеживания (по умолчанию {REGIONS_FILE})",
     )
     parser.add_argument(
-        "--log-file", action="store_true",
+        "--log-file",
+        action="store_true",
         help=f"Дополнительно писать лог в файл {LOG_FILE} (по умолчанию только в консоль)",
     )
     parser.add_argument(
-        "--reselect-source", action="store_true",
+        "--reselect-source",
+        action="store_true",
         help="Заново выбрать источник захвата (экран или окно приложения) в диалоге KDE, "
-             "игнорируя сохранённое разрешение",
+        "игнорируя сохранённое разрешение",
     )
     args = parser.parse_args()
     setup_logging(log_to_file=args.log_file)
@@ -367,5 +418,4 @@ if __name__ == "__main__":
     elif args.ocr_test:
         run_ocr_test(args.regions_file, reselect_source=args.reselect_source)
     else:
-        main(view=args.view, overlay=args.overlay, regions_file=args.regions_file,
-             reselect_source=args.reselect_source)
+        main(view=args.view, overlay=args.overlay, regions_file=args.regions_file, reselect_source=args.reselect_source)

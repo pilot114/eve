@@ -10,8 +10,13 @@
 
   function makeLineReader(table) {
     const url = EveUtil.fileUrl(table);
-    let netReader = null, decoder = new TextDecoder("utf-8"), buffer = "", done = false, started = false;
-    let bytesRead = 0, totalBytes = null;
+    let netReader = null,
+      decoder = new TextDecoder("utf-8"),
+      buffer = "",
+      done = false,
+      started = false;
+    let bytesRead = 0,
+      totalBytes = null;
     async function start() {
       const resp = await fetch(url);
       if (!resp.ok) throw new Error("HTTP " + resp.status + " при загрузке " + url);
@@ -34,7 +39,10 @@
         const { value, done: d } = await netReader.read();
         if (d) {
           done = true;
-          if (buffer.trim()) { lines.push(buffer); buffer = ""; }
+          if (buffer.trim()) {
+            lines.push(buffer);
+            buffer = "";
+          }
           break;
         }
         bytesRead += value.length;
@@ -42,7 +50,9 @@
       }
       return { lines, finished: done && buffer.length === 0, bytesRead, totalBytes };
     }
-    function cancel() { if (netReader) netReader.cancel().catch(() => {}); }
+    function cancel() {
+      if (netReader) netReader.cancel().catch(() => {});
+    }
     return { next, cancel };
   }
 
@@ -61,7 +71,8 @@
           const meta = window.EVE_META.tables[n];
           const opt = document.createElement("option");
           opt.value = n;
-          opt.textContent = n + "  (" + EveUtil.formatNumber(meta.rows) + " стр., " + EveUtil.formatBytes(meta.bytes) + ")";
+          opt.textContent =
+            n + "  (" + EveUtil.formatNumber(meta.rows) + " стр., " + EveUtil.formatBytes(meta.bytes) + ")";
           og.appendChild(opt);
         });
       select.appendChild(og);
@@ -73,7 +84,14 @@
     const meta = window.EVE_META.tables[currentTable];
     const ordered = meta.fields.map((f) => f.name);
     const seen = new Set(ordered);
-    items.forEach((it) => Object.keys(it).forEach((k) => { if (!seen.has(k)) { seen.add(k); ordered.push(k); } }));
+    items.forEach((it) =>
+      Object.keys(it).forEach((k) => {
+        if (!seen.has(k)) {
+          seen.add(k);
+          ordered.push(k);
+        }
+      }),
+    );
     return ordered;
   }
 
@@ -86,10 +104,11 @@
     }
     const cols = columnsFor(loadedItems);
     const table = EveUtil.el("table", { class: "data-table" });
-    const thead = EveUtil.el("thead", {}, EveUtil.el("tr", {}, [
-      EveUtil.el("th", {}, "#"),
-      ...cols.map((c) => EveUtil.el("th", {}, c)),
-    ]));
+    const thead = EveUtil.el(
+      "thead",
+      {},
+      EveUtil.el("tr", {}, [EveUtil.el("th", {}, "#"), ...cols.map((c) => EveUtil.el("th", {}, c))]),
+    );
     const tbody = document.createElement("tbody");
     table.appendChild(thead);
     table.appendChild(tbody);
@@ -98,8 +117,12 @@
       const tr = document.createElement("tr");
       tr.dataset.search = JSON.stringify(item).toLowerCase();
       const idxTd = document.createElement("td");
-      idxTd.innerHTML = (i + 1) + ' <details><summary>JSON</summary><pre>' +
-        EveUtil.escapeHtml(JSON.stringify(item, null, 2)) + "</pre></details>";
+      idxTd.innerHTML =
+        i +
+        1 +
+        " <details><summary>JSON</summary><pre>" +
+        EveUtil.escapeHtml(JSON.stringify(item, null, 2)) +
+        "</pre></details>";
       tr.appendChild(idxTd);
       cols.forEach((c) => {
         const td = document.createElement("td");
@@ -128,15 +151,24 @@
   }
 
   async function loadTable(table, count) {
-    if (reader) { reader.cancel(); reader = null; }
+    if (reader) {
+      reader.cancel();
+      reader = null;
+    }
     currentTable = table;
     loadedItems = [];
     rowFilter = "";
     document.getElementById("exp-row-filter").value = "";
     const meta = window.EVE_META.tables[table];
     document.getElementById("exp-meta-hint").innerHTML =
-      "<b>" + table + "</b> · " + meta.desc + "<br>" +
-      EveUtil.formatNumber(meta.rows) + " строк всего, файл " + EveUtil.formatBytes(meta.bytes) +
+      "<b>" +
+      table +
+      "</b> · " +
+      meta.desc +
+      "<br>" +
+      EveUtil.formatNumber(meta.rows) +
+      " строк всего, файл " +
+      EveUtil.formatBytes(meta.bytes) +
       (meta.bytes > 5 * 1024 * 1024 ? " — файл большой, загружается только начало потоково." : "");
     document.getElementById("exp-table-wrap").innerHTML = '<div class="hint">Загрузка…</div>';
     reader = makeLineReader(table);
@@ -149,7 +181,11 @@
     loadMoreBtn.disabled = true;
     const { lines, finished } = await reader.next(count);
     lines.forEach((line) => {
-      try { loadedItems.push(JSON.parse(line)); } catch (e) { /* skip malformed */ }
+      try {
+        loadedItems.push(JSON.parse(line));
+      } catch (e) {
+        /* skip malformed */
+      }
     });
     renderTable();
     loadMoreBtn.disabled = finished;
@@ -171,15 +207,27 @@
     initialized = true;
     const panel = document.getElementById("tab-explorer");
     panel.appendChild(EveUtil.el("h2", { class: "section-title" }, "Просмотр данных: любая из 79 таблиц"));
-    panel.appendChild(EveUtil.el("div", { class: "hint", style: "margin-bottom:10px" },
-      "Файлы читаются потоково (fetch + ReadableStream): загружается только запрошенное число строк, " +
-      "даже если файл весит сотни мегабайт (mapMoons.jsonl — 224 МБ). Кнопка «Загрузить ещё» продолжает чтение с того же места."));
+    panel.appendChild(
+      EveUtil.el(
+        "div",
+        { class: "hint", style: "margin-bottom:10px" },
+        "Файлы читаются потоково (fetch + ReadableStream): загружается только запрошенное число строк, " +
+          "даже если файл весит сотни мегабайт (mapMoons.jsonl — 224 МБ). Кнопка «Загрузить ещё» продолжает чтение с того же места.",
+      ),
+    );
 
     const toolbar = EveUtil.el("div", { class: "toolbar" });
     const select = buildSelect();
     toolbar.appendChild(select);
     toolbar.appendChild(EveUtil.el("span", { class: "hint" }, "строк:"));
-    const countInput = EveUtil.el("input", { id: "exp-count-input", type: "number", min: "1", max: "5000", value: "50", style: "width:80px" });
+    const countInput = EveUtil.el("input", {
+      id: "exp-count-input",
+      type: "number",
+      min: "1",
+      max: "5000",
+      value: "50",
+      style: "width:80px",
+    });
     toolbar.appendChild(countInput);
     const loadBtn = EveUtil.el("button", { class: "btn primary" }, "Загрузить");
     loadBtn.addEventListener("click", () => loadTable(select.value, parseInt(countInput.value, 10) || 50));
@@ -191,23 +239,43 @@
 
     const toolbar2 = EveUtil.el("div", { class: "toolbar" });
     const rowFilterInput = EveUtil.el("input", {
-      id: "exp-row-filter", type: "search", placeholder: "Фильтр по загруженным строкам…", style: "width:260px",
-      oninput: EveUtil.debounce((e) => { rowFilter = e.target.value; applyRowFilter(); }, 150),
+      id: "exp-row-filter",
+      type: "search",
+      placeholder: "Фильтр по загруженным строкам…",
+      style: "width:260px",
+      oninput: EveUtil.debounce((e) => {
+        rowFilter = e.target.value;
+        applyRowFilter();
+      }, 150),
     });
     toolbar2.appendChild(rowFilterInput);
     let langSelect = EveUtil.el(
       "select",
-      { onchange: (e) => { EveUtil.setLang(e.target.value); renderTable(); } },
-      EveUtil.LANG_ORDER.map((l) => EveUtil.el("option", { value: l, selected: l === EveUtil.getLang() }, EveUtil.LANG_LABELS[l]))
+      {
+        onchange: (e) => {
+          EveUtil.setLang(e.target.value);
+          renderTable();
+        },
+      },
+      EveUtil.LANG_ORDER.map((l) =>
+        EveUtil.el("option", { value: l, selected: l === EveUtil.getLang() }, EveUtil.LANG_LABELS[l]),
+      ),
     );
     toolbar2.appendChild(EveUtil.el("span", { class: "hint" }, "язык i18n:"));
     toolbar2.appendChild(langSelect);
     toolbar2.appendChild(EveUtil.el("span", { class: "hint", id: "exp-count-hint" }, ""));
     panel.appendChild(toolbar2);
 
-    panel.appendChild(EveUtil.el("div", { id: "exp-meta-hint", class: "card", style: "margin-bottom:10px; font-size:12.5px" }));
-    panel.appendChild(EveUtil.el("div", { id: "exp-table-wrap", class: "data-table-wrap" },
-      EveUtil.el("div", { class: "hint" }, "Выберите таблицу и нажмите «Загрузить».")));
+    panel.appendChild(
+      EveUtil.el("div", { id: "exp-meta-hint", class: "card", style: "margin-bottom:10px; font-size:12.5px" }),
+    );
+    panel.appendChild(
+      EveUtil.el(
+        "div",
+        { id: "exp-table-wrap", class: "data-table-wrap" },
+        EveUtil.el("div", { class: "hint" }, "Выберите таблицу и нажмите «Загрузить»."),
+      ),
+    );
 
     loadTable(select.value, 50);
   }

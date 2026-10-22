@@ -13,8 +13,9 @@ reselect_source (флаг --reselect-source).
     cap.close()
     cap.width / cap.height  (известны после первого grab)
 """
-import os
+
 import logging
+import os
 
 import numpy as np
 
@@ -34,10 +35,11 @@ class PipeWireCapture:
     def __init__(self, reselect_source=False):
         self._reselect_source = reselect_source
         import gi
+
         gi.require_version("Gst", "1.0")
         gi.require_version("GstApp", "1.0")
         # GstApp нужен, чтобы у appsink появились методы вроде try_pull_sample.
-        from gi.repository import Gst, GstApp, GLib, Gio  # noqa: F401
+        from gi.repository import Gio, GLib, Gst, GstApp  # noqa: F401
 
         self._Gst, self._GLib, self._Gio = Gst, GLib, Gio
         self.width = None
@@ -56,7 +58,7 @@ class PipeWireCapture:
 
     def _call(self, method, build_params):
         """Вызывает метод портала и ждёт асинхронный сигнал Response."""
-        Gio, GLib = self._Gio, self._GLib
+        Gio, GLib = self._Gio, self._GLib  # noqa: F841
         tok = self._next_token()
         stok = self._next_token()
         request_path = f"/org/freedesktop/portal/desktop/request/{self._sender}/{tok}"
@@ -68,12 +70,21 @@ class PipeWireCapture:
             self._loop.quit()
 
         sub = self._bus.signal_subscribe(
-            "org.freedesktop.portal.Desktop", "org.freedesktop.portal.Request",
-            "Response", request_path, None, Gio.DBusSignalFlags.NONE, on_response,
+            "org.freedesktop.portal.Desktop",
+            "org.freedesktop.portal.Request",
+            "Response",
+            request_path,
+            None,
+            Gio.DBusSignalFlags.NONE,
+            on_response,
         )
         try:
             self._screencast.call_sync(
-                method, build_params(tok, stok), Gio.DBusCallFlags.NONE, -1, None,
+                method,
+                build_params(tok, stok),
+                Gio.DBusCallFlags.NONE,
+                -1,
+                None,
             )
             self._loop.run()
         finally:
@@ -105,29 +116,49 @@ class PipeWireCapture:
         self._sender = self._bus.get_unique_name()[1:].replace(".", "_")
         self._loop = GLib.MainLoop()
         self._screencast = Gio.DBusProxy.new_sync(
-            self._bus, Gio.DBusProxyFlags.NONE, None,
+            self._bus,
+            Gio.DBusProxyFlags.NONE,
+            None,
             "org.freedesktop.portal.Desktop",
             "/org/freedesktop/portal/desktop",
-            "org.freedesktop.portal.ScreenCast", None,
+            "org.freedesktop.portal.ScreenCast",
+            None,
         )
 
         # 1. Создать сессию
-        res = self._call("CreateSession", lambda tok, stok: GLib.Variant("(a{sv})", ({
-            "handle_token": GLib.Variant("s", tok),
-            "session_handle_token": GLib.Variant("s", stok),
-        },)))
+        res = self._call(
+            "CreateSession",
+            lambda tok, stok: GLib.Variant(
+                "(a{sv})",
+                (
+                    {
+                        "handle_token": GLib.Variant("s", tok),
+                        "session_handle_token": GLib.Variant("s", stok),
+                    },
+                ),
+            ),
+        )
         self._session = res["session_handle"]
         log.info("Портал: сессия ScreenCast создана")
 
         # 2. Выбрать источник, курсор скрыт (чтобы движение мыши не давало ложных
         # срабатываний). types — битовая маска: 1 = монитор, 2 = окно; 3 даёт
         # в диалоге KDE выбор между целым экраном и окном конкретного приложения.
-        self._call("SelectSources", lambda tok, _stok: GLib.Variant("(oa{sv})", (self._session, {
-            "handle_token": GLib.Variant("s", tok),
-            "types": GLib.Variant("u", 3),        # 1 = монитор, 2 = окно
-            "multiple": GLib.Variant("b", False),
-            "cursor_mode": GLib.Variant("u", 1),  # 1 = курсор скрыт
-        })))
+        self._call(
+            "SelectSources",
+            lambda tok, _stok: GLib.Variant(
+                "(oa{sv})",
+                (
+                    self._session,
+                    {
+                        "handle_token": GLib.Variant("s", tok),
+                        "types": GLib.Variant("u", 3),  # 1 = монитор, 2 = окно
+                        "multiple": GLib.Variant("b", False),
+                        "cursor_mode": GLib.Variant("u", 1),  # 1 = курсор скрыт
+                    },
+                ),
+            ),
+        )
 
         # 3. Старт. Если есть сохранённый restore_token — KDE не покажет диалог.
         # При reselect_source токен игнорируем: диалог появится снова, и новый
@@ -162,7 +193,10 @@ class PipeWireCapture:
         ret, fdlist = self._screencast.call_with_unix_fd_list_sync(
             "OpenPipeWireRemote",
             GLib.Variant("(oa{sv})", (self._session, {})),
-            Gio.DBusCallFlags.NONE, -1, None, None,
+            Gio.DBusCallFlags.NONE,
+            -1,
+            None,
+            None,
         )
         fd = fdlist.get(ret.unpack()[0])
         return fd, node_id

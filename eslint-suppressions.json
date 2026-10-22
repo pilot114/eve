@@ -1,0 +1,66 @@
+{
+  "eve-status/app.js": {
+    "no-irregular-whitespace": {
+      "count": 1
+    },
+    "no-unused-vars": {
+      "count": 2
+    },
+    "no-useless-assignment": {
+      "count": 1
+    }
+  },
+  "static/report/js/main.js": {
+    "no-undef": {
+      "count": 3
+    },
+    "no-unused-vars": {
+      "count": 1
+    }
+  },
+  "static/report/js/tab-dicts.js": {
+    "no-undef": {
+      "count": 47
+    },
+    "no-useless-assignment": {
+      "count": 1
+    }
+  },
+  "static/report/js/tab-erd.js": {
+    "no-undef": {
+      "count": 42
+    },
+    "no-useless-escape": {
+      "count": 1
+    }
+  },
+  "static/report/js/tab-explorer.js": {
+    "no-undef": {
+      "count": 36
+    },
+    "no-unused-vars": {
+      "count": 1
+    }
+  },
+  "static/report/js/tab-overview.js": {
+    "no-undef": {
+      "count": 54
+    },
+    "no-unused-vars": {
+      "count": 1
+    }
+  },
+  "static/report/js/tab-universe.js": {
+    "no-undef": {
+      "count": 63
+    }
+  },
+  "static/report/js/util.js": {
+    "no-unused-vars": {
+      "count": 4
+    },
+    "no-useless-assignment": {
+      "count": 1
+    }
+  }
+}

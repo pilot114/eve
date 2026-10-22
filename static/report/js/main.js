@@ -41,8 +41,13 @@
     try {
       const rows = await EveUtil.loadFull("_sde");
       const sde = rows[0] || {};
-      el.textContent = "сборка " + sde.buildNumber + " · релиз " + (sde.releaseDate || "").slice(0, 10) +
-        " · 79 таблиц · " + EveUtil.formatBytes(Object.values(window.EVE_META.tables).reduce((s, t) => s + t.bytes, 0));
+      el.textContent =
+        "сборка " +
+        sde.buildNumber +
+        " · релиз " +
+        (sde.releaseDate || "").slice(0, 10) +
+        " · 79 таблиц · " +
+        EveUtil.formatBytes(Object.values(window.EVE_META.tables).reduce((s, t) => s + t.bytes, 0));
     } catch (e) {
       el.textContent = "не удалось загрузить _sde.jsonl (см. предупреждение выше)";
     }

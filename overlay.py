@@ -7,14 +7,16 @@
 попадая в захват экрана, не загрязнял отслеживаемую область и не вызывал
 ложных срабатываний.
 """
-import time
+
 import logging
+import time
 
 import gi
+
 gi.require_version("Gtk", "3.0")
 gi.require_version("GtkLayerShell", "0.1")
-from gi.repository import Gtk, GtkLayerShell  # noqa: E402
 import cairo  # noqa: E402
+from gi.repository import Gtk, GtkLayerShell  # noqa: E402
 
 log = logging.getLogger("eve_handler")
 
@@ -33,8 +35,12 @@ class ScreenOverlay:
         self.win = Gtk.Window()
         GtkLayerShell.init_for_window(self.win)
         GtkLayerShell.set_layer(self.win, GtkLayerShell.Layer.OVERLAY)
-        for edge in (GtkLayerShell.Edge.LEFT, GtkLayerShell.Edge.RIGHT,
-                     GtkLayerShell.Edge.TOP, GtkLayerShell.Edge.BOTTOM):
+        for edge in (
+            GtkLayerShell.Edge.LEFT,
+            GtkLayerShell.Edge.RIGHT,
+            GtkLayerShell.Edge.TOP,
+            GtkLayerShell.Edge.BOTTOM,
+        ):
             GtkLayerShell.set_anchor(self.win, edge, True)
         GtkLayerShell.set_exclusive_zone(self.win, -1)  # не резервировать место, перекрывать всё
         GtkLayerShell.set_keyboard_mode(self.win, GtkLayerShell.KeyboardMode.NONE)

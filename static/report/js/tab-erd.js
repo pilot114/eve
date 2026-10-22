@@ -10,7 +10,9 @@
   let searchQuery = "";
 
   function relPos(el, root) {
-    let x = 0, y = 0, node = el;
+    let x = 0,
+      y = 0,
+      node = el;
     while (node && node !== root) {
       x += node.offsetLeft;
       y += node.offsetTop;
@@ -61,8 +63,13 @@
     const header = document.createElement("div");
     header.className = "erd-card-header";
     header.innerHTML =
-      '<span class="erd-card-name">' + name + "</span>" +
-      '<span class="pill">' + EveUtil.formatNumber(meta.rows) + " стр." + "</span>";
+      '<span class="erd-card-name">' +
+      name +
+      "</span>" +
+      '<span class="pill">' +
+      EveUtil.formatNumber(meta.rows) +
+      " стр." +
+      "</span>";
     card.appendChild(header);
 
     if (meta.kv) {
@@ -150,28 +157,40 @@
   function edgeAnchor(sBox, tBox) {
     const sc = { x: sBox.x + sBox.w / 2, y: sBox.y + sBox.h / 2 };
     const tc = { x: tBox.x + tBox.w / 2, y: tBox.y + tBox.h / 2 };
-    const dx = tc.x - sc.x, dy = tc.y - sc.y;
+    const dx = tc.x - sc.x,
+      dy = tc.y - sc.y;
     let sx, sy, tx, ty, c1x, c1y, c2x, c2y;
     if (Math.abs(dy) >= Math.abs(dx)) {
-      sx = sc.x; sy = dy > 0 ? sBox.y + sBox.h : sBox.y;
-      tx = tc.x; ty = dy > 0 ? tBox.y : tBox.y + tBox.h;
-      c1x = sx; c1y = sy + dy * 0.4;
-      c2x = tx; c2y = ty - dy * 0.4;
+      sx = sc.x;
+      sy = dy > 0 ? sBox.y + sBox.h : sBox.y;
+      tx = tc.x;
+      ty = dy > 0 ? tBox.y : tBox.y + tBox.h;
+      c1x = sx;
+      c1y = sy + dy * 0.4;
+      c2x = tx;
+      c2y = ty - dy * 0.4;
     } else {
-      sy = sc.y; sx = dx > 0 ? sBox.x + sBox.w : sBox.x;
-      ty = tc.y; tx = dx > 0 ? tBox.x : tBox.x + tBox.w;
-      c1x = sx + dx * 0.4; c1y = sy;
-      c2x = tx - dx * 0.4; c2y = ty;
+      sy = sc.y;
+      sx = dx > 0 ? sBox.x + sBox.w : sBox.x;
+      ty = tc.y;
+      tx = dx > 0 ? tBox.x : tBox.x + tBox.w;
+      c1x = sx + dx * 0.4;
+      c1y = sy;
+      c2x = tx - dx * 0.4;
+      c2y = ty;
     }
     return `M ${sx} ${sy} C ${c1x} ${c1y}, ${c2x} ${c2y}, ${tx} ${ty}`;
   }
 
-  let svgEl, rootEl, edgesData = [];
+  let svgEl,
+    rootEl,
+    edgesData = [];
 
   function layoutEdges() {
     if (!svgEl || !rootEl) return;
     rootEl.style.height = "";
-    const w = rootEl.scrollWidth, h = rootEl.scrollHeight;
+    const w = rootEl.scrollWidth,
+      h = rootEl.scrollHeight;
     svgEl.setAttribute("width", w);
     svgEl.setAttribute("height", h);
     svgEl.setAttribute("viewBox", `0 0 ${w} ${h}`);
@@ -231,32 +250,68 @@
 
     const head = EveUtil.el("div", { class: "erd-detail-head" }, [
       EveUtil.el("span", { class: "erd-detail-title", style: `color:${g.color}` }, table),
-      EveUtil.el("span", { class: "hint" }, " · " + g.label + " · " + EveUtil.formatNumber(meta.rows) + " строк · " + EveUtil.formatBytes(meta.bytes)),
-      EveUtil.el("button", { class: "icon-btn", style: "margin-left:auto", onclick: () => setFocus(null) }, "✕ закрыть"),
+      EveUtil.el(
+        "span",
+        { class: "hint" },
+        " · " + g.label + " · " + EveUtil.formatNumber(meta.rows) + " строк · " + EveUtil.formatBytes(meta.bytes),
+      ),
+      EveUtil.el(
+        "button",
+        { class: "icon-btn", style: "margin-left:auto", onclick: () => setFocus(null) },
+        "✕ закрыть",
+      ),
     ]);
     panel.appendChild(head);
     panel.appendChild(EveUtil.el("div", { class: "hint", style: "margin:4px 0 8px" }, meta.desc));
 
     const cols = EveUtil.el("div", { class: "erd-detail-cols" });
-    const outCol = EveUtil.el("div", { class: "erd-detail-col" }, [EveUtil.el("h4", {}, "Исходящие связи (" + outgoing.length + ")")]);
+    const outCol = EveUtil.el("div", { class: "erd-detail-col" }, [
+      EveUtil.el("h4", {}, "Исходящие связи (" + outgoing.length + ")"),
+    ]);
     if (!outgoing.length) outCol.appendChild(EveUtil.el("div", { class: "hint" }, "нет"));
     outgoing.forEach((r) => {
-      outCol.appendChild(EveUtil.el("div", { class: "erd-detail-row" }, [
-        EveUtil.el("code", {}, r.field),
-        " → ",
-        EveUtil.el("a", { href: "#", onclick: (e) => { e.preventDefault(); setFocus(r.to); } }, r.to),
-        r.note ? EveUtil.el("span", { class: "hint" }, "  " + r.note) : null,
-      ]));
+      outCol.appendChild(
+        EveUtil.el("div", { class: "erd-detail-row" }, [
+          EveUtil.el("code", {}, r.field),
+          " → ",
+          EveUtil.el(
+            "a",
+            {
+              href: "#",
+              onclick: (e) => {
+                e.preventDefault();
+                setFocus(r.to);
+              },
+            },
+            r.to,
+          ),
+          r.note ? EveUtil.el("span", { class: "hint" }, "  " + r.note) : null,
+        ]),
+      );
     });
-    const inCol = EveUtil.el("div", { class: "erd-detail-col" }, [EveUtil.el("h4", {}, "Входящие связи (" + incoming.length + ")")]);
+    const inCol = EveUtil.el("div", { class: "erd-detail-col" }, [
+      EveUtil.el("h4", {}, "Входящие связи (" + incoming.length + ")"),
+    ]);
     if (!incoming.length) inCol.appendChild(EveUtil.el("div", { class: "hint" }, "нет"));
     incoming.forEach((r) => {
-      inCol.appendChild(EveUtil.el("div", { class: "erd-detail-row" }, [
-        EveUtil.el("a", { href: "#", onclick: (e) => { e.preventDefault(); setFocus(r.from); } }, r.from),
-        EveUtil.el("code", {}, r.field),
-        " → эта таблица",
-        r.note ? EveUtil.el("span", { class: "hint" }, "  " + r.note) : null,
-      ]));
+      inCol.appendChild(
+        EveUtil.el("div", { class: "erd-detail-row" }, [
+          EveUtil.el(
+            "a",
+            {
+              href: "#",
+              onclick: (e) => {
+                e.preventDefault();
+                setFocus(r.from);
+              },
+            },
+            r.from,
+          ),
+          EveUtil.el("code", {}, r.field),
+          " → эта таблица",
+          r.note ? EveUtil.el("span", { class: "hint" }, "  " + r.note) : null,
+        ]),
+      );
     });
     cols.appendChild(outCol);
     cols.appendChild(inCol);
@@ -283,8 +338,13 @@
   function buildToolbar(container) {
     const bar = EveUtil.el("div", { class: "toolbar" });
     const search = EveUtil.el("input", {
-      type: "search", placeholder: "Поиск таблицы…", style: "width:220px",
-      oninput: EveUtil.debounce((e) => { searchQuery = e.target.value; applyFilters(); }, 150),
+      type: "search",
+      placeholder: "Поиск таблицы…",
+      style: "width:220px",
+      oninput: EveUtil.debounce((e) => {
+        searchQuery = e.target.value;
+        applyFilters();
+      }, 150),
     });
     bar.appendChild(search);
 
@@ -299,21 +359,19 @@
     GROUP_ORDER.forEach((gk) => {
       const g = window.EVE_META.groups[gk];
       const count = Object.values(window.EVE_META.tables).filter((t) => t.group === gk).length;
-      const chip = EveUtil.el(
-        "label",
-        { class: "erd-legend-chip", style: `--c:${g.color};--c-dark:${g.colorDark}` },
-        [
-          EveUtil.el("input", {
-            type: "checkbox", checked: true,
-            onchange: (e) => {
-              if (e.target.checked) hiddenGroups.delete(gk); else hiddenGroups.add(gk);
-              applyFilters();
-            },
-          }),
-          EveUtil.el("span", { class: "erd-legend-dot" }),
-          g.label + " (" + count + ")",
-        ]
-      );
+      const chip = EveUtil.el("label", { class: "erd-legend-chip", style: `--c:${g.color};--c-dark:${g.colorDark}` }, [
+        EveUtil.el("input", {
+          type: "checkbox",
+          checked: true,
+          onchange: (e) => {
+            if (e.target.checked) hiddenGroups.delete(gk);
+            else hiddenGroups.add(gk);
+            applyFilters();
+          },
+        }),
+        EveUtil.el("span", { class: "erd-legend-dot" }),
+        g.label + " (" + count + ")",
+      ]);
       legend.appendChild(chip);
     });
     bar.appendChild(legend);
@@ -325,7 +383,9 @@
     nodesWrap.innerHTML = "";
     const relations = window.EVE_META.relations;
     const incomingCount = {};
-    relations.forEach((r) => { incomingCount[r.to] = (incomingCount[r.to] || 0) + 1; });
+    relations.forEach((r) => {
+      incomingCount[r.to] = (incomingCount[r.to] || 0) + 1;
+    });
 
     GROUP_ORDER.forEach((gk) => {
       const g = window.EVE_META.groups[gk];
@@ -333,7 +393,13 @@
         .filter((n) => window.EVE_META.tables[n].group === gk)
         .sort();
       const section = EveUtil.el("div", { class: "erd-domain-section" });
-      section.appendChild(EveUtil.el("h3", { class: "erd-domain-title", style: `color:${g.color}` }, g.label + " · " + names.length + " табл."));
+      section.appendChild(
+        EveUtil.el(
+          "h3",
+          { class: "erd-domain-title", style: `color:${g.color}` },
+          g.label + " · " + names.length + " табл.",
+        ),
+      );
       const grid = EveUtil.el("div", { class: "erd-domain-grid" });
       names.forEach((n) => {
         const incoming = relations.filter((r) => r.to === n && r.from !== n);
@@ -364,9 +430,14 @@
     const panel = document.getElementById("tab-erd");
 
     panel.appendChild(EveUtil.el("h2", { class: "section-title" }, "ERD-диаграмма: сущности, поля и связи"));
-    panel.appendChild(EveUtil.el("div", { class: "hint", style: "margin-bottom:10px" },
-      "79 таблиц датасета сгруппированы по смысловым доменам. Клик по карточке подсвечивает её связи и открывает панель с точными путями полей. " +
-      "Фиолетовая метка PK — первичный ключ (_key), синие бейджи «→ таблица» — внешние ссылки."));
+    panel.appendChild(
+      EveUtil.el(
+        "div",
+        { class: "hint", style: "margin-bottom:10px" },
+        "79 таблиц датасета сгруппированы по смысловым доменам. Клик по карточке подсвечивает её связи и открывает панель с точными путями полей. " +
+          "Фиолетовая метка PK — первичный ключ (_key), синие бейджи «→ таблица» — внешние ссылки.",
+      ),
+    );
 
     buildToolbar(panel);
     panel.appendChild(EveUtil.el("div", { id: "erd-detail", class: "erd-detail card" }));

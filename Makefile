@@ -6,6 +6,8 @@ PIP := .venv/bin/pip
 # Цель по умолчанию — показать справку, если make вызван без аргументов
 .DEFAULT_GOAL := help
 
+RUFF ?= uvx ruff@0.17.1
+
 # Альянс по умолчанию для краулера (переопределить: make crawl ALLIANCE=Pandemic_Horde)
 ALLIANCE := Goonswarm_Federation
 
@@ -67,10 +69,6 @@ dev: ## запустить
 test: ## тесты
 	@echo "тестов нет"
 
-.PHONY: lint
-lint: ## проверка синтаксиса
-	python3 -m compileall -q -x '/\.venv/' .
-
 .PHONY: build
 build: ## сборка
 	@echo "сборки нет"
@@ -85,3 +83,15 @@ audit: ## уязвимости в зависимостях
 outdated: ## устаревшие зависимости
 	@test -x .venv/bin/python || { echo "нет .venv — сначала make install"; exit 1; }
 	uv pip list --outdated --python .venv/bin/python
+
+.PHONY: check
+check: ## ruff: замечания и формат (как composer check)
+	$(RUFF) check .
+	$(RUFF) format --check .
+	npm run check
+
+.PHONY: fix
+fix: ## ruff: исправить и отформатировать (как composer fix)
+	$(RUFF) check --fix . || true
+	$(RUFF) format .
+	npm run fix

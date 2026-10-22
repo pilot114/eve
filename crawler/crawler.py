@@ -18,18 +18,19 @@
     python crawler.py --all                       # все альянсы со страницы /alliances
     python crawler.py --all --exclude Goonswarm_Federation --append   # дописать к готовому CSV
 """
-import os
-import csv
-import time
-import random
+
 import argparse
+import csv
 import logging
-from urllib.parse import urljoin, unquote
+import os
+import random
+import time
+from urllib.parse import unquote, urljoin
 
 import requests
+from bs4 import BeautifulSoup
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
-from bs4 import BeautifulSoup
 
 BASE_URL = "https://evemaps.dotlan.net"
 ALLIANCES_URL = f"{BASE_URL}/alliances"
@@ -37,10 +38,7 @@ ALLIANCES_URL = f"{BASE_URL}/alliances"
 # "Name" берётся из инфо-таблицы страницы корпорации (ключ "Name") наравне с прочими полями.
 FIELDS = ["Name", "Ticker", "Alliance", "Faction", "Ceo", "Members", "URL", "Tax Rate", "corporationID"]
 # User-Agent обычного браузера — без него dotlan иногда отвечает иначе
-USER_AGENT = (
-    "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
-    "(KHTML, like Gecko) Chrome/120.0 Safari/537.36"
-)
+USER_AGENT = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36"
 LOG_FILE = "eve_handler.log"
 
 logging.basicConfig(
@@ -55,6 +53,8 @@ log = logging.getLogger("crawler")
 
 
 """Создаёт HTTP-сессию с повторными попытками на сетевые сбои и 5xx-ответы."""
+
+
 def make_session(user_agent=USER_AGENT):
     session = requests.Session()
     session.headers.update({"User-Agent": user_agent})
@@ -71,6 +71,8 @@ def make_session(user_agent=USER_AGENT):
 
 
 """Скачивает страницу и возвращает её HTML-текст (или None при ошибке)."""
+
+
 def fetch(session, url, timeout=30):
     try:
         resp = session.get(url, timeout=timeout)
@@ -86,6 +88,8 @@ def fetch(session, url, timeout=30):
 Принимает как слаг (Goonswarm_Federation), так и человекочитаемое имя
 (Goonswarm Federation) или готовый путь/URL.
 """
+
+
 def alliance_corps_url(alliance):
     alliance = alliance.strip()
     if alliance.startswith("http"):
@@ -101,6 +105,8 @@ def alliance_corps_url(alliance):
 Берёт основную таблицу альянсов (та, где есть колонка Corps), пропуская
 боковые списки. Сохраняет порядок, в котором альянсы идут на странице.
 """
+
+
 def get_all_alliance_slugs(session, index_url=ALLIANCES_URL):
     html = fetch(session, index_url)
     if html is None:
@@ -130,6 +136,8 @@ def get_all_alliance_slugs(session, index_url=ALLIANCES_URL):
 (заголовки Name/Ticker/Member/Joined) и бывшие (есть колонка Left).
 Берём только таблицу текущих членов. Возвращает список (href, name).
 """
+
+
 def extract_member_corps(html):
     soup = BeautifulSoup(html, "lxml")
     corps = []
@@ -159,6 +167,8 @@ def extract_member_corps(html):
 Инфо-таблица состоит из строк вида <td>Ключ</td><td>Значение</td>.
 recursive=False важно, чтобы не цеплять ячейки вложенных таблиц.
 """
+
+
 def parse_corp(html):
     soup = BeautifulSoup(html, "lxml")
     info = {}
@@ -178,6 +188,8 @@ def parse_corp(html):
 В файле по одному href корпорации на строку. Нужен для возобновления (--append):
 позволяет не перекачивать корпорации, собранные в прошлых запусках.
 """
+
+
 def load_seen(seen_path):
     if not os.path.exists(seen_path):
         return set()
@@ -192,6 +204,8 @@ href каждой собранной корпорации пишется в <out
 дедупликацию (корпорация, попавшая в списки двух альянсов, качается один раз)
 и возобновление при append. Возвращает число собранных корпораций.
 """
+
+
 def crawl(alliances, out_path, delay=0.5, limit=None, user_agent=USER_AGENT, append=False):
     session = make_session(user_agent)
     seen_path = out_path + ".seen"
@@ -199,8 +213,10 @@ def crawl(alliances, out_path, delay=0.5, limit=None, user_agent=USER_AGENT, app
     seen = load_seen(seen_path) if append else set()
     mode = "a" if append else "w"
     count = 0
-    with open(out_path, mode, newline="", encoding="utf-8") as fh, \
-         open(seen_path, "a" if append else "w", encoding="utf-8") as seen_fh:
+    with (
+        open(out_path, mode, newline="", encoding="utf-8") as fh,
+        open(seen_path, "a" if append else "w", encoding="utf-8") as seen_fh,
+    ):
         writer = csv.DictWriter(fh, fieldnames=FIELDS)
         if not (append and file_exists):
             writer.writeheader()
@@ -234,8 +250,14 @@ def crawl(alliances, out_path, delay=0.5, limit=None, user_agent=USER_AGENT, app
                 count += 1
                 log.info(
                     "[%s %d/%d] %s (%s) members=%s tax=%s id=%s",
-                    alliance, i, len(corps), unquote(name), row["Ticker"],
-                    row["Members"], row["Tax Rate"], row["corporationID"],
+                    alliance,
+                    i,
+                    len(corps),
+                    unquote(name),
+                    row["Ticker"],
+                    row["Members"],
+                    row["Tax Rate"],
+                    row["corporationID"],
                 )
                 # вежливая пауза между запросами + небольшой джиттер
                 time.sleep(delay + random.uniform(0, delay * 0.5))
@@ -247,35 +269,49 @@ def main():
         description="Краулер корпораций EVE Online с DOTLAN EveMaps в CSV.",
     )
     parser.add_argument(
-        "alliances", nargs="*",
+        "alliances",
+        nargs="*",
         help="слаг или имя альянса (напр. Goonswarm_Federation), можно несколько",
     )
     parser.add_argument(
-        "--all", action="store_true", dest="all_alliances",
+        "--all",
+        action="store_true",
+        dest="all_alliances",
         help="взять все альянсы со страницы /alliances",
     )
     parser.add_argument(
-        "--exclude", nargs="*", default=[], metavar="SLUG",
+        "--exclude",
+        nargs="*",
+        default=[],
+        metavar="SLUG",
         help="слаги альянсов, которые пропустить (напр. уже собранный Goonswarm_Federation)",
     )
     parser.add_argument(
-        "--append", action="store_true",
+        "--append",
+        action="store_true",
         help="дописывать в существующий CSV и пропускать уже собранные корпорации (по <out>.seen)",
     )
     parser.add_argument(
-        "-o", "--out", default="corporations.csv",
+        "-o",
+        "--out",
+        default="corporations.csv",
         help="путь к выходному CSV-файлу (по умолчанию corporations.csv)",
     )
     parser.add_argument(
-        "--delay", type=float, default=0.5,
+        "--delay",
+        type=float,
+        default=0.5,
         help="базовая пауза между запросами в секундах (по умолчанию 0.5)",
     )
     parser.add_argument(
-        "--limit", type=int, default=None,
+        "--limit",
+        type=int,
+        default=None,
         help="ограничить число корпораций (для отладки)",
     )
     parser.add_argument(
-        "--user-agent", default=USER_AGENT,
+        "--user-agent",
+        default=USER_AGENT,
         help="заголовок User-Agent для запросов",
     )
     args = parser.parse_args()
@@ -298,12 +334,14 @@ def main():
 
     started = time.time()
     count = crawl(
-        alliances, args.out,
-        delay=args.delay, limit=args.limit,
-        user_agent=args.user_agent, append=args.append,
+        alliances,
+        args.out,
+        delay=args.delay,
+        limit=args.limit,
+        user_agent=args.user_agent,
+        append=args.append,
     )
-    log.info("Готово: собрано %d корпораций в %s за %.1f c",
-             count, args.out, time.time() - started)
+    log.info("Готово: собрано %d корпораций в %s за %.1f c", count, args.out, time.time() - started)
 
 
 if __name__ == "__main__":

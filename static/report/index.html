@@ -1,56 +1,56 @@
 <!doctype html>
 <html lang="ru">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>EVE Online SDE — обзор статических данных</title>
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>EVE Online SDE — обзор статических данных</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <h1>EVE Online · Static Data Export</h1>
+      <span class="subtitle" id="sde-subtitle">загрузка…</span>
+      <span class="spacer"></span>
+      <button class="icon-btn" id="theme-toggle" title="Переключить тему">🌓 Тема</button>
+    </header>
 
-<header class="app-header">
-  <h1>EVE Online · Static Data Export</h1>
-  <span class="subtitle" id="sde-subtitle">загрузка…</span>
-  <span class="spacer"></span>
-  <button class="icon-btn" id="theme-toggle" title="Переключить тему">🌓 Тема</button>
-</header>
+    <nav class="tab-nav" id="tab-nav">
+      <button class="tab-btn active" data-tab="erd">ERD-диаграмма</button>
+      <button class="tab-btn" data-tab="dicts">Справочники (&lt;100 строк)</button>
+      <button class="tab-btn" data-tab="overview">Обзор датасета</button>
+      <button class="tab-btn" data-tab="universe">Вселенная</button>
+      <button class="tab-btn" data-tab="explorer">Просмотр данных</button>
+    </nav>
 
-<nav class="tab-nav" id="tab-nav">
-  <button class="tab-btn active" data-tab="erd">ERD-диаграмма</button>
-  <button class="tab-btn" data-tab="dicts">Справочники (&lt;100 строк)</button>
-  <button class="tab-btn" data-tab="overview">Обзор датасета</button>
-  <button class="tab-btn" data-tab="universe">Вселенная</button>
-  <button class="tab-btn" data-tab="explorer">Просмотр данных</button>
-</nav>
+    <div id="file-protocol-warning" class="warn-banner" style="margin: 12px 20px 0">
+      ⚠️ Страница открыта напрямую из файловой системы (<code>file://</code>). Загрузка JSON-файлов через
+      <code>fetch</code> в этом режиме заблокирована браузером. Запустите локальный сервер из каталога
+      <code>static</code> и откройте отчёт через <code>http://</code>, например: <br /><code
+        >cd static &amp;&amp; python3 -m http.server 8000</code
+      >
+      → затем откройте <code>http://localhost:8000/report/</code>.
+    </div>
 
-<div id="file-protocol-warning" class="warn-banner" style="margin: 12px 20px 0;">
-  ⚠️ Страница открыта напрямую из файловой системы (<code>file://</code>). Загрузка JSON-файлов через
-  <code>fetch</code> в этом режиме заблокирована браузером. Запустите локальный сервер из каталога
-  <code>static</code> и откройте отчёт через <code>http://</code>, например:
-  <br><code>cd static &amp;&amp; python3 -m http.server 8000</code> → затем откройте
-  <code>http://localhost:8000/report/</code>.
-</div>
+    <main>
+      <section class="tab-panel active" id="tab-erd" data-tab-panel="erd"></section>
+      <section class="tab-panel" id="tab-dicts" data-tab-panel="dicts"></section>
+      <section class="tab-panel" id="tab-overview" data-tab-panel="overview"></section>
+      <section class="tab-panel" id="tab-universe" data-tab-panel="universe"></section>
+      <section class="tab-panel" id="tab-explorer" data-tab-panel="explorer"></section>
+    </main>
 
-<main>
-  <section class="tab-panel active" id="tab-erd" data-tab-panel="erd"></section>
-  <section class="tab-panel" id="tab-dicts" data-tab-panel="dicts"></section>
-  <section class="tab-panel" id="tab-overview" data-tab-panel="overview"></section>
-  <section class="tab-panel" id="tab-universe" data-tab-panel="universe"></section>
-  <section class="tab-panel" id="tab-explorer" data-tab-panel="explorer"></section>
-</main>
+    <footer class="app-footer">
+      Отчёт сгенерирован по локальному дампу EVE Online SDE. Все данные подгружаются динамически из
+      <code>../eve-online-static-data-3421648-jsonl/*.jsonl</code>.
+    </footer>
 
-<footer class="app-footer">
-  Отчёт сгенерирован по локальному дампу EVE Online SDE. Все данные подгружаются динамически из
-  <code>../eve-online-static-data-3421648-jsonl/*.jsonl</code>.
-</footer>
-
-<script src="data/meta.js"></script>
-<script src="js/util.js"></script>
-<script src="js/tab-erd.js"></script>
-<script src="js/tab-dicts.js"></script>
-<script src="js/tab-overview.js"></script>
-<script src="js/tab-universe.js"></script>
-<script src="js/tab-explorer.js"></script>
-<script src="js/main.js"></script>
-</body>
+    <script src="data/meta.js"></script>
+    <script src="js/util.js"></script>
+    <script src="js/tab-erd.js"></script>
+    <script src="js/tab-dicts.js"></script>
+    <script src="js/tab-overview.js"></script>
+    <script src="js/tab-universe.js"></script>
+    <script src="js/tab-explorer.js"></script>
+    <script src="js/main.js"></script>
+  </body>
 </html>

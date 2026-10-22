@@ -5,9 +5,10 @@
 сохраняются в JSON, чтобы использовать их в дальнейших запусках вместо
 области по умолчанию в центре экрана.
 """
-import os
+
 import json
 import logging
+import os
 
 # Qt-бэкенд, с которым собран opencv-python, не содержит плагин "wayland" —
 # только "xcb". Под чистым Wayland (без этой переменной) cv2.namedWindow не
@@ -99,16 +100,20 @@ def select_regions_interactive(frame, existing=None, poll_frame=None):
     def to_display(r):
         return {
             "name": r["name"],
-            "x1": round(r["x1"] * scale), "y1": round(r["y1"] * scale),
-            "x2": round(r["x2"] * scale), "y2": round(r["y2"] * scale),
+            "x1": round(r["x1"] * scale),
+            "y1": round(r["y1"] * scale),
+            "x2": round(r["x2"] * scale),
+            "y2": round(r["y2"] * scale),
         }
 
     def to_original(regions_disp):
         return [
             {
                 "name": r["name"],
-                "x1": round(r["x1"] / scale), "y1": round(r["y1"] / scale),
-                "x2": round(r["x2"] / scale), "y2": round(r["y2"] / scale),
+                "x1": round(r["x1"] / scale),
+                "y1": round(r["y1"] / scale),
+                "x2": round(r["x2"] / scale),
+                "y2": round(r["y2"] / scale),
             }
             for r in regions_disp
         ]
@@ -152,7 +157,11 @@ def select_regions_interactive(frame, existing=None, poll_frame=None):
                 orig = to_original([region])[0]
                 log.info(
                     "Область %s добавлена: (%d, %d)-(%d, %d)",
-                    orig["name"], orig["x1"], orig["y1"], orig["x2"], orig["y2"],
+                    orig["name"],
+                    orig["x1"],
+                    orig["y1"],
+                    orig["x2"],
+                    orig["y2"],
                 )
             redraw()
 

@@ -5,8 +5,14 @@
   const DATA_DIR = "../eve-online-static-data-3421648-jsonl/";
 
   const LANG_LABELS = {
-    ru: "Русский", en: "English", de: "Deutsch", es: "Español",
-    fr: "Français", ja: "日本語", ko: "한국어", zh: "中文",
+    ru: "Русский",
+    en: "English",
+    de: "Deutsch",
+    es: "Español",
+    fr: "Français",
+    ja: "日本語",
+    ko: "한국어",
+    zh: "中文",
   };
   const LANG_ORDER = ["ru", "en", "de", "es", "fr", "ja", "ko", "zh"];
 
@@ -27,8 +33,12 @@
   function formatBytes(n) {
     if (n === undefined || n === null) return "—";
     const units = ["Б", "КБ", "МБ", "ГБ"];
-    let i = 0, v = n;
-    while (v >= 1024 && i < units.length - 1) { v /= 1024; i++; }
+    let i = 0,
+      v = n;
+    while (v >= 1024 && i < units.length - 1) {
+      v /= 1024;
+      i++;
+    }
     return (i === 0 ? v : v.toFixed(v < 10 ? 2 : 1)) + " " + units[i];
   }
 
@@ -70,8 +80,9 @@
       if (k === "class") node.className = attrs[k];
       else if (k === "html") node.innerHTML = attrs[k];
       else if (k.startsWith("on") && typeof attrs[k] === "function") node.addEventListener(k.slice(2), attrs[k]);
-      else if (k === "dataset") { for (const dk in attrs[k]) node.dataset[dk] = attrs[k][dk]; }
-      else node.setAttribute(k, attrs[k]);
+      else if (k === "dataset") {
+        for (const dk in attrs[k]) node.dataset[dk] = attrs[k][dk];
+      } else node.setAttribute(k, attrs[k]);
     }
     children = children || [];
     if (!Array.isArray(children)) children = [children];
@@ -150,13 +161,23 @@
         while ((idx = buffer.indexOf("\n")) !== -1) {
           const line = buffer.slice(0, idx);
           buffer = buffer.slice(idx + 1);
-          if (!handleLine(line)) { keepGoing = false; break; }
+          if (!handleLine(line)) {
+            keepGoing = false;
+            break;
+          }
         }
-        if (!keepGoing) { stopped = true; break; }
+        if (!keepGoing) {
+          stopped = true;
+          break;
+        }
       }
     } finally {
       if (stopped) {
-        try { await reader.cancel(); } catch (e) { /* ignore */ }
+        try {
+          await reader.cancel();
+        } catch (e) {
+          /* ignore */
+        }
       }
     }
     return { count, stopped };
@@ -182,7 +203,11 @@
     if (fullCache.has(table)) return fullCache.get(table);
     const promise = (async () => {
       const items = [];
-      await scanFile(table, { onObject: (obj) => { items.push(obj); } });
+      await scanFile(table, {
+        onObject: (obj) => {
+          items.push(obj);
+        },
+      });
       return items;
     })();
     fullCache.set(table, promise);
@@ -209,8 +234,11 @@
     const json = JSON.stringify(value, null, 1);
     const short = json.length > 60 ? json.slice(0, 60) + "…" : json;
     return (
-      '<details><summary>' + escapeHtml(short) + '</summary><pre>' +
-      escapeHtml(JSON.stringify(value, null, 2)) + '</pre></details>'
+      "<details><summary>" +
+      escapeHtml(short) +
+      "</summary><pre>" +
+      escapeHtml(JSON.stringify(value, null, 2)) +
+      "</pre></details>"
     );
   }
 
@@ -237,10 +265,15 @@
         th.dataset.sortDir = asc ? "asc" : "desc";
         const numeric = th.classList.contains("num");
         rows.sort((a, b) => {
-          let av = a.cells[colIdx] ? a.cells[colIdx].dataset.sort ?? a.cells[colIdx].textContent : "";
-          let bv = b.cells[colIdx] ? b.cells[colIdx].dataset.sort ?? b.cells[colIdx].textContent : "";
-          if (numeric) { av = parseFloat(av) || 0; bv = parseFloat(bv) || 0; return asc ? av - bv : bv - av; }
-          av = String(av).toLowerCase(); bv = String(bv).toLowerCase();
+          let av = a.cells[colIdx] ? (a.cells[colIdx].dataset.sort ?? a.cells[colIdx].textContent) : "";
+          let bv = b.cells[colIdx] ? (b.cells[colIdx].dataset.sort ?? b.cells[colIdx].textContent) : "";
+          if (numeric) {
+            av = parseFloat(av) || 0;
+            bv = parseFloat(bv) || 0;
+            return asc ? av - bv : bv - av;
+          }
+          av = String(av).toLowerCase();
+          bv = String(bv).toLowerCase();
           return asc ? av.localeCompare(bv, "ru") : bv.localeCompare(av, "ru");
         });
         rows.forEach((r) => tbody.appendChild(r));
@@ -249,11 +282,27 @@
   }
 
   window.EveUtil = {
-    DATA_DIR, LANG_LABELS, LANG_ORDER,
-    fileUrl, escapeHtml, formatBytes, formatNumber,
-    getLang, setLang, isI18nValue, pickI18n,
-    el, debounce, scanFile, previewLines, loadFull,
-    tableMeta, groupInfo, checkFileProtocolWarning,
-    jsonPreviewHtml, cellHtml, makeSortable,
+    DATA_DIR,
+    LANG_LABELS,
+    LANG_ORDER,
+    fileUrl,
+    escapeHtml,
+    formatBytes,
+    formatNumber,
+    getLang,
+    setLang,
+    isI18nValue,
+    pickI18n,
+    el,
+    debounce,
+    scanFile,
+    previewLines,
+    loadFull,
+    tableMeta,
+    groupInfo,
+    checkFileProtocolWarning,
+    jsonPreviewHtml,
+    cellHtml,
+    makeSortable,
   };
 })();
