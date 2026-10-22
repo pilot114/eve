@@ -1,25 +1,17 @@
 {
-    "generated_at": "2026-10-21T22:52:03+00:00",
+    "generated_at": "2026-10-22T11:16:03+00:00",
     "server": {
         "status": "online",
-        "players": 20309,
+        "players": 8844,
         "version": "3632936",
-        "start_time": "2026-10-21T11:48:46Z"
+        "start_time": "2026-10-22T11:07:13Z"
     },
     "stats": {
-        "incursions": 4,
-        "sov_campaigns": 11,
+        "incursions": 5,
+        "sov_campaigns": 18,
         "plex_price": 4713828.95
     },
     "incursions": [
-        {
-            "constellation": "Umamon",
-            "staging": "Saranen",
-            "state": "established",
-            "influence": 99,
-            "has_boss": true,
-            "systems": 6
-        },
         {
             "constellation": "I-WRVM",
             "staging": "9-WEMC",
@@ -29,17 +21,33 @@
             "systems": 6
         },
         {
+            "constellation": "A-JI5E",
+            "staging": "JA-O6J",
+            "state": "established",
+            "influence": 0,
+            "has_boss": false,
+            "systems": 7
+        },
+        {
             "constellation": "Goins",
             "staging": "Stoure",
             "state": "mobilizing",
-            "influence": 100,
+            "influence": 76,
+            "has_boss": true,
+            "systems": 6
+        },
+        {
+            "constellation": "Umamon",
+            "staging": "Saranen",
+            "state": "mobilizing",
+            "influence": 97,
             "has_boss": true,
             "systems": 6
         },
         {
             "constellation": "Kraken",
             "staging": "Z30S-A",
-            "state": "mobilizing",
+            "state": "withdrawing",
             "influence": 100,
             "has_boss": true,
             "systems": 6
@@ -48,118 +56,118 @@
     "explore": {
         "danger": [
             {
-                "id": 30001966,
-                "name": "UR-E6D",
-                "sec": -0.2,
+                "id": 30005152,
+                "name": "5V-Q1R",
+                "sec": -0.7,
                 "band": "null",
-                "value": 120
+                "value": 107
             },
             {
                 "id": 30030141,
                 "name": "Uitra",
                 "sec": 0.9,
                 "band": "high",
-                "value": 72
+                "value": 28
             },
             {
-                "id": 30000240,
-                "name": "4-HWWF",
-                "sec": -0.5,
+                "id": 30003829,
+                "name": "Renarelle",
+                "sec": 0.3,
+                "band": "low",
+                "value": 18
+            },
+            {
+                "id": 30001005,
+                "name": "OSY-UD",
+                "sec": -0.2,
                 "band": "null",
-                "value": 58
+                "value": 18
             },
             {
-                "id": 30002770,
-                "name": "Tunudan",
-                "sec": -1,
-                "band": "null",
-                "value": 56
-            },
-            {
-                "id": 30001444,
-                "name": "Oimmo",
-                "sec": 0.5,
+                "id": 30000142,
+                "name": "Jita",
+                "sec": 0.9,
                 "band": "high",
-                "value": 55
+                "value": 17
             },
             {
-                "id": 30004018,
-                "name": "L-FVHR",
-                "sec": 0,
-                "band": "null",
-                "value": 54
+                "id": 30100066,
+                "name": "Pamirasu",
+                "sec": 1,
+                "band": "high",
+                "value": 16
             },
             {
-                "id": 30004643,
-                "name": "57-KJB",
-                "sec": -0.3,
-                "band": "null",
-                "value": 43
+                "id": 30002809,
+                "name": "Sujarento",
+                "sec": 0.3,
+                "band": "low",
+                "value": 13
             },
             {
-                "id": 30003954,
-                "name": "9ES-SI",
-                "sec": -0.1,
+                "id": 30004956,
+                "name": "HIX4-H",
+                "sec": -0.4,
                 "band": "null",
-                "value": 40
+                "value": 12
             }
         ],
         "ratting": [
             {
-                "id": 30004650,
-                "name": "1-5GBW",
-                "sec": -0.7,
+                "id": 30003641,
+                "name": "IKTD-P",
+                "sec": -0.5,
                 "band": "null",
-                "value": 2679
+                "value": 2520
             },
             {
-                "id": 30000874,
-                "name": "L-1HKR",
-                "sec": -0.3,
+                "id": 30004374,
+                "name": "5-P1Y2",
+                "sec": -0.5,
                 "band": "null",
-                "value": 1880
+                "value": 2171
             },
             {
-                "id": 30004663,
-                "name": "LBGI-2",
+                "id": 30000236,
+                "name": "N-5QPW",
+                "sec": -0.4,
+                "band": "null",
+                "value": 1874
+            },
+            {
+                "id": 30004601,
+                "name": "CHA2-Q",
                 "sec": -0.9,
                 "band": "null",
-                "value": 1819
+                "value": 1845
             },
             {
-                "id": 30000304,
-                "name": "ZA0L-U",
+                "id": 30004966,
+                "name": "MVUO-F",
+                "sec": -1,
+                "band": "null",
+                "value": 1822
+            },
+            {
+                "id": 30003638,
+                "name": "WV-0R2",
                 "sec": -0.8,
                 "band": "null",
-                "value": 1688
+                "value": 1761
             },
             {
-                "id": 30004599,
-                "name": "B32-14",
-                "sec": -0.7,
-                "band": "null",
-                "value": 1594
-            },
-            {
-                "id": 30000265,
-                "name": "AZBR-2",
-                "sec": -0.7,
-                "band": "null",
-                "value": 1465
-            },
-            {
-                "id": 30005001,
-                "name": "Arnon",
-                "sec": 0.8,
-                "band": "high",
-                "value": 1431
-            },
-            {
-                "id": 30004830,
-                "name": "2PG-KN",
+                "id": 30000301,
+                "name": "1-GBBP",
                 "sec": -0.8,
                 "band": "null",
-                "value": 1366
+                "value": 1744
+            },
+            {
+                "id": 30003632,
+                "name": "30-D5G",
+                "sec": -1,
+                "band": "null",
+                "value": 1700
             }
         ],
         "traffic": [
@@ -168,170 +176,170 @@
                 "name": "Jita",
                 "sec": 0.9,
                 "band": "high",
-                "value": 2457
+                "value": 1803
             },
             {
                 "id": 30000144,
                 "name": "Perimeter",
                 "sec": 0.9,
                 "band": "high",
-                "value": 2143
+                "value": 1331
             },
             {
                 "id": 30000139,
                 "name": "Urlen",
                 "sec": 0.9,
                 "band": "high",
-                "value": 1514
-            },
-            {
-                "id": 30002768,
-                "name": "Uedama",
-                "sec": 0.5,
-                "band": "high",
-                "value": 1236
-            },
-            {
-                "id": 30002765,
-                "name": "Sivala",
-                "sec": 0.6,
-                "band": "high",
-                "value": 1197
-            },
-            {
-                "id": 30001363,
-                "name": "Sobaseki",
-                "sec": 0.8,
-                "band": "high",
-                "value": 1137
+                "value": 1024
             },
             {
                 "id": 30000145,
                 "name": "New Caldari",
                 "sec": 0.9,
                 "band": "high",
-                "value": 1100
+                "value": 890
             },
             {
-                "id": 30002764,
-                "name": "Hatakani",
+                "id": 30001363,
+                "name": "Sobaseki",
+                "sec": 0.8,
+                "band": "high",
+                "value": 880
+            },
+            {
+                "id": 30002187,
+                "name": "Amarr",
                 "sec": 0.9,
                 "band": "high",
-                "value": 1089
+                "value": 827
+            },
+            {
+                "id": 30002768,
+                "name": "Uedama",
+                "sec": 0.5,
+                "band": "high",
+                "value": 807
+            },
+            {
+                "id": 30002765,
+                "name": "Sivala",
+                "sec": 0.6,
+                "band": "high",
+                "value": 791
             }
         ],
         "thera": [
+            {
+                "from": "Thera",
+                "to": "Jerhesh",
+                "class": "ls",
+                "region": "Aridia",
+                "size": "xlarge",
+                "hours": 13
+            },
+            {
+                "from": "Thera",
+                "to": "Evaulon",
+                "class": "ls",
+                "region": "Placid",
+                "size": "xlarge",
+                "hours": 13
+            },
+            {
+                "from": "Turnur",
+                "to": "J132746",
+                "class": "c3",
+                "region": "C-R00014",
+                "size": "medium",
+                "hours": 12
+            },
             {
                 "from": "Turnur",
                 "to": "Uemon",
                 "class": "ls",
                 "region": "The Forge",
                 "size": "capital",
-                "hours": 24
+                "hours": 11
             },
             {
                 "from": "Turnur",
-                "to": "ZT-L3S",
-                "class": "ns",
-                "region": "Malpais",
-                "size": "capital",
-                "hours": 16
-            },
-            {
-                "from": "Thera",
-                "to": "Gultratren",
+                "to": "Hasmijaala",
                 "class": "ls",
-                "region": "Heimatar",
-                "size": "xlarge",
-                "hours": 15
-            },
-            {
-                "from": "Thera",
-                "to": "Ofstold",
-                "class": "ls",
-                "region": "Metropolis",
-                "size": "xlarge",
-                "hours": 15
-            },
-            {
-                "from": "Thera",
-                "to": "8-SPNN",
-                "class": "ns",
-                "region": "Cache",
-                "size": "xlarge",
-                "hours": 13
-            },
-            {
-                "from": "Thera",
-                "to": "J154145",
-                "class": "c3",
-                "region": "C-R00012",
-                "size": "large",
-                "hours": 13
-            },
-            {
-                "from": "Thera",
-                "to": "Nishah",
-                "class": "hs",
-                "region": "Kor-Azor",
-                "size": "medium",
-                "hours": 12
-            },
-            {
-                "from": "Thera",
-                "to": "J153903",
-                "class": "c3",
-                "region": "C-R00010",
-                "size": "large",
-                "hours": 12
-            },
-            {
-                "from": "Turnur",
-                "to": "J130711",
-                "class": "c5",
-                "region": "E-R00024",
+                "region": "The Citadel",
                 "size": "capital",
                 "hours": 11
             },
             {
-                "from": "Thera",
-                "to": "J132532",
-                "class": "c4",
-                "region": "D-R00022",
-                "size": "large",
+                "from": "Turnur",
+                "to": "CX8-6K",
+                "class": "ns",
+                "region": "Delve",
+                "size": "capital",
                 "hours": 10
             },
             {
                 "from": "Thera",
-                "to": "Saheri",
-                "class": "hs",
-                "region": "Domain",
-                "size": "medium",
+                "to": "Y-W1Q3",
+                "class": "ns",
+                "region": "Venal",
+                "size": "xlarge",
                 "hours": 9
             },
             {
                 "from": "Thera",
-                "to": "Dammalin",
+                "to": "J001670",
+                "class": "c3",
+                "region": "C-R00009",
+                "size": "large",
+                "hours": 9
+            },
+            {
+                "from": "Thera",
+                "to": "Otraren",
                 "class": "hs",
                 "region": "Heimatar",
-                "size": "medium",
-                "hours": 9
-            },
-            {
-                "from": "Thera",
-                "to": "Mimen",
-                "class": "hs",
-                "region": "Tash-Murkon",
                 "size": "medium",
                 "hours": 8
             },
             {
                 "from": "Thera",
-                "to": "Unefsih",
+                "to": "Eifer",
                 "class": "ls",
-                "region": "Domain",
+                "region": "Heimatar",
                 "size": "xlarge",
-                "hours": 7
+                "hours": 8
+            },
+            {
+                "from": "Turnur",
+                "to": "BX-VEX",
+                "class": "ns",
+                "region": "Querious",
+                "size": "capital",
+                "hours": 8
+            },
+            {
+                "from": "Turnur",
+                "to": "NL6V-7",
+                "class": "ns",
+                "region": "Tribute",
+                "size": "capital",
+                "hours": 8
+            },
+            {
+                "from": "Thera",
+                "to": "Y-1918",
+                "class": "ns",
+                "region": "Branch",
+                "size": "xlarge",
+                "hours": 6
+            },
+            {
+                "from": "Thera",
+                "to": "J211936",
+                "class": "c2",
+                "region": "B-R00004",
+                "size": "large",
+                "hours": 5
             }
         ],
         "loot": [
