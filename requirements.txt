@@ -1,0 +1,8 @@
+# Окружение создаётся с --system-site-packages: pycairo и PyGObject (оверлей) берутся из системы.
+numpy
+opencv-python
+rapidocr
+onnxruntime
+evdev
+requests
+beautifulsoup4

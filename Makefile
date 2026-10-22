@@ -24,6 +24,9 @@ help:
 	@echo "  ocr-test — распознать текст в сохранённых областях и показать время распознавания (--ocr-test)"
 	@echo "  (RESELECT=1 к любой из целей выше — заново выбрать источник: экран или окно приложения)"
 	@echo "  crawl    — собрать CSV-отчёт по корпорациям альянса (ALLIANCE=$(ALLIANCE))"
+	@echo
+	@echo "Стандартные цели ~/projects:"
+	@grep -hE '^[a-zA-Z0-9_-]+:.*## ' $(MAKEFILE_LIST) | awk -F':.*## ' '{printf "  %-12s %s\n", $$1, $$2}'
 
 # Запуск скрипта через Python из виртуального окружения
 run:
@@ -48,3 +51,37 @@ ocr-test:
 # Сбор CSV-отчёта по корпорациям альянса с DOTLAN EveMaps
 crawl:
 	$(PYTHON) crawler.py $(ALLIANCE) -o corporations.csv
+
+# --- стандартные цели ~/projects (make help) ---
+
+.PHONY: install
+install: ## окружение .venv и зависимости
+	test -d .venv || uv venv --system-site-packages .venv
+	uv pip install --python .venv -r requirements.txt
+
+.PHONY: dev
+dev: ## запустить
+	$(PYTHON) main.py $(RESELECT_FLAG)
+
+.PHONY: test
+test: ## тесты
+	@echo "тестов нет"
+
+.PHONY: lint
+lint: ## проверка синтаксиса
+	python3 -m compileall -q -x '/\.venv/' .
+
+.PHONY: build
+build: ## сборка
+	@echo "сборки нет"
+
+.PHONY: audit
+audit: ## уязвимости в зависимостях
+	@test -x .venv/bin/python || { echo "нет .venv — сначала make install"; exit 1; }
+	uv pip freeze --python .venv/bin/python | grep -v ' @ ' > .venv/freeze.txt
+	uvx pip-audit -r .venv/freeze.txt --no-deps --disable-pip
+
+.PHONY: outdated
+outdated: ## устаревшие зависимости
+	@test -x .venv/bin/python || { echo "нет .venv — сначала make install"; exit 1; }
+	uv pip list --outdated --python .venv/bin/python
