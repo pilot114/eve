@@ -27,7 +27,8 @@
 - `make install` — окружение .venv и зависимости
 - `make dev` — запустить
 - `make test` — тесты
-- `make lint` — проверка синтаксиса
+- `make check` — ruff: замечания и формат (как composer check)
+- `make fix` — ruff: исправить и отформатировать (как composer fix)
 - `make build` — сборка
 - `make audit` — уязвимости в зависимостях
 - `make outdated` — устаревшие зависимости
