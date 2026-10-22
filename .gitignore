@@ -1,2 +1,5 @@
 static/eve-online-static-data-3421648-jsonl
 __pycache__
+eve-status/data.json
+eve-status/history.json
+eve-status/update.log

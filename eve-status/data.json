@@ -1,8 +1,8 @@
 {
-    "generated_at": "2026-10-22T11:16:03+00:00",
+    "generated_at": "2026-10-22T11:24:03+00:00",
     "server": {
         "status": "online",
-        "players": 8844,
+        "players": 14033,
         "version": "3632936",
         "start_time": "2026-10-22T11:07:13Z"
     },
@@ -32,7 +32,7 @@
             "constellation": "Goins",
             "staging": "Stoure",
             "state": "mobilizing",
-            "influence": 76,
+            "influence": 75,
             "has_boss": true,
             "systems": 6
         },
